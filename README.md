@@ -1,20 +1,20 @@
-# QUT-Notes-Template - Unit name
+# MXB107 - Introduction to Statistical Modelling
 
-## Unit coordinator name
+## Dr Gentry White
 
-### Semester #, 20xx
+### Semester 2, 2022
 
 ---
 
 ## Downloads
 
-Lecture notes download: [QUT-Notes-Template Lecture Notes PDF](https://www.github.com/Tarang74/QUT-Notes-Template/raw/main/QUT-Notes-Template%20Lecture%20Notes.pdf)
+Lecture notes download: [MXB107 Lecture Notes PDF](https://www.github.com/Tarang74/MXB107/raw/main/MXB107%20Lecture%20Notes.pdf)
 
-Exam notes download: [QUT-Notes-Template Exam Notes PDF](https://www.github.com/Tarang74/QUT-Notes-Template/raw/main/QUT-Notes-Template%20Exam%20Notes.pdf)
+Exam notes download: [MXB107 Exam Notes PDF](https://www.github.com/Tarang74/MXB107/raw/main/MXB107%20Exam%20Notes.pdf)
 
 ---
 
-This repository provides **lecture notes** and **exam notes** for **QUT-Notes-Template - Unit name**.
+This repository provides **lecture notes** and **exam notes** for **MXB107 - Introduction to Statistical Modelling**.
 
 *The contents of the lecture notes are described below.*
 
