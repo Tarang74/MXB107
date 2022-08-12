@@ -23,6 +23,7 @@ This repository provides **lecture notes** and **exam notes** for **MXB107 - Int
 ## Contents
 
 1. Introduction
+2. Numerical Summaries of Data
 
 ---
 
