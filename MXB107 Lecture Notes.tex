@@ -321,4 +321,66 @@ interval defined either by quantiles (above 95\% or below 5\% quantiles) or in t
 (outside two standard deviations from the mean).
 They should be investigated to determine if they are errors or naturally occurring
 extreme values.
+\section{Bivariate Data}
+Data in two dimensions is often used to describe relationships between two variables.
+\subsection{Bivariate Categorical Data}
+Bivariate categorical data is a dataset with two qualitative or categorical variables that have
+a relationship we want to summarise. This can be done using contingency tables or side-by-side (or stacked) bar charts.
+\subsubsection{Contingency Tables}
+Contingency tables or crosstabs are tabular representations of the frequency of occurrence of pairs of values.
+The categories for each variable are assigned to an axis of the table so that each cell
+represents the frequency of occurrence of a pair of categories, one from each variable.
+\subsubsection{Bar Plots}
+Often the data is presented more effectively as a stacked bar chart or side-by-side bar chart.
+Here the counts for each pair of categories are plotted on the same axis, and
+stacked on top of one another to display relative proportion, or side-by-side if
+too busy.
+\subsection{Bivariate Quantitative Data}
+Bivariate quantitative data is a dataset with one qualitative variable and one quantitative variable.
+This can be represented as a table, or through various charts, by comparing charts side-by-side for each category.
+\subsection{Scatter Plots}
+When both variables are quantitative, the data can be represented as a scatter plot with
+each variable assigned to an axis and the points plotted on the axes.
+\subsubsection{Covariance and Correlation Coefficients}
+For such data, the covariance is the measure of the linear correlation between the variables.
+For variables \(x\) and \(y\),
+\begin{equation*}
+    s_{xy} = \frac{\sum_{i = 1}^n \left( x_i - \overline{x} \right) \left( y_i - \overline{y} \right)}{n - 1}.
+\end{equation*}
+Note that when \(x = y\), the formula simplifies to the sample variance of \(x\).
+The covariance has the following characterstics:
+\begin{itemize}
+    \item \(s_{xy} > 0\): As \(x\) increases, \(y\) also increases.
+    \item \(s_{xy} < 0\): As \(x\) increases, \(y\) decreases.
+    \item \(s_{xy} \approx 0\): No relationship between \(x\) and \(y\).
+\end{itemize}
+Although the covariance is a useful tool to measure relationships, it is
+only generalisable in terms of its sign. Thus, if we want to compare across
+data sets, we need to use the correlation coefficient.
+\begin{equation*}
+    r_{xy} = \frac{s_{xy}}{s_x s_y}
+\end{equation*}
+The \textbf{correlation coefficient} is a measure of the strength of the relationship between the variables.
+It is a scale-free and unitless measure bounded between \(-1\) and \(1\) and
+has the same characteristics as the covariance.
+
+Note that a correlation coefficient of \(0\)
+indicates \textbf{no linear relationship} between the variables, and not necessarily indicative of \textbf{no relationship}.
+\subsection{Regression and Least Squares}
+In addition to the numerical summaries above, a regression or least squares line of
+best fit provides both a graphical and numerical summary of the relationship between the variables.
+A linear relationship between two variables \(x\) and \(y\) is defined as
+\begin{equation*}
+    y = a + b x.
+\end{equation*}
+The least squares best fit determines the coefficients \(a\) and \(b\) that minimise the sum of the squares of the residuals
+(errors) between \(y\) and the line \(\hat{y} = a + b x\). Mathematically,
+\begin{equation*}
+    \min_{a,\: b} \sum_{i = 1}^n \left( y_i - \hat{y}_i \right)^2.
+\end{equation*}
+The coefficients can be summarised by the formula
+\begin{align*}
+    b & = r \frac{s_y}{s_x} = \frac{s_{xy}}{s_x^2} \\
+    a & = \overline{y} - b \overline{x}.
+\end{align*}
 \end{document}
