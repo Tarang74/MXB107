@@ -108,9 +108,9 @@ Quantitative data is data that is expressed numerically.
 This data can be classified as \textit{discrete}, \textit{continuous}, or \textit{ordinal}.
 \begin{itemize}
     \item Count data is classified as discrete, i.e., integer values or finite sets
-    of real values.
+          of real values.
     \item Continuous data is a measurement on a continuum or a measure that can be subdivided infinitely,
-    i.e., time and lengths.
+          i.e., time and lengths.
     \item Ordinal data is data where the order or ranking of values (discrete or continuous) is important.
 \end{itemize}
 When data is not ordinal, it is called \textbf{nominal} data.
@@ -167,4 +167,158 @@ This can be observed by looking at how much the left/right tails are stretched i
 \subsubsection{Trends}
 Trends refer to changes in a line chart and are often described as a
 constant (first-derivative) pattern of increasing or decreasing values.
+\section{Numerical Summaries of Data}
+Although graphical summaries are useful for developing a general understanding data,
+they are limited to subjective interpretations. To form a precise understanding of the data, we need to use numerical summaries.
+Here we must make a distinction between sample and population summaries as measurements may vary
+between samples, whereas population summaries are generally constant.
+\subsection{Measures of Centrality}
+\subsubsection{Mean}
+Given a set of \(n\) observations \(x_1,\: x_2,\: \ldots,\: x_n\), the \textbf{arithmetic mean}
+or \textbf{average} is defined as
+\begin{equation*}
+    \frac{1}{n} \sum_{i = 1}^n x_i \equiv \frac{1}{n} \left( x_1 + x_2 + \cdots + x_n \right)
+\end{equation*}
+If the data is taken from a sample, the sample mean is denoted \(\overline{x}\).
+\subsubsection{Median}
+A drawback to the mean is that it can be misleading when the data is skewed.
+The \textbf{median} is the middle value of a set of \(n\) observations when arranged
+from largest to smallest.
+
+If \(n\) is odd:
+\begin{equation*}
+    \text{median} = x^{\left( \frac{n + 1}{2} \right)}
+\end{equation*}
+or the \(\left( n + 1 \right) / 2\)th value of the sorted list.
+If \(n\) is even, the median is the :
+\begin{equation*}
+    \text{median} = \frac{x^{\left( \frac{n}{2} \right)} + x^{\left( \frac{n}{2} + 1 \right)}}{2}
+\end{equation*}
+\subsubsection{Mode}
+Given discrete data, the mode is defined as the most common value in a set of observations.
+\subsubsection{Population Mean}
+The mean of a finite population is computed in the same way as the mean of a sample,
+but the population mean is denoted by \(\mu\).
+\subsection{Measures of Dispersion}
+Dispersion refers to how much variation there is in a set of observations.
+\subsubsection{Range}
+Given a set of observations that are ordered such that
+\begin{equation*}
+    x^{\left( 1 \right)} \leq x^{\left( 2 \right)} \leq \cdots \leq x^{\left( n \right)}
+\end{equation*}
+the range is defined as
+\begin{equation*}
+    x^{\left( n \right)} - x^{\left( 1 \right)}.
+\end{equation*}
+\subsubsection{Variance}
+The variance is the average of the squared deviations from the mean.
+\begin{itemize}
+    \item Given the observations \(x_1,\: x_2,\: \ldots,\: x_N\), from a population of size \(N\) with mean \(\mu\),
+          the \textbf{population variance} is defined as
+          \begin{equation*}
+              \sigma^2 = \frac{1}{N} \sum_{i = 1}^N (x_i - \mu)^2.
+          \end{equation*}
+    \item Given the observations \(x_1,\: x_2,\: \ldots,\: x_n\), from a sample of size \(n\) with mean \(\overline{x}\),
+          the \textbf{sample variance} is defined as
+          \begin{equation*}
+              s^2 = \frac{1}{n - 1} \sum_{i = 1}^n (x_i - \overline{x})^2.
+          \end{equation*}
+\end{itemize}
+The \textbf{population variance} is given by
+\subsubsection{Standard Deviation}
+The standard deviation is the square root of the variance. This
+is conceptually easier to understand as it has the same units are the data.
+\begin{itemize}
+    \item The \textbf{population standard deviation} is defined as
+          \begin{equation*}
+              \sigma = \sqrt{\sigma^2}.
+          \end{equation*}
+    \item The \textbf{sample standard deviation} is defined as
+          \begin{equation*}
+              s = \sqrt{s^2}.
+          \end{equation*}
+\end{itemize}
+\begin{theorem}[Chebyshev's Theorem]
+    Given a set of \(n\) observations, at least
+    \begin{equation*}
+        1 - \frac{1}{k^2}
+    \end{equation*}
+    of them are within \(k\) standard deviations of the mean,
+    where \(k \geq 1\).
+    Formally,
+    \begin{equation*}
+        \frac{\#\left\{ x \vert \overline{x} - ks < x < \overline{x} + k s \right\}}{n} \geq 1 - \frac{1}{k^2}
+    \end{equation*}
+\end{theorem}
+\begin{theorem}[Empirical Rule]
+If a histogram of the data is approximately unimodal and symmetric, then,
+\begin{itemize}
+    \item 68\% of the data falls within \textbf{one} standard deviation of the mean
+    \item 95\% of the data falls within \textbf{two} standard deviations of the mean
+    \item 99\% of the data falls within \textbf{three} standard deviations of the mean
+\end{itemize}
+\end{theorem}
+Often the standard deviation cannot be computed directly, but can be approximated
+using the Empirical rule. Here we assume that
+\begin{equation*}
+    \text{range} \approx 4 s
+\end{equation*}
+so that
+\begin{equation*}
+    s = \frac{\text{range}}{4}.
+\end{equation*}
+\subsection{Skew}
+The \textbf{skew} describes the asymmetry of the distribution.
+For a finite population of size \(N\), the \textbf{population skew} is defined as
+\begin{equation*}
+    \frac{1}{N} \sum_{i = 1}^N \left( \frac{x_i - \mu}{\sigma} \right)^3
+\end{equation*}
+For a sample of size \(n\), the \textbf{sample skew} is defined as
+\begin{equation*}
+    \frac{\frac{1}{n} \sum_{i = 1}^n \left( x_i - \overline{x} \right)^3}{\left( \sqrt{\frac{1}{n - 1} \sum_{i = 1}^n \left( x_i - \overline{x} \right)^2} \right)^3}
+\end{equation*}
+\begin{itemize}
+    \item When the skew is \textbf{positive}, the data is \textbf{right-skewed} and the ``tail'' of the distribution is \textbf{longer on the right}
+    \item When the skew is \textbf{negative}, the data is \textbf{left-skewed} and the ``tail'' of the distribution is \textbf{longer on the left}
+\end{itemize}
+\subsection{Measures of Rank}
+It is often useful to know the rank or \textit{relative standing} of a value in a set of observations.
+This is natural for ordinal data whose ordering has implicit meaning, but it can
+also be useful for nominal data as a means of measuring dispersion.
+\subsubsection{Z-Score}
+The Z-score is a unitless quantity and can be used to make comparisons of relative rank between members of a population.
+\begin{equation*}
+    Z = \frac{x  - \mu}{\sigma} \quad \text{or} \quad \frac{x - \overline{x}}{s}
+\end{equation*}
+\subsubsection{Quantiles}
+In addition to Z-scores, quantiles can be used to make comparisons of relative ranking between populations,
+as well as construct intervals bounding a given proportion of the observations.
+For a set of \(n\) observations, \(x_q\) is the \(q\)-th quantile, if \(q\)\% of the observations are less than \(x_q\).
+\subsection{Inter-Quartile Range}
+The inter-quartile range (IQR) is the difference between the 75th and 25th quantiles,
+or the range covered by the middle 50\% of data. It is a robust measure of the dispersion of the data,
+as it is not affected by extreme values unlike the range or variance.
+\subsection{Boxplots}
+\subsection{Five Number Summary}
+The five number summary is set of measurements that indicates the
+\begin{itemize}
+    \item minimum value
+    \item 25\% quartile
+    \item median
+    \item 75\% quartile
+    \item maximum value
+\end{itemize}
+A boxplot is a graphical display of the five number summary.
+It is a plot of the values of the data mapped to the \(y\)-axis.
+
+Using the \mintinline{R}{ggplot2} package, the function \mintinline{R}{geom_boxplot()} draws
+a box encompassing the IQR with a horizontal line indicating the median.
+Vertical lines extend 1.5 times the IQR above and below the box. The points not within
+the ends of the vertical lines are also plotted to indicate outliers.
+\subsubsection{Outliers}
+Outliers are extreme observations that fall outside some
+interval defined either by quantiles (above 95\% or below 5\% quantiles) or in terms of the Empirical rule
+(outside two standard deviations from the mean).
+They should be investigated to determine if they are errors or naturally occurring
+extreme values.
 \end{document}
