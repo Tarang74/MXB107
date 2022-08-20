@@ -383,4 +383,109 @@ The coefficients can be summarised by the formula
     b & = r \frac{s_y}{s_x} = \frac{s_{xy}}{s_x^2} \\
     a & = \overline{y} - b \overline{x}.
 \end{align*}
+\section{Probability}
+\subsection{Experiments, Events, Sample Space}
+\begin{definition}[Experiment]
+    An experiment is a situation that produces some observable phenomena where the outcome is impossible to predict with certainty.
+\end{definition}
+\begin{definition}[Simple event]
+    A simple event is the outcome of a single repetition of an experiment.
+\end{definition}
+\begin{definition}[Event]
+    An event is a collection of simple events, or the outcome of multiple repetitions of an event.
+    Events are often denoted by a capital letter.
+\end{definition}
+\begin{definition}[Mutually exclusive]
+    Events are mutually exclusive if the occurrence of one event precludes the occurrence of another.
+    In other words, if one event occurs, the other event cannot occur.
+\end{definition}
+\begin{definition}[Sample space]
+    A sample space is the set of possible simple events, or all outcomes of an experiment.
+\end{definition}
+\subsection{Probability of Events}
+\subsubsection{Probability of an Event}
+For a discrete finite sample space, the probability of a simple event is defined as the relative
+frequency of an outcome. Given the simple event \(A\),
+\begin{equation*}
+    \Pr{\left( A \right)} = \lim_{n \to \infty} \frac{I_A}{n}
+\end{equation*}
+where \(I_A\) is a function that evaluates to 1 if \(A\) occurs and 0 otherwise.
+
+The probabilities of events must satisfy the following conditions:
+\begin{itemize}
+    \item \(0 \leq \Pr{\left( A \right)} \leq 1\), where \(A\) is a simple event.
+    \item The sum of the probabilities over the sample space is 1.
+\end{itemize}
+If an event \(A\) consists of a collection of simple events and each outcome is
+equally likely, then we can calculate the probability of an event as
+\begin{equation*}
+    \Pr{\left( A \right)} = \frac{\text{number of ways that \(A\) can occur}}{\text{total number of outcomes}}
+\end{equation*}
+\subsubsection{Probability of an Event in a Sample Space}
+Given the continuous sample space \(S\), the event \(A\) can be defined as a subset of \(S\), \(A \subseteq S\).
+The definition of the probability of event \(A\) can be written as
+\begin{equation*}
+    \Pr{\left( A \right)} = \frac{\text{the area of region-\(A\)}}{\text{the area of region-\(S\)}}
+\end{equation*}
+As this probability is a ratio, it can be standardised so that the area of \(S\) is 1.
+Thus \(\Pr{\left( A \right)}\) is the area of region-\(A\).
+\subsubsection{Probability of the Complement}
+The complement of an event \(A\) is every event not in \(A\), and is denoted as
+\(A^c\) or \(\overline{A}\). Since the total probability for the sample space is 1, then
+the probability of \(A^c\) is:
+\begin{equation*}
+    \Pr{\left( A^c \right)} = 1 - \Pr{\left( A \right)}
+\end{equation*}
+This is true because \(A \cup A^c = S\) and \(\Pr{\left( S \right)} = 1\).
+\subsubsection{Probability of Subsets}
+If \(B \subset A\), then \(\Pr{\left( B \right)} \leq \Pr{\left( A \right)}\).
+\subsubsection{Addition Law}
+\begin{equation*}
+    \Pr{\left( A \cup B \right)} = \Pr{\left( A \right)} + \Pr{\left( B \right)} - \Pr{\left( A \cap B \right)}.
+\end{equation*}
+and for disjoint events:
+\begin{equation*}
+    \Pr{\left( A \cup B \right)} = \Pr{\left( A \right)} + \Pr{\left( B \right)}.
+\end{equation*}
+so that the intersection \(\Pr{\left( A \cap B \right)} = 0\).
+\subsection{Conditional Probability}
+Conditional probability is the probability of an event \(A\) given another event \(B\) occurs.
+
+If \(A \cap B = \emptyset\), then \(\Pr{\left( A \cap B \right)} = 0\). Thus if we know that \(B\) has
+occurred, then we know that \(A\) cannot occur:
+\begin{equation*}
+    \Pr{\left( A \,\vert\, B \right)} = 0.
+\end{equation*}
+Therefore if \(A \cap B \neq \emptyset\), then \(\Pr{\left( A \cap B \right)} \neq 0\).
+If \(B \neq \emptyset\), then the conditional probability of \(A\) given \(B\) is given by:
+\begin{equation*}
+    \Pr{\left( A \,\vert\, B \right)} = \frac{\Pr{\left( A \cap B \right)}}{\Pr{\left( B \right)}}.
+\end{equation*}
+Note that when \(\Pr{\left( A \right)} > \Pr{\left( B \right)}\), \(\Pr{\left( A \,\vert\, B \right)} > \Pr{\left( B \,\vert\, A \right)}\).
+\subsubsection{Independence}
+Independence can be defined in terms of conditional probability.
+\(A\) and \(B\) are independent events if
+\begin{equation*}
+    \Pr{\left( A \,\vert\, B \right)} = \Pr{\left( A \right)}.
+\end{equation*}
+This leads to the multiplication rule for independent events:
+\begin{equation*}
+    \Pr{\left( A \cup B \right)} = \Pr{\left( A \right)} \Pr{\left( B \right)}.
+\end{equation*}
+\subsection{Bayes' Rules}
+\subsubsection{Law of Total Probability}
+By partitioning the sample space \(S\) into a collection of disjoint events \(B_1,\; B_2,\; \dots,\; B_n\),
+such that \(\bigcup_{i = 1}^n B_i = S\), we have
+\begin{equation*}
+    \Pr{\left( A \right)} = \sum_{i = 1}^n \Pr{\left( A \,\vert\, B_i \right)}\Pr{\left( B_i \right)}
+\end{equation*}
+where \(\Pr{\left( A \,\vert\, B_i \right)} \Pr{\left( B_i \right)} = \Pr{\left( A \cap B_i \right)}\).
+Given the probability for \(A\) given \(B\), the probability of the reverse direction is given by
+\begin{equation*}
+    \Pr{\left( B \,\vert\, A \right)} = \frac{\Pr{\left( A \,\vert\, B \right)}\Pr{\left( B \right)}}{\Pr{\left( A \right)}}
+\end{equation*}
+this is known as \textbf{Bayes' Theorem}. Using the law of total probability, we can express this as
+\begin{equation*}
+    \Pr{\left( B \,\vert\, A \right)} = \frac{\Pr{\left( A \,\vert\, B \right)}\Pr{\left( B \right)}}{\sum_{i = 1}^n \Pr{\left( A \,\vert\, B_i \right)}\Pr{\left( B_i \right)}}.
+\end{equation*}
 \end{document}
