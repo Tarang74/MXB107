@@ -251,12 +251,12 @@ is conceptually easier to understand as it has the same units are the data.
     \end{equation*}
 \end{theorem}
 \begin{theorem}[Empirical Rule]
-If a histogram of the data is approximately unimodal and symmetric, then,
-\begin{itemize}
-    \item 68\% of the data falls within \textbf{one} standard deviation of the mean
-    \item 95\% of the data falls within \textbf{two} standard deviations of the mean
-    \item 99\% of the data falls within \textbf{three} standard deviations of the mean
-\end{itemize}
+    If a histogram of the data is approximately unimodal and symmetric, then,
+    \begin{itemize}
+        \item 68\% of the data falls within \textbf{one} standard deviation of the mean
+        \item 95\% of the data falls within \textbf{two} standard deviations of the mean
+        \item 99\% of the data falls within \textbf{three} standard deviations of the mean
+    \end{itemize}
 \end{theorem}
 Often the standard deviation cannot be computed directly, but can be approximated
 using the Empirical rule. Here we assume that
@@ -488,4 +488,303 @@ this is known as \textbf{Bayes' Theorem}. Using the law of total probability, we
 \begin{equation*}
     \Pr{\left( B \,\vert\, A \right)} = \frac{\Pr{\left( A \,\vert\, B \right)}\Pr{\left( B \right)}}{\sum_{i = 1}^n \Pr{\left( A \,\vert\, B_i \right)}\Pr{\left( B_i \right)}}.
 \end{equation*}
+\section{Probability Distributions}
+\subsection{Random Variables}
+A random variable is a variable whose value is the result of an experiment or random trial,
+where the value is not known before the trial with certainty.
+\subsection{Discrete Random Variables}
+\begin{definition}[Discrete random variables]
+    A discrete random variable takes on values in \(\N_0\), where the random variables arises from
+    counting processes.
+\end{definition}
+\subsubsection{Probability Mass Function}
+The probability mass function (PMF) of a discrete random variable \(X\) is a function \(p\left( x \right)\) that
+maps values from the sample space of \(X\) onto the interval \(\interval{0}{1}\).
+\begin{equation*}
+    p\left( x \right) = \Pr{\left( X = x \right)}.
+\end{equation*}
+This function is constrained by the following properties:
+\begin{itemize}
+    \item \(p\left( x \right) = 0\) if \(x \notin X\).
+    \item \(p\left( x \right) \in \interval{0}{1}\) if \(x \in X\).
+    \item \(\sum_{\forall x \in X} p\left( x \right) = 1\).
+\end{itemize}
+\subsubsection{Cumulative Mass Function}
+The cumulative mass function (CMF) is defined
+\begin{equation*}
+    F\left( x \right) = \Pr{\left( X \leq x \right)} = \sum_{-\infty}^x p\left( x \right)
+\end{equation*}
+and the probabilities for events can be defined using the CMF\@:
+\begin{equation*}
+    \Pr{\left( a < X \leq b \right)} = \sum_{x = a + 1}^b p\left( x \right) = F\left( b \right) - F\left( a \right).
+\end{equation*}
+\subsubsection{Expectation}
+The expectation (expected value) of a random variable \(X\) with a PMF is given by:
+\begin{equation*}
+    \E{\left( X \right)} = \sum_{\forall x \in X} x p\left( x \right)
+\end{equation*}
+where the expectation is often denoted \(\mu\). As the expectation is a weighted average of all possible values in \(X\),
+we can extend this definition to any function of \(X\):
+\begin{equation*}
+    \E{\left( h\left( X \right) \right)} = \sum_{\forall x \in X} h\left( x \right) p\left( x \right).
+\end{equation*}
+\subsubsection{Median and Mode}
+The median \(m\) of a discrete random variable \(X\) is defined:
+\begin{equation*}
+    m \in X : \Pr{\left( X \leq m \right)} \geq \frac{1}{2} \land \Pr{\left( X \geq m \right)} \geq \frac{1}{2}.
+\end{equation*}
+Note that \(\Pr{\left( X \leq x \right)} = \sum_{-\infty}^x p\left( x \right)\) and \(\Pr{\left( X \geq x \right)} = \sum_x^\infty p\left( x \right)\).
+
+The mode of a discrete random variable \(X\) is defined:
+\begin{equation*}
+    \max_{x \in X} p\left( x \right).
+\end{equation*}
+\subsubsection{Variance}
+The variance of a random variable \(X\) is defined using the mean:
+\begin{align*}
+    \Var{\left( X \right)} & = \E{\left( \left( X - \mu \right)^2 \right)}                        \\
+                           & = \E{\left( X^2 \right)} - 2 \mu \E{\left( X \right)} + \mu^2        \\
+                           & = \E{\left( X^2 \right)} - \E{\left( X \right)}^2                    \\
+                           & = \sum_{\forall x \in X} \left( x - \mu \right)^2 p\left( x \right).
+\end{align*}
+\subsection{Continuous Random Variables}
+\begin{definition}[Continuous random variables]
+    A continuous random variable takes on values in \(R\), where values lie on a continuum.
+\end{definition}
+\subsubsection{Probability Density Function}
+The probability density function (PDF) of a continuous random variable \(X\) is a function \(f\left( x \right)\) that
+describes the density of possible values for a continuous random variable. Note that it does not define the probability
+of a specific value.
+
+For a continuous random variable \(X\):
+\begin{itemize}
+    \item \(\Pr{\left( X = x \right)} = 0\) and \(f\left( x \right) \neq \Pr{\left( X = x \right)}\).
+    \item \(\forall x \in X : f\left( x \right) \geq 0\).
+    \item \(\int_{-\infty}^\infty f\left( u \right) \odif{u} = 1\).
+\end{itemize}
+As the probability of a single value is zero, we can instead quantify the probability of a range of values:
+\begin{equation*}
+    \Pr{\left( a \leq x \leq b \right)} = \int_{a}^{b} f\left( x \right) \odif{x}
+\end{equation*}
+where \(a \leq b\).
+\subsubsection{Cumulative Density Function}
+The cumulative density function (CDF) is defined
+\begin{equation*}
+    F\left( x \right) = \Pr{\left( X \leq x \right)} = \sum_{-\infty}^x f\left( u \right) \odif{u}
+\end{equation*}
+so that
+\begin{equation*}
+    \Pr{\left( a \leq X \leq b \right)} = F\left( b \right) - F\left( a \right).
+\end{equation*}
+In the continuous case, the PDF and CDF are related through the following differential equation:
+\begin{equation*}
+    \odv{F}{x} = f\left( x \right).
+\end{equation*}
+\subsubsection{Median and Mode}
+The median \(m\) of a continuous random variable \(X\) is defined:
+\begin{equation*}
+    m : \int_{-\infty}^m f\left( u \right) \odif{u} = \frac{1}{2}
+\end{equation*}
+and the mode is defined:
+\begin{equation*}
+    \max_{x \in X} f\left( x \right) \quad \text{or} \quad m:\odv{f\left( y \right)}{y} = 0.
+\end{equation*}
+\subsubsection{Expectation}
+The expectation of a continuous random variable \(X\) is defined as
+\begin{equation*}
+    \mu = \E{\left( X \right)} = \int_{-\infty}^\infty x f\left( x \right) \odif{x}
+\end{equation*}
+\subsubsection{Variance}
+The variance of a continuous random variable \(X\) is defined:
+\begin{equation*}
+    \Var{\left( X \right)} = \E{\left( X^2 \right)} - \E{\left( X \right)}^2 = \int_{-\infty}^\infty \left( x - \mu \right)^2 f\left( x \right)^2 f\left( x \right) \odif{x}.
+\end{equation*}
+\subsection{Probability Distributions}
+\subsubsection{Bernoulli Distribution}
+A Bernoulli (or binary) distribution describes the probability distribution of a Boolean-valued
+outcome, i.e., success (1) or failure (0).
+
+A discrete random variable \(X\) with a Bernoulli distribution is denoted
+\begin{equation*}
+    X \sim \operatorname{Bernoulli}{\left( p \right)}
+\end{equation*}
+with
+\begin{align*}
+    \Pr{\left( X = x \right)}    & = \begin{cases}
+                                         1 - p & x = 0 \\
+                                         p     & x = 1
+                                     \end{cases}                    \\
+                                 & = p^x \left( 1 - p \right)^{1 - x} \\
+    \Pr{\left( X \leq x \right)} & = \begin{cases}
+                                         0     & x < 0        \\
+                                         1 - p & 0 \leq x < 1 \\
+                                         1     & k \geq 1
+                                     \end{cases}
+\end{align*}
+for a probability \(p \in \interval{0}{1}\) and outcomes \(x \in \left\{ 0,\: 1 \right\}\).
+We can also summarise the following:
+\begin{align*}
+    \E{\left( X \right)}   & = p                      \\
+    \Var{\left( X \right)} & = p \left( 1 - p \right)
+\end{align*}
+where \(\left( 1 - p \right)\) is sometimes denoted as \(q\).
+\subsubsection{Binomial Distribution}
+A binomial distribution describes the probability distribution of the number of successes
+for \(n\) independent trials with the same probability of success \(p\).
+
+A discrete random variable \(X\) with a binomial distribution is denoted
+\begin{equation*}
+    X \sim \operatorname{Binomial}{\left( n,\: p \right)}
+\end{equation*}
+with
+\begin{align*}
+    \Pr{\left( X = x \right)}    & = \dbinom{n}{x} p^x \left( 1 - p \right)^{n - x}                \\
+    \Pr{\left( X \leq x \right)} & = \sum_{u = 0}^x \dbinom{n}{u} p^u \left( 1 - p \right)^{n - u}
+\end{align*}
+for number of successes \(x \in \left\{ 0,\: 1,\: \dots,\: n \right\}\).
+
+Here each individual trial is a Bernoulli trial, so that \(X\) can be written as the sum of
+\(n\) \textit{independent and identically distributed} (iid) Bernoulli random variables, \(Y_1,\: Y_2,\: \dots,\: Y_n\).
+\begin{align*}
+    X & = Y_1 + Y_2 + \cdots + Y_n, & Y_i & \overset{\mathrm{iid}}{\sim} \operatorname{Bernoulli}{\left( p \right)} : \forall i \in \left\{ 1,\: 2,\: \dots,\: n \right\}.
+\end{align*}
+We can then summarise the following:
+\begin{align*}
+    \E{\left( X \right)}   & = np                      \\
+    \Var{\left( X \right)} & = np \left( 1 - p \right)
+\end{align*}
+\subsubsection{Poisson Distribution}
+A Poisson distribution describes the probability distribution of the number of events \(N\) which occur over a fixed interval of time \(\lambda\).
+
+A discrete random variable \(N\) with a Poisson distribution is denoted
+\begin{equation*}
+    N \sim \operatorname{Poisson}{\left( \lambda \right)}
+\end{equation*}
+with
+\begin{align*}
+    \Pr{\left( N = n \right)}    & = \frac{\lambda^n e^{-\lambda}}{n!}                \\
+    \Pr{\left( N \leq n \right)} & = e^{-\lambda} \sum_{u = 0}^n \frac{\lambda^u}{u!}
+\end{align*}
+for number of events \(n \geq 0\).
+We can also summarise the following:
+\begin{align*}
+    \E{\left( N \right)}   & = \lambda \\
+    \Var{\left( N \right)} & = \lambda
+\end{align*}
+The Poisson PMF can be defined in terms of the Binomial PMF as \(n \to \infty\) and \(p \to 0\).
+Let \(\lambda = np\), then
+\begin{align*}
+    p\left( x \right) & = \frac{n!}{x! \left( n - x \right)!} p^x \left( 1 - p \right)^{n - x}                                                                                 \\
+                      & = \frac{n!}{x! \left( n - x \right)!} \left( \frac{\lambda}{n} \right)^x \left( 1 - \frac{\lambda}{n} \right)^{n - x}                                  \\
+                      & = \frac{\lambda^x}{x!} \frac{n!}{\left( n - x \right)!} \frac{1}{n^x} \left( 1 - \frac{\lambda}{n} \right)^n \left( 1 - \frac{\lambda}{n} \right)^{-x} \\
+\end{align*}
+The limit of \(\frac{n!}{\left( n - x \right)!} \frac{1}{n^x}\) is \(1\):
+\begin{align*}
+    \lim_{n \to \infty} \frac{n!}{\left( n - x \right)!} \frac{1}{n^x} & = \lim_{n \to \infty} \frac{n\left( n - 1 \right) \left( n - 2 \right) \cdots \left( n - x + 1 \right)}{n^x}                                            \\
+                                                                       & = \lim_{n \to \infty} \left( \frac{n}{n} \right)\left( \frac{n - 1}{n} \right) \left( \frac{n - 2}{n} \right) \cdots \left( \frac{n - x + 1}{n} \right) \\
+                                                                       & = 1
+\end{align*}
+The term \(\left( 1 - \frac{\lambda}{n} \right)^n\) approaches \(e^{-\lambda}\), using the substitution \(u = -\frac{n}{\lambda}\):
+\begin{align*}
+    \lim_{n \to \infty} \left( 1 - \frac{\lambda}{n} \right)^n & = \lim_{n \to \infty} \left( 1 + \frac{1}{u} \right)^{u \left( -\lambda \right)} \\
+                                                               & = e^{-\lambda}
+\end{align*}
+Finally, the remaining term also evaluates to 1:
+\begin{equation*}
+    \lim_{n \to \infty} \left( 1 - \frac{\lambda}{n} \right)^{-x} = 1
+\end{equation*}
+Therefore by gathering the above equations, we can write the Poisson PMF as:
+\begin{align*}
+    p\left( x \right) & = \lim_{n \to \infty} \frac{\lambda^x}{x!} \frac{n!}{\left( n - x \right)!} \frac{1}{n^x} \left( 1 - \frac{\lambda}{n} \right)^n \left( 1 - \frac{\lambda}{n} \right)^{-x} \\
+                      & = \frac{\lambda^x e^{-\lambda}}{x!}
+\end{align*}
+\subsubsection{Uniform Distribution}
+A continuous uniform distribution describes the probability distribution of an outcome within some
+interval, where the probability of an outcome in one interval is the same as all other intervals of the same length.
+
+A continuous random variable \(X\) with a continuous uniform distribution is denoted
+\begin{equation*}
+    X \sim \operatorname{Uniform}{\left( a,\: b \right)}
+\end{equation*}
+with
+\begin{align*}
+    f\left( x \right) & = \frac{1}{b - a}     \\
+    F\left( x \right) & = \frac{x - a}{b - a}
+\end{align*}
+for outcomes \(a < x < b\).
+We can also summarise the following:
+\begin{align*}
+    \E{\left( X \right)}   & = \frac{a + b}{2}                   \\
+    \Var{\left( X \right)} & = \frac{\left( b - a \right)^2}{12} \\
+    m                      & = \frac{a + b}{2}
+\end{align*}
+\subsubsection{Exponential Distribution}
+An exponential distribution describes the probability distribution of the time between events with rate \(\eta\).
+
+A continuous random variable \(T\) with an exponential distribution is denoted
+\begin{equation*}
+    T \sim \operatorname{Exp}{\left( \eta \right)}
+\end{equation*}
+with
+\begin{align*}
+    f\left( t \right) & = \eta e^{-\eta t} \\
+    F\left( t \right) & = 1 - e^{-\eta t}
+\end{align*}
+for time \(t > 0\).
+We can also summarise the following:
+\begin{align*}
+    \E{\left( T \right)}   & = \frac{1}{\eta}                     \\
+    \Var{\left( T \right)} & = \frac{1}{\eta^2}                   \\
+    m                      & = \frac{\ln{\left( 2 \right)}}{\eta}
+\end{align*}
+\begin{proof}
+    By considering an event taking longer than \(t\) seconds, we can represent this as nothing happening
+    over the interval \(\interval{0}{t}\). Using \(T \sim \operatorname{Exp}{\left( \eta \right)}\) and
+    \(N \sim \operatorname{Poisson}{\left( \eta t \right)}\), we have
+    \begin{equation*}
+        \Pr{\left( T > t \right)} = \Pr{\left( N = 0 \right)} = e^{-\eta t}
+    \end{equation*}
+    where \(\lambda = \eta t\). The CDF for the exponential distribution is then
+    \begin{align*}
+        \Pr{\left( T < t \right)} & = 1 - \Pr{\left( T > t \right)} \\
+                                  & = 1 - e^{-\eta t}.
+    \end{align*}
+\end{proof}
+\subsubsection{Memoryless Property}
+In an exponential distribution with \(T \sim \operatorname{Exp}{\left( \eta \right)}\),
+the distribution of the waiting time \(t + s\) until a certain event does not depend on
+how much time \(t\) has already passed.
+\begin{equation*}
+    \Pr{\left( T > s + t \,\vert\, T > t \right)} = \Pr{\left( T > s \right)}.
+\end{equation*}
+The same property also applies in an Geometric distribution with \(N \sim \operatorname{Geometric}{\left( p \right)}\).
+\subsubsection{Normal Distribution}
+The normal distribution is used to represent many random situations, in particular, measurements and their errors.
+This distribution arises in many statistical problems and can be used to \linebreak approximate other distributions
+under certain conditions.
+
+A continuous random variable \(X\) with a normal distribution is denoted
+\begin{equation*}
+    X \sim \operatorname{N}{\left( \mu,\: \sigma^2 \right)}
+\end{equation*}
+with
+\begin{align*}
+    f\left( t \right) & = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{\left( x - \mu \right)^2}{2 \sigma^2}}    \\
+    F\left( t \right) & = \frac{1}{2} \left( 1 + \erf{\left( \frac{x - \mu}{\sigma \sqrt{2}} \right)} \right)
+\end{align*}
+for \(x \in \R\) where \(\erf{\left( z \right)} = \frac{2}{\sqrt{\pi}} \int_0^z e^{-t^2} \odif{t}\) is the error function.
+We can also summarise the following:
+\begin{align*}
+    \E{\left( X \right)}   & = \mu      \\
+    \Var{\left( X \right)} & = \sigma^2
+\end{align*}
+Given the complexity of the analytic expressions for the PDF and CDF of the normal distribution, we often
+use software to numerically determine probabilities associated with normal distributions.
+\subsection{Standard Normal Distribution}
+Given \(X \sim \operatorname{N}{\left( \mu,\: \sigma^2 \right)}\), consider the transformation
+\begin{equation*}
+    Z = \frac{X - \mu}{\sigma}
+\end{equation*}
+so that \(Z \sim \operatorname{N}{\left( 0,\: 1 \right)}\). This distribution is called the standard normal distribution.
+This allows us to deal with the standard normal distribution regardless of \(\mu\) and \(\sigma\).
 \end{document}
