@@ -26,6 +26,7 @@ This repository provides **lecture notes** and **exam notes** for **MXB107 - Int
 2. Numerical Summaries of Data
 3. Bivariate Data
 4. Probability
+5. Probability Distributions
 
 ---
 
