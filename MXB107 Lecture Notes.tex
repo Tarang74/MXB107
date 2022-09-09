@@ -787,4 +787,85 @@ Given \(X \sim \operatorname{N}{\left( \mu,\: \sigma^2 \right)}\), consider the 
 \end{equation*}
 so that \(Z \sim \operatorname{N}{\left( 0,\: 1 \right)}\). This distribution is called the standard normal distribution.
 This allows us to deal with the standard normal distribution regardless of \(\mu\) and \(\sigma\).
+\section{Sampling}
+This section explores the ideas of sampling and inference.
+\subsection{Observational and Experimental Studies}
+\subsubsection{Observational Studies}
+If we are collecting or sampling data that already exists, i.e., we have no control over how we created the data,
+then we are conducting an observational study.
+\subsubsection{Experimental Studies}
+If data was generated in a controlled experimental environment, then the data is the result of an experimental study.
+\subsection{Sampling}
+As it is impossible to collect measurements from an entire population, we must rely on
+samples and sample statistics to make inferences about the population.
+There are several methods for this, depending on the situation.
+\subsubsection{Simple Random Sampling}
+In simple random sampling, a random subset of size \(n\) is selected from a population of size \(N\).
+Simple random sampling is used in \textbf{observational studies} as data already exists.
+There are some caveats to this method that may lead to errors in the conclusions reached:
+\begin{itemize}
+    \item Non-response bias: some members may not respond to the survey.
+    \item Undercoverage bias: the survey may not apply to all members of the selection.
+    \item Wording bias: the wording of the survey may lead to a biased response.
+\end{itemize}
+\subsection{Stratified Random Sampling}
+Stratified random sampling is a method of sampling that divides the population into non-overlapping strata
+and draws random samples from each stratum.
+\begin{itemize}
+    \item \textbf{Pre-stratification} is when the strata are defined before the sampling process.
+    \item \textbf{Post-stratification} is when the strata are defined after the sampling process.
+\end{itemize}
+\subsection{Cluster Sampling}
+Cluster sampling is used when there are limited resources or a lack of information about individuals in
+the population. It is also useful when members in each cluster are similar.
+\subsection{Non-random Sampling Methods}
+\begin{itemize}
+    \item Sequential sampling: samples are taken in a sequential manner.
+    \item Convenience sampling: samples are self-selected from the most convenient source.
+    \item Snowball sampling is like convenience sampling but participants are asked to recruit others.
+    \item Quoate sampling: samples are selected to balance a particular demographic.
+\end{itemize}
+\section{Sampling Distributions}
+A sampling distribution is the probability distribution of a sample statistic.
+\subsection{Central Limit Theorem}
+For a sample of size \(n\) from any random probability distribution with expected value \(\mu\)
+and variance \(\sigma^2\),
+\begin{equation*}
+    \frac{\sqrt{n}\left( \overline{x} - \mu \right)}{\sigma} \overset{p}{\rightarrow} \operatorname{N}{\left( 0,\: 1 \right)}
+\end{equation*}
+meaning that increasing the sample size will lead to a more normal distribution.
+In this case, a sample size of \(n = 30\) is sufficient to approximate a normal distribution.
+\subsection{Standard Error}
+The standard error of a sample statistic is the standard deviation of the sampling distribution.
+\begin{equation*}
+    \operatorname{SE}{\left( \overline{x} \right)} = \frac{\sigma^2}{n}
+\end{equation*}
+\subsection{Sample Proportion}
+Sometimes we are interested in estimating the population proportion from the sample proportion.
+For a sample of size \(n\) let \(x\) be the number of members with a particular characteristic.
+The sample estimate of the population proportion \(p\) is
+\begin{equation*}
+    \hat{p} = \frac{x}{n}.
+\end{equation*}
+By assuming that the samples statistic \(x\) follows a binomial distribution with probability \(p\) and
+size \(n\), then \(\E{\left( x \right)} = np\) and \(\Var{\left( x \right)} = np\left( 1 - p \right)\).
+Therefore the expectation is
+\begin{equation*}
+    \E{\left( \hat{p} \right)} = p
+\end{equation*}
+and the standard error is
+\begin{equation*}
+    \operatorname{SE}{\left( \hat{p} \right)} = \sqrt{\frac{p\left( 1 - p \right)}{n}}.
+\end{equation*}
+For the above to apply, we must assume that the sample proportion and size are sufficiently large.
+In general, if \(np > 5\) and \(n\left( 1 - p \right) > 5\), then we can assume that the sampling distribution of \(\hat{p}\)
+is approximately normal.
+\subsection{Assessing Normality}
+\begin{itemize}
+    \item Histograms: if the data is approximately normal, then the histogram will be approximately symmetric and unimodal.
+    \item Boxplots: boxplots can be useful for showing outliers and skewness. Extreme clusters of an excessive number of
+        outliers can be evidence of non-normality.
+    \item Normal probability plots (\(q\)-\(q\) plots): these plots are constructed by plotting the sorted data values against
+    their \(Z\)-scores. If the data is approximately normal, then the points will lie approximately on a straight line.
+\end{itemize}
 \end{document}
