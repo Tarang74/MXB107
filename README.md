@@ -27,6 +27,8 @@ This repository provides **lecture notes** and **exam notes** for **MXB107 - Int
 3. Bivariate Data
 4. Probability
 5. Probability Distributions
+6. Sampling
+7. Sampling Distributions
 
 ---
 
