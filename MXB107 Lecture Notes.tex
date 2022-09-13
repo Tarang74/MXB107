@@ -4,6 +4,7 @@
 \input{LaTeX-Submodule/template.tex}
 
 % Additional packages & macros
+\DeclareMathOperator*{\argmax}{arg\,max}
 
 % Header and footer
 \newcommand{\unitName}{Introduction to Statistical Modelling}
@@ -823,7 +824,7 @@ the population. It is also useful when members in each cluster are similar.
     \item Sequential sampling: samples are taken in a sequential manner.
     \item Convenience sampling: samples are self-selected from the most convenient source.
     \item Snowball sampling is like convenience sampling but participants are asked to recruit others.
-    \item Quoate sampling: samples are selected to balance a particular demographic.
+    \item Quota sampling: samples are selected to balance a particular demographic.
 \end{itemize}
 \section{Sampling Distributions}
 A sampling distribution is the probability distribution of a sample statistic.
@@ -864,8 +865,229 @@ is approximately normal.
 \begin{itemize}
     \item Histograms: if the data is approximately normal, then the histogram will be approximately symmetric and unimodal.
     \item Boxplots: boxplots can be useful for showing outliers and skewness. Extreme clusters of an excessive number of
-        outliers can be evidence of non-normality.
+          outliers can be evidence of non-normality.
     \item Normal probability plots (\(q\)-\(q\) plots): these plots are constructed by plotting the sorted data values against
-    their \(Z\)-scores. If the data is approximately normal, then the points will lie approximately on a straight line.
+          their \(Z\)-scores. If the data is approximately normal, then the points will lie approximately on a straight line.
+\end{itemize}
+\section{Large Sample Estimation}
+Statistical inference is the practice of using data and probabilistic models to
+estimate quantities and test scientific hypotheses in the face of uncertainty.
+\subsection{Estimation}
+Given some data, we can calculate sample statistics to summarise the data.
+The goal of statistical modelling is to rather gain insight into the population from which the data was sampled.
+This involves making inferences about the population parameters.
+\subsection{Point Estimation}
+In classical statistics, model parameters are unknown but assumed to be \textbf{fixed}.
+Parameter \linebreak estimation is known as point estimation,
+and the resulting parameter estimators are called \textbf{point estimators}.
+
+There are two approaches to point estimators, the method of moments and the method of maximum likelihood.
+\subsubsection{Method of Moments}
+The moments of a probability distribution are defined
+\begin{align*}
+    \mu_1 & = \E{\left( X \right)} = \int_{-\infty}^\infty x f\left( x \right) \odif{x}     \\
+    \mu_2 & = \E{\left( X^2 \right)} = \int_{-\infty}^\infty x^2 f\left( x \right) \odif{x} \\
+          & \vdotswithin{=}                                                                 \\
+    \mu_n & = \E{\left( X^n \right)} = \int_{-\infty}^\infty x^n f\left( x \right) \odif{x}
+\end{align*}
+where \(f\left( x \right)\) is the probability density function of the distribution.
+Here \(\mu_1 = \E{\left( X \right)}\) and \(\Var{\left( X \right)} = \mu_2 - \mu_1^2\).
+Sample moments are defined similarly
+\begin{align*}
+    m_1 & = \frac{1}{n} \sum_{i = 1}^n x_i   \\
+    m_2 & = \frac{1}{n} \sum_{i = 1}^n x_i^2 \\
+        & \vdotswithin{=}                    \\
+    m_n & = \frac{1}{n} \sum_{i = 1}^n x_i^n
+\end{align*}
+where \(\overline{x} = m_1\).
+\subsubsection{Method of Maximum Likelihood Estimation}
+Rather than estimating parameters using the method of moments,
+we can estimate parameters by maximising the likelihood function.
+\begin{definition}[Likelihood function]
+    The \textbf{likelihood function} is defined as
+    \begin{equation*}
+        \mathcal{L}\left( \theta \,\vert\, \symbfit{x} \right) = \prod_{i = 1}^n f\left( x_i \right) \\
+    \end{equation*}
+    for both continuous and discrete distributions \(f\).
+\end{definition}
+\begin{definition}[Maximum likelihood estimator]
+    The \textbf{maximum likelihood estimator} is defined as
+    \begin{equation*}
+        \hat{\theta} = \argmax_\theta{\mathcal{L}\left( \theta \,\vert\, \symbfit{x} \right)}.
+    \end{equation*}
+\end{definition}
+As the likelihood function is not trivial to maximise, we can instead maximise the log-likelihood function.
+\begin{definition}[Log-likelihood function]
+    The \textbf{log-likelihood function} is defined as
+    \begin{align*}
+        \ell\left( \theta \,\vert\, \symbfit{x} \right) & = \log{\left( \mathcal{L}\left( \theta \,\vert\, \symbfit{x} \right) \right)} \\
+                                                        & = \sum_{i = 1}^n \log{\left( f\left( x_i \right) \right)}
+    \end{align*}
+\end{definition}
+Due to the monotonicity of the log function, the maximum likelihood estimator is the same as the maximum log-likelihood estimator.
+\begin{definition}[Maximum log-likelihood estimator]
+    The \textbf{maximum log-likelihood estimator} is defined as
+    \begin{equation*}
+        \hat{\theta} = \argmax_\theta{\ell\left( \theta \,\vert\, \symbfit{x} \right)}.
+    \end{equation*}
+\end{definition}
+\subsection{Properties of Estimators}
+To assess the quality of an estimator, we can consider the following properties.
+\begin{definition}[Bias]
+    The \textbf{bias} of an estimator is defined as
+    the difference between the expected value of the estimator \(\E{\left( \hat{\theta} \right)}\) and the true value of the parameter \(\theta_0\).
+    \begin{equation*}
+        \operatorname{Bias}\left( \hat{\theta} \right) = \E{\left( \hat{\theta} \right)} - \theta
+    \end{equation*}
+    An estimator \(\hat{\theta}\) is \textbf{unbiased} if
+    \begin{equation*}
+        \E{\left( \hat{\theta} \right)} = \theta
+    \end{equation*}
+    so that the bias is zero.
+\end{definition}
+We can also compare the variance of two estimators, to assess which one is more preferable.
+If the variance of the estimator is small, then the estimator is more precise.
+Given two estimators \(\hat{\theta}_1\) and \(\hat{\theta}_2\), we would choose \(\hat{\theta}_1\) over \(\hat{\theta}_2\) if
+\begin{equation*}
+    \Var{\left( \hat{\theta}_1 \right)} < \Var{\left( \hat{\theta}_2 \right)}
+\end{equation*}
+\begin{definition}[Mean square error]
+    Given data \(x_i\) with variance \(\sigma^2\), the estimators of \(\theta = \E\left\{ X \right\}\)
+    are selected such that they minimise the \textbf{mean square error}:
+    \begin{align*}
+        \operatorname{MSE}\left( \hat{\theta} \right) & = \E{\left( \left( \hat{\theta} - \theta \right)^2 \right)}                             \\
+                                                      & = \operatorname{Bias}\left( \hat{\theta} \right)^2 + \Var{\left( \hat{\theta} \right)}.
+    \end{align*}
+    This quantity is used to determine the \textbf{bias-variance trade-off} of an estimator.
+    The \textbf{root mean square error} is defined as
+    \begin{equation*}
+        \operatorname{RMSE}\left( \hat{\theta} \right) = \sqrt{\operatorname{MSE}\left( \hat{\theta} \right)}.
+    \end{equation*}
+\end{definition}
+\subsection{Confidence Intervals}
+In the previous section, we discuss methods to find point-estimates of parameters, that is, values
+that are close to the true value of the parameter. However, we may also be interested in the
+uncertainty of the parameter, that is, the range of values that the parameter may take.
+
+The range of values that this parameter lies in is called a \textbf{confidence interval}.
+This interval ranges from the lower confidence limit (UCL) to the upper confidence limit (LCL)
+\begin{equation*}
+    L < \theta < U.
+\end{equation*}
+This interval has a \textbf{confidence coefficient} of \(1 - \alpha\), or a \textbf{confidence level} of \(\left( 1 - \alpha \right)\%\).
+The confidence interval is defined as
+\begin{equation*}
+    {CI}_{1 - \alpha} = \hat{\theta} \pm Z_{\alpha / 2} \operatorname{SE}\left( \hat{\theta} \right) = \left( \hat{\theta} - Z_{\alpha / 2} \operatorname{SE}\left( \hat{\theta} \right),\: \hat{\theta} + Z_{\alpha / 2} \operatorname{SE}\left( \hat{\theta} \right) \right)
+\end{equation*}
+\subsubsection{Confidence Interval for the Mean}
+Using this understanding of confidence intervals, we can now derive the confidence interval for the mean.
+
+Recall the Z-score \(Z_{\alpha/2}\), which is the value of \(Z\) such that the area
+to the right of the standard normal distribution is \(\alpha/2\):
+\begin{equation*}
+    \Pr{\left( Z \geq Z_{\alpha/2} \right)} = \frac{\alpha}{2}.
+\end{equation*}
+Likewise, the Z-score \(-Z_{\alpha/2}\) is the value of \(Z\) such that the area
+to the left of the standard normal distribution is also \(\alpha/2\):
+\begin{equation*}
+    \Pr{\left( Z \leq -Z_{\alpha/2} \right)} = \frac{\alpha}{2}.
+\end{equation*}
+Therefore the area between \(-Z_{\alpha/2}\) and \(Z_{\alpha/2}\) is \(1 - \alpha\):
+\begin{align*}
+    \Pr{\left( -Z_{\alpha/2} \leq Z \leq Z_{\alpha/2} \right)} & = \Pr{\left( Z \leq Z_{\alpha/2} \right)} - \Pr{\left( Z \leq -Z_{\alpha/2} \right)}     \\
+                                                               & = 1 - \Pr{\left( Z \geq Z_{\alpha/2} \right)} - \Pr{\left( Z \leq -Z_{\alpha/2} \right)} \\
+                                                               & = 1 - \frac{\alpha}{2} - \frac{\alpha}{2}                                                \\
+                                                               & = 1 - \alpha.
+\end{align*}
+Given a large sample (\(n > 30\)), \(\overline{x}\) is the best estimator for the population mean \(\mu\) and
+\begin{equation*}
+    \overline{x} \sim \operatorname{N}\left( \mu,\: \frac{\sigma^2}{n} \right).
+\end{equation*}
+The confidence interval for the mean is derived using the following steps:
+\begin{equation*}
+    \begin{array}{>{\displaystyle}rccc>{\displaystyle}l}
+        -Z_{\alpha/2}                                        & \leq & Z                                          & \leq & Z_{\alpha/2}                                         \\
+        -Z_{\alpha/2}                                        & \leq & \frac{\overline{x} - \mu}{\sigma/\sqrt{n}} & \leq & Z_{\alpha/2}                                         \\
+        -\overline{x} - Z_{\alpha/2} \frac{\sigma}{\sqrt{n}} & \leq & - \mu                                      & \leq & -\overline{x} + Z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \\
+        \overline{x} + Z_{\alpha/2} \frac{\sigma}{\sqrt{n}}  & \geq & \mu                                        & \geq & \overline{x} - Z_{\alpha/2} \frac{\sigma}{\sqrt{n}}  \\
+        \overline{x} - Z_{\alpha/2} \frac{\sigma}{\sqrt{n}}  & \leq & \mu                                        & \leq & \overline{x} + Z_{\alpha/2} \frac{\sigma}{\sqrt{n}}  \\
+    \end{array}
+\end{equation*}
+therefore the confidence interval for the population mean is
+\begin{equation*}
+    {CI}_{1-\alpha} = \overline{x} \pm Z_{\alpha/2} \frac{\sigma}{\sqrt{n}}
+\end{equation*}
+where
+\begin{equation*}
+    \operatorname{SE}\left( \overline{x} \right) = \frac{\sigma}{\sqrt{n}}.
+\end{equation*}
+In other words,
+\begin{align*}
+    \Pr{\left( \overline{x} - Z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \leq \mu \leq \overline{x} + Z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \right)} & = 1 - \alpha            \\
+    \Pr{\left( \overline{x} - Z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \leq \mu \right)}                                                          & = 1 - \frac{\alpha}{2}  \\
+    \Pr{\left( \mu \leq \overline{x} + Z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \right)}                                                          & = 1 - \frac{\alpha}{2}.
+\end{align*}
+\subsubsection{Confidence Interval for the Proportion}
+Given the sample size \(n\) and sample proportion \(\hat{p}\),
+\begin{equation*}
+    \hat{p} \sim \operatorname{N}\left( p,\: \frac{p\left( 1 - p \right)}{n} \right).
+\end{equation*}
+The confidence interval for the population proportion is
+\begin{equation*}
+    {CI}_{1-\alpha} = \hat{p} \pm Z_{\alpha/2} \sqrt{\frac{\hat{p}\left( 1 - \hat{p} \right)}{n}}
+\end{equation*}
+where the standard error is given by
+\begin{equation*}
+    \operatorname{SE}\left( \hat{p} \right) = \sqrt{\frac{p\left( 1 - p \right)}{n}}.
+\end{equation*}
+with the approximation
+\begin{equation*}
+    \operatorname{SE}\left( \hat{p} \right) = \sqrt{\frac{\hat{p}\left( 1 - \hat{p} \right)}{n}}.
+\end{equation*}
+Note that \(n \hat{p} > 5\) and \(n \left( 1 - \hat{p} \right) > 5\) are required for the approximation to be valid.
+\subsubsection{Confidence Interval for the Difference of Two Means}
+Given two population means \(\mu_1\) and \(\mu_2\), we expect the difference of the population means
+and the sample means to be equal. Consider the expectation of the difference of the sample means:
+\begin{equation*}
+    \E{\left( \overline{x}_1 - \overline{x}_2 \right)} = \mu_1 - \mu_2
+\end{equation*}
+with standard error
+\begin{equation*}
+    \operatorname{SE}\left( \overline{x}_1 - \overline{x}_2 \right) = \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}
+\end{equation*}
+with is estimated by
+\begin{equation*}
+    \operatorname{SE}\left( \overline{x}_1 - \overline{x}_2 \right) = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+\end{equation*}
+The confidence interval for the difference of the two means is
+\begin{equation*}
+    {CI}_{1-\alpha} = \overline{x}_1 - \overline{x}_2 \pm Z_{\alpha/2} \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}.
+\end{equation*}
+If the two populations follow a normal distribution, then the sampling distribution is exactly normal.
+If the two populations are not normal, then the sampling distribution is approximately normal, for \(n_1 > 30\) and \(n_2 > 30\).
+\subsubsection{Confidence Interval for the Difference of Two Proportions}
+Given two population proportions \(\hat{p}_1\) and \(\hat{p}_2\), we expect the difference of the population proportions
+and the sample proportions to be equal. Consider the expectation of the difference of the sample proportions:
+\begin{equation*}
+    \E{\left( \hat{p}_1 - \hat{p}_2 \right)} = \hat{p}_1 - \hat{p}_2
+\end{equation*}
+with standard error
+\begin{equation*}
+    \operatorname{SE}\left( \hat{p}_1 - \hat{p}_2 \right) = \sqrt{\frac{p_1\left( 1 - p_1 \right)}{n_1} + \frac{p_2\left( 1 - p_2 \right)}{n_2}}.
+\end{equation*}
+which is approximated by
+\begin{equation*}
+    \operatorname{SE}\left( \hat{p}_1 - \hat{p}_2 \right) = \sqrt{\frac{\hat{p}_1\left( 1 - \hat{p}_1 \right)}{n_1} + \frac{\hat{p}_2\left( 1 - \hat{p}_2 \right)}{n_2}}.
+\end{equation*}
+The confidence interval for the difference of the two proportions is
+\begin{equation*}
+    {CI}_{1-\alpha} = \hat{p}_1 - \hat{p}_2 \pm Z_{\alpha/2} \sqrt{\frac{\hat{p}_1\left( 1 - \hat{p}_1 \right)}{n_1} + \frac{\hat{p}_2\left( 1 - \hat{p}_2 \right)}{n_2}}.
+\end{equation*}
+Note that the following constraints must be satisfied:
+\begin{itemize}
+    \item \(n_1 \hat{p}_1 > 5\)
+    \item \(n_1 \left( 1 - \hat{p}_1 \right) > 5\)
+    \item \(n_2 \hat{p}_2 > 5\)
+    \item \(n_2 \left( 1 - \hat{p}_2 \right) > 5\)
 \end{itemize}
 \end{document}
