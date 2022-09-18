@@ -29,6 +29,7 @@ This repository provides **lecture notes** and **exam notes** for **MXB107 - Int
 5. Probability Distributions
 6. Sampling
 7. Sampling Distributions
+8. Large Sample Estimation
 
 ---
 
