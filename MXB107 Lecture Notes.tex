@@ -1090,4 +1090,198 @@ Note that the following constraints must be satisfied:
     \item \(n_2 \hat{p}_2 > 5\)
     \item \(n_2 \left( 1 - \hat{p}_2 \right) > 5\)
 \end{itemize}
+\section{Hypothesis Testing}
+Hypothesis testing is a method of statistical inference that is used to decide whether
+data supports a particular hypothesis.
+\subsection{Neyman-Pearson Lemma}
+The Neyman-Pearson lemma can be used to construct a hypothesis test. It requires the following:
+\begin{itemize}
+    \item A test which is constructed based on the hypotheses:
+          \begin{itemize}
+              \item \(H_0\): The null hypothesis
+              \item \(H_A\): The alternative hypothesis
+          \end{itemize}
+    \item A test statistic \(T\left( \symbfit{x} \right)\) defined as a function of the sample data.
+    \item A rejection region \(R\) defined as a subset of the sample space, so that if the test statistic
+          falls in the rejection region, then the null hypothesis is rejected.
+\end{itemize}
+\subsubsection{Hypotheses}
+The hypotheses are designed such that the \textbf{null hypothesis} is \textit{falsifiable}. The
+null hypothesis is typically a statement about the population parameters, and the alternative
+hypothesis is the complement of the null hypothesis (i.e., the null hypothesis is rejected if the alternative hypothesis is true).
+\subsubsection{Test Statistic}
+The test statistic is a function of observations modelled as random variables, and thus has its own sampling distribution.
+This sampling distribution can be used to identify the rejection region depending on how probable the test statistic is
+assuming the null hypothesis is true.
+\subsection{Rejection Region}
+The rejection region is a subset of the sample space, such that if the null hypothesis is true,
+the probability that the test statistic falls in the rejection region is sufficiently small.
+\subsection{Hypothesis Testing Procedure}
+Hypothesis tests can either be two-tailed (also called point null hypotheses):
+\begin{equation*}
+    H_0: \theta = \theta_0 \quad \text{vs.} \quad H_A: \theta \neq \theta_0
+\end{equation*}
+or single-tailed, which consists of left-tail:
+\begin{equation*}
+    H_0: \theta \leq \theta_0 \quad \text{vs.} \quad H_A: \theta > \theta_0
+\end{equation*}
+and right-tail tests:
+\begin{equation*}
+    H_0: \theta \geq \theta_0 \quad \text{vs.} \quad H_A: \theta < \theta_0
+\end{equation*}
+The rejection region is chosen so that \(\Pr{\left( T\left( \symbfit{x} \in R \right) \right)} = \alpha\),
+where \(\alpha\) is the Type I error rate defined:
+\begin{equation*}
+    \alpha = \Pr{\left( \text{reject \(H_0\)} \,\vert\, \text{\(H_0\) is true} \right)}.
+\end{equation*}
+The Type II error rate, \(\beta\) is defined as:
+\begin{equation*}
+    \beta = \Pr{\left( \text{failure to reject \(H_0\)} \,\vert\, \text{\(H_0\) is false} \right)}
+\end{equation*}
+where the compliment of the Type II error rate is the \textbf{power} of the test:
+\begin{equation*}
+    1 - \beta = \Pr{\left( \text{reject \(H_0\)} \,\vert\, \text{\(H_0\) is false} \right)}.
+\end{equation*}
+This can be summarised in the following table:
+\begin{center}
+    \begin{tabular}{c|cc}
+        \toprule
+        \textbf{Decision}                  & \textbf{\(H_0\) is true}       & \textbf{\(H_0\) is false}      \\
+        \midrule
+        \textbf{Reject \(H_0\)}            & \(\alpha\) (Type I error rate) & \(1 - \beta\) (Power)          \\
+        \textbf{Failure to reject \(H_0\)} & \(1 - \alpha\)                 & \(\beta\) (Type II error rate) \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+The rejection regions are defined:
+\begin{center}
+    \begin{tabular}{cc}
+        \toprule
+        \textbf{Null Hypothesis} \(H_0\) & \textbf{Rejection Region} \(R\)                       \\
+        \midrule
+        \(\theta = \theta_0\)            & \(\abs*{T\left( \symbfit{x} \right)} > Z_{\alpha/2}\) \\
+        \(\theta \leq \theta_0\)         & \(T\left( \symbfit{x} \right) > Z_{\alpha}\)          \\
+        \(\theta \geq \theta_0\)         & \(T\left( \symbfit{x} \right) < -Z_{\alpha}\)         \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+where \(Z_{p}\) refers to the upper tail probability of the standard normal distribution,
+and \(Z_{-p}\) refers to the lower tail probability of the standard normal distribution:
+\begin{align*}
+    \Pr{\left( Z \geq Z_{\alpha / 2} \right)} & = \frac{\alpha}{2} \\
+    \Pr{\left( Z \geq Z_{\alpha} \right)}     & = \alpha           \\
+    \Pr{\left( Z \leq -Z_{\alpha} \right)}    & = \alpha.
+\end{align*}
+The Type I error rate takes the following common values:
+\begin{center}
+    \begin{tabular}{ccc}
+        \toprule
+        \textbf{Type I Error Rate} \(\alpha\) & \textbf{One Tail} \(Z_{\alpha}\) & \textbf{Two-Tail} \(Z_{\alpha/2}\) \\
+        \midrule
+        \(0.10\)                              & \(1.28\)                         & \(1.64\)                           \\
+        \(0.05\)                              & \(1.65\)                         & \(1.96\)                           \\
+        \(0.02\)                              & \(2.05\)                         & \(2.33\)                           \\
+        \(0.01\)                              & \(2.33\)                         & \(2.58\)                           \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+\subsection{Hypothesis Testing for the Population Mean}
+Given the sample statistic \(\overline{x}\),
+\begin{equation*}
+    \overline{x} \sim \operatorname{N}\left( \mu,\: \frac{\sigma^2}{n} \right)
+\end{equation*}
+the test statistic is defined
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\overline{x} - \mu_0}{\sigma/\sqrt{n}} \sim \operatorname{N}\left( 0,\: 1 \right).
+\end{equation*}
+\subsection{Hypothesis Testing for the Population Proportion}
+Given the sample statistic \(\hat{p}\),
+\begin{equation*}
+    \hat{p} \sim \operatorname{N}\left( p,\: \frac{p\left( 1 - p \right)}{n} \right)
+\end{equation*}
+for \(n \hat{p} > 5\) and \(n \left( 1 - \hat{p} \right) > 5\),
+the test statistic is defined
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\sqrt{n} \left( \hat{p} - p_0 \right)}{\sqrt{p_0 \left( 1 - p_0 \right)}}.
+\end{equation*}
+\subsection{Hypothesis Testing with Differences}
+The rejection regions for the difference between two parameters is defined:
+\begin{center}
+    \begin{tabular}{cc}
+        \toprule
+        \textbf{Null Hypothesis} \(H_0\) & \textbf{Rejection Region} \(R\)                       \\
+        \midrule
+        \(\theta_1 - \theta_0 = 0\)      & \(\abs*{T\left( \symbfit{x} \right)} > Z_{\alpha/2}\) \\
+        \(\theta_1 - \theta_2 \leq 0\)   & \(T\left( \symbfit{x} \right) > Z_{\alpha}\)          \\
+        \(\theta_1 - \theta_2 \geq 0\)   & \(T\left( \symbfit{x} \right) < -Z_{\alpha}\)         \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+\subsection{Hypothesis Testing for the Difference in Population Means}
+The point estimator of \(\mu_1 - \mu_2\) is given by
+\begin{equation*}
+    \overline{x}_1 - \overline{x}_2
+\end{equation*}
+and the standard error is given by
+\begin{equation*}
+    \operatorname{SE}_{\overline{x}_1 - \overline{x}_2} = \sqrt{\frac{s_1^2}{n_1} + \frac{S_2^2}{n_2}}.
+\end{equation*}
+The test statistic is defined
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\left( \overline{x}_1 - \overline{x}_2 \right) - \Delta_0}{\operatorname{SE}_{\overline{x}_1 - \overline{x}_2}}.
+\end{equation*}
+where \(\Delta_0 = \mu_1 - \mu_2\) is the hypothesized difference between the two population means.
+\subsection{Hypothesis Testing for the Difference in Population Proportions}
+The point estimator of the difference in proportions where \(p_1 = p_2\) is given by
+\begin{equation*}
+    \hat{p}_1 - \hat{p}_2
+\end{equation*}
+and the standard error is defined
+\begin{equation*}
+    \operatorname{SE}_{\hat{p}_1 - \hat{p}_2} = \sqrt{p_0 \left( 1 - p_0 \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}
+\end{equation*}
+where
+\begin{align*}
+    p_0 & = \frac{x_1 + x_2}{n_1 + n_2}                      \\
+    p_0 & = \frac{\hat{p}_1 n_1 + \hat{p}_2 n_2}{n_1 + n_2}.
+\end{align*}
+so that \(p_0 = p_1 = p_2\).
+The resulting test statistic is defined:
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\left( \hat{p}_1 - \hat{p}_2 \right)}{\operatorname{SE}_{\hat{p}_1 - \hat{p}_2}}.
+\end{equation*}
+When the hypothesised difference is not 0, i.e., \(p_1 - p_2 = \Delta_0\), the test statistic is defined:
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\left( \hat{p}_1 - \hat{p}_2 \right) - \Delta_0}{\sqrt{\frac{\hat{p}_1 \left( 1 - \hat{p}_1 \right)}{n_1} + \frac{\hat{p}_2 \left( 1 - \hat{p}_2 \right)}{n_2}}}.
+\end{equation*}
+\subsection{Power and Sample Size Selection}
+The power describes the probability that the test rejects the null hypothesis when the alternative hypothesis is true:
+\begin{align*}
+    \operatorname{Power} & = 1 - \beta                                                                                                   \\
+                         & = 1 - \Pr{\left( \abs*{T\left( \symbfit{x} \right)} \leq Z_{\alpha/2} \,\vert\, \theta = \theta^\ast \right)} \\
+                         & = \Pr{\left( \abs*{T\left( \symbfit{x} \right)} \geq Z_{\alpha/2} \,\vert\, \theta = \theta^\ast \right)}.
+\end{align*}
+Here the true value of \(\theta\) is \(\theta^\ast\) rather than \(\theta_0\).
+
+In this equation, as \(n\) increases, the Type II error rate decreases, and hence the power increases.
+The sample size \(n\) can therefore be selected to achieve a desired true value of \(\theta\) and a desired power.
+\subsection{Hypothesis Testing and Confidence Intervals}
+Hypothesis testing and confidence intervals both involve the probability based on the sampling distribution of a statistic.
+Here the rejection region is defined such that it is the \textbf{compliment} of the confidence region.
+
+The decision to reject the null hypothesis because it falls \underline{within} the rejection region is equivalent to
+rejecting the null hypothesis if the value \(\theta_0\) falls \underline{outside} the confidence interval.
+\subsection{Hypothesis Testing and P-Values}
+Rather than constructing rejection regions based on a given Type I error rate \(\alpha\), we
+can instead measure the strength of the evidence against the null hypothesis by compting the
+upper tail probability of the test statistic:
+\begin{equation*}
+    \alpha = \Pr{\left( Z \geq T\left( \symbfit{x} \right) \right)}.
+\end{equation*}
+The value obtained from this calculation is called the \textbf{\(p\)-value}.
+The strength of the evidence against the null hypothesis increases as the \(p\)-value decreases.
+\subsection{Significance of Results}
+When interpreting the results from a test statistic, the test can only be used to reject the null hypothesis.
+When the strength against the null hypothesis is weak, we cannot assume that the null hypothesis is true,
+rather, the test is inconclusive and the there is no statistical significance.
 \end{document}
