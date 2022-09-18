@@ -30,6 +30,7 @@ This repository provides **lecture notes** and **exam notes** for **MXB107 - Int
 6. Sampling
 7. Sampling Distributions
 8. Large Sample Estimation
+9. Hypothesis Testing
 
 ---
 
