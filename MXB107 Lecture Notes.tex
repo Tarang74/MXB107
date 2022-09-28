@@ -1165,8 +1165,7 @@ The rejection regions are defined:
         \bottomrule
     \end{tabular}
 \end{center}
-where \(Z_{p}\) refers to the upper tail probability of the standard normal distribution,
-and \(Z_{-p}\) refers to the lower tail probability of the standard normal distribution:
+so that:
 \begin{align*}
     \Pr{\left( Z \geq Z_{\alpha / 2} \right)} & = \frac{\alpha}{2} \\
     \Pr{\left( Z \geq Z_{\alpha} \right)}     & = \alpha           \\
@@ -1224,7 +1223,7 @@ The point estimator of \(\mu_1 - \mu_2\) is given by
 \end{equation*}
 and the standard error is given by
 \begin{equation*}
-    \operatorname{SE}_{\overline{x}_1 - \overline{x}_2} = \sqrt{\frac{s_1^2}{n_1} + \frac{S_2^2}{n_2}}.
+    \operatorname{SE}_{\overline{x}_1 - \overline{x}_2} = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}.
 \end{equation*}
 The test statistic is defined
 \begin{equation*}
@@ -1284,4 +1283,75 @@ The strength of the evidence against the null hypothesis increases as the \(p\)-
 When interpreting the results from a test statistic, the test can only be used to reject the null hypothesis.
 When the strength against the null hypothesis is weak, we cannot assume that the null hypothesis is true,
 rather, the test is inconclusive and the there is no statistical significance.
+\section{Small Sample Inference}
+In the previous two sections, we assumed sample sizes of above 30.
+However, in many situations, this may be infeasible.
+In these situations, the following assumption may be invalid:
+\begin{equation*}
+    s \neq \sigma \implies \frac{\sqrt{n}\left( \overline{x} - \mu \right)}{s} \neq \frac{\sqrt{n}\left( \overline{x} - \mu \right)}{\sigma}
+\end{equation*}
+and hence we cannot use the normal distribution to approximate the sampling distribution of the test statistic.
+Instead, we can use \textbf{Student's t-distribution}:
+\begin{equation*}
+    T\left( \symbfit{x} \right) \sim t_{\nu}
+\end{equation*}
+where the degrees of freedom \(\nu\) is equal to \(n - 1\). The t-distribution is similar to the Normal distribution,
+but has heavier tails for small values of \(n\). The expectation and variance are given by
+\begin{align*}
+    \E{\left( X \right)}   & = 0                   \\
+    \Var{\left( X \right)} & = \frac{\nu}{\nu - 2} \\
+\end{align*}
+for \(\nu > 2\), such that the variance is always greater than 1, and
+converges to 1 as \(\nu \rightarrow \infty\).
+\subsection{Inferencing}
+The test statistic used for inference is similar to the one used for the normal distribution:
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\overline{x} - \mu_0}{s / \sqrt{n}} \sim t_{\nu, \alpha/2}.
+\end{equation*}
+Here we also consider the Type I error rate \(\alpha\) to find the \textit{critical value} \(t_{\nu,\alpha/2}\), which is determined
+in the same way as for the normal distribution.
+\subsection{Hypothesis Testing for the Population Mean}
+Given a small sample, the test statistic is defined
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\overline{x} - \mu_0}{s/\sqrt{n}} \sim t_{\nu, \alpha/2}.
+\end{equation*}
+\subsection{Hypothesis Testing for the Difference in Population Means}
+Given a small sample, the property
+\begin{equation*}
+    \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \approx \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}}
+\end{equation*}
+will only hold if the population variances are equal, \(\sigma_1^2 = \sigma_2^2\), giving
+us the test statistic:
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{s^2\left( \frac{1}{n_1} + \frac{1}{n_2} \right)}} \sim t_{\nu, \alpha/2}.
+\end{equation*}
+If the sample variances \(s_1^2\) and \(s_2^2\) are not equal, then we
+need to determine the common or \textit{pooled} variance \(s_p^2\).
+\begin{equation*}
+    s_p^2 = \frac{\left( n_1 - 1 \right)s_1^2 + \left( n_2 - 1 \right)s_2^2}{\nu}.
+\end{equation*}
+where \(\nu = n_1 + n_2 - 2\) for the two-sample \(t\)-test.
+This results in the following test statistic:
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\overline{x}_1 + \overline{x}_2}{\sqrt{s_p^2 \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}}.
+\end{equation*}
+The population variances between two samples vary \textit{greatly}, if
+they satisfy the following:
+\begin{equation*}
+    \frac{\max{\left( s_1^2,\: s_2^2 \right)}}{\min{\left( s_1^2,\: s_2^2 \right)}} > 3.
+\end{equation*}
+when this is the case, we must modify the test statistic to account for the
+different variances:
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\left( \overline{x}_1 - \overline{x}_2 \right) - \Delta_0}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
+\end{equation*}
+noting that \(\Delta_0\) is typically zero. The degrees of freedom are given by
+\begin{equation*}
+    \nu = \floor*{\frac{\left( \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} \right)^2}{\frac{\left( s_1^2 / n_1 \right)^2}{n_1 - 1} + \frac{\left( s_2^2 / n_2 \right)^2}{n_2 - 1}}}
+\end{equation*}
+where the value is truncated (towards zero).
+\subsection{Paired Differences}
+Note that the above only applies for independent samples.
+In the case of two dependent samples, we must be careful about the choice
+of test statistic.
 \end{document}
