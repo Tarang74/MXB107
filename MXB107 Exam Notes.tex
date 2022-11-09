@@ -4,34 +4,43 @@
 \input{LaTeX-Submodule/template.tex}
 
 % Additional packages & macros
+\usepackage{mathdots}
+\setitemize{leftmargin=*,topsep=1ex,partopsep=0ex,itemsep=-1ex,partopsep=0ex,parsep=1ex}
+\setlist{leftmargin=*,topsep=1ex,partopsep=0ex,itemsep=-1ex,partopsep=0ex,parsep=1ex}
+
+\usepackage{changepage} % Modify page width
+\usepackage{multicol} % Use multiple columns
+\usepackage[explicit]{titlesec} % Modify section heading styles
+
+\titleformat{\section}{\raggedright\normalfont\bfseries}{}{0em}{#1}
+\titleformat{\subsection}{\raggedright\normalfont\small\bfseries}{}{0em}{#1}
 
 %% A4 page
 \geometry{
-	a4paper,
-	margin = 10mm
+a4paper,
+margin = 10mm
 }
 
 %% Hide horizontal rule
 \renewcommand{\headrulewidth}{0pt}
+\fancyhead{}
 
-% Modify spacing
-\titlespacing*{\section}{0pt}{0\baselineskip}{0\baselineskip}
-\titlespacing*{\subsection}{0pt}{0\baselineskip}{0\baselineskip}
+%% Hide page numbers
+\pagenumbering{gobble}
 
-% Metadata for README
-\newcommand{\unitName}{Introduction to Statistical Modelling}
-\newcommand{\unitTime}{Semester 2, 2022}
-\newcommand{\unitCoordinator}{Dr Gentry White}
-\newcommand{\documentAuthors}{Tarang Janawalkar}
+%% Multi-columns setup
+\setlength\columnsep{4pt}
 
-%% Copyright
-\usepackage[
-    type={CC},
-    modifier={by-nc-sa},
-    version={4.0},
-    imagewidth={5em},
-    hyphenation={raggedright}
-]{doclicense}
+%% Paragraph setup
+\setlength\parindent{0pt}
+\setlength\parskip{0pt}
+
+%% Customise section heading styles
+% \titleformat*\section{\raggedright\bfseries}
 
 \begin{document}
+\begin{multicols}{3}
+    \addcontentsline{toc}{section}{Section}
+    \subsection{Section}
+\end{multicols}
 \end{document}
