@@ -40,6 +40,144 @@ margin = 10mm
 
 \begin{document}
 \begin{multicols}{3}
+    \section{Introduction}
+    \subsection{Population}
+    The entire group we are concerned with.
+    \subsection{Sample}
+    A representative subset of the population.
+    \subsection{Quantitative Data}
+    Numerical data.
+    Could be nominal (discrete or continuous), or ordinal (ordered).
+    \subsection{Qualitative Data}
+    Categorical data, e.g.\ colour, model.
+
+\section{Measures of Centrality}
+\subsection{Mean}
+Given a set of \(n\) observations \(x_1,\: x_2,\: \ldots,\: x_n\), the \textbf{arithmetic mean}
+or \textbf{average} is defined as
+\begin{equation*}
+    \frac{1}{n} \sum_{i = 1}^n x_i
+\end{equation*}
+The sample mean is denoted \(\overline{x}\).
+The population mean is denoted \(\mu\).
+\subsection{Median}
+A drawback to the mean is that it can be misleading when the data is skewed.
+The \textbf{median} is the middle value of a set of \(n\) observations when arranged
+from largest to smallest.
+
+If \(n\) is odd:
+\begin{equation*}
+    \text{median} = x^{\left( \frac{n + 1}{2} \right)}
+\end{equation*}
+or the \(\left( n + 1 \right) / 2\)th value of the sorted list.
+If \(n\) is even, the median is the :
+\begin{equation*}
+    \text{median} = \frac{x^{\left( \frac{n}{2} \right)} + x^{\left( \frac{n}{2} + 1 \right)}}{2}
+\end{equation*}
+\subsection{Mode}
+Given discrete data, the mode is defined as the most common value in a set of observations.
+\section{Measures of Dispersion}
+Dispersion refers to how much variation there is in a set of observations.
+\subsection{Range}
+The range is the difference between the maximum and minimum observation.
+\subsection{Variance}
+The variance is the average of the squared deviations from the mean.
+\begin{itemize}
+    \item Given the observations \(x_1,\: x_2,\: \ldots,\: x_N\), from a population of size \(N\) with mean \(\mu\),
+          the \textbf{population variance} is defined as
+          \begin{equation*}
+              \sigma^2 = \frac{1}{N} \sum_{i = 1}^N (x_i - \mu)^2.
+          \end{equation*}
+    \item Given the observations \(x_1,\: x_2,\: \ldots,\: x_n\), from a sample of size \(n\) with mean \(\overline{x}\),
+          the \textbf{sample variance} is defined as
+          \begin{equation*}
+              s^2 = \frac{1}{n - 1} \sum_{i = 1}^n (x_i - \overline{x})^2.
+          \end{equation*}
+\end{itemize}
+The \textbf{population variance} is given by
+\subsection{Standard Deviation}
+The standard deviation is the square root of the variance.
+The \textbf{population standard deviation} is defined as
+\(
+              \sigma = \sqrt{\sigma^2}.
+              \)
+The \textbf{sample standard deviation} is defined as
+\(
+              s = \sqrt{s^2}.
+              \)
+\begin{theorem}[Chebyshev's Theorem]
+    Given a set of \(n\) observations, at least
+    \begin{equation*}
+        1 - \frac{1}{k^2}
+    \end{equation*}
+    of them are within \(k\) standard deviations of the mean,
+    where \(k \geq 1\).
+\end{theorem}
+\begin{theorem}[Empirical Rule]
+    If a histogram of the data is approximately unimodal and symmetric, then,
+    \begin{itemize}
+        \item 68\% of the data falls within \textbf{one} standard deviation of the mean
+        \item 95\% of the data falls within \textbf{two} standard deviations of the mean
+        \item 99\% of the data falls within \textbf{three} standard deviations of the mean
+    \end{itemize}
+\end{theorem}
+Often the standard deviation cannot be computed directly, but can be approximated
+using the Empirical rule. Here we assume that
+\begin{equation*}
+    \text{range} \approx 4 s
+\end{equation*}
+so that
+\begin{equation*}
+    s = \frac{\text{range}}{4}.
+\end{equation*}
+\section{Skew}
+The \textbf{skew} describes the asymmetry of the distribution.
+For a finite population of size \(N\), the \textbf{population skew} is defined as
+\begin{equation*}
+    \frac{1}{N} \sum_{i = 1}^N \left( \frac{x_i - \mu}{\sigma} \right)^3
+\end{equation*}
+For a sample of size \(n\), the \textbf{sample skew} is defined as
+\begin{equation*}
+    \frac{\frac{1}{n} \sum_{i = 1}^n \left( x_i - \overline{x} \right)^3}{\left( \sqrt{\frac{1}{n - 1} \sum_{i = 1}^n \left( x_i - \overline{x} \right)^2} \right)^3}
+\end{equation*}
+\begin{itemize}
+    \item When the skew is \textbf{positive}, the data is \textbf{right-skewed} and the ``tail'' of the distribution is \textbf{longer on the right}
+    \item When the skew is \textbf{negative}, the data is \textbf{left-skewed} and the ``tail'' of the distribution is \textbf{longer on the left}
+\end{itemize}
+\section{Measures of Rank}
+It is often useful to know the rank or \textit{relative standing} of a value in a set of observations.
+This is natural for ordinal data whose ordering has implicit meaning, but it can
+also be useful for nominal data as a means of measuring dispersion.
+\subsection{Z-Score}
+The Z-score is a unitless quantity and can be used to make comparisons of relative rank between members of a population.
+\begin{equation*}
+    Z = \frac{x  - \mu}{\sigma} \quad \text{or} \quad \frac{x - \overline{x}}{s}
+\end{equation*}
+\subsection{Quantiles}
+In addition to Z-scores, quantiles can be used to make comparisons of relative ranking between populations,
+as well as construct intervals bounding a given proportion of the observations.
+For a set of \(n\) observations, \(x_q\) is the \(q\)-th quantile, if \(q\)\% of the observations are less than \(x_q\).
+\subsection{Inter-Quartile Range}
+The inter-quartile range (IQR) is the difference between the 75th and 25th quantiles,
+or the range covered by the middle 50\% of data. It is a robust measure of the dispersion of the data,
+as it is not affected by extreme values unlike the range or variance.
+\section{Boxplots}
+\subsection{Five Number Summary}
+The five number summary is set of measurements that indicates the
+\begin{itemize}
+    \item minimum value
+    \item 25\% quartile
+    \item median
+    \item 75\% quartile
+    \item maximum value
+\end{itemize}
+
+\subsection{Outliers}
+Outliers are extreme observations that fall outside some
+interval defined either by quantiles (above 95\% or below 5\% quantiles) or in terms of the Empirical rule
+(outside two standard deviations from the mean).
+They should be investigated to determine if they are errors or naturally occurring
+extreme values.
     \section{Events and Probability}
     \subsection{Event}
     Set of outcomes from an experiment.
