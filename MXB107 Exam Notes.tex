@@ -178,6 +178,51 @@ interval defined either by quantiles (above 95\% or below 5\% quantiles) or in t
 (outside two standard deviations from the mean).
 They should be investigated to determine if they are errors or naturally occurring
 extreme values.
+
+\subsection{Covariance and Correlation Coefficients}
+Covariance is the measure of the linear correlation between variables.
+For variables \(x\) and \(y\),
+\begin{equation*}
+    s_{xy} = \frac{\sum_{i = 1}^n \left( x_i - \overline{x} \right) \left( y_i - \overline{y} \right)}{n - 1}.
+\end{equation*}
+Note that when \(x = y\), the formula simplifies to the sample variance of \(x\).
+The covariance has the following characteristics:
+\begin{itemize}
+    \item \(s_{xy} > 0\): As \(x\) increases, \(y\) also increases.
+    \item \(s_{xy} < 0\): As \(x\) increases, \(y\) decreases.
+    \item \(s_{xy} \approx 0\): No relationship between \(x\) and \(y\).
+\end{itemize}
+Although the covariance is a useful tool to measure relationships, it is
+only generalisable in terms of its sign. Thus, if we want to compare across
+data sets, we need to use the correlation coefficient.
+\begin{equation*}
+    r_{xy} = \frac{s_{xy}}{s_x s_y}
+\end{equation*}
+The \textbf{correlation coefficient} is a measure of the strength of the relationship between the variables.
+It is a scale-free and unitless measure bounded between \(-1\) and \(1\) and
+has the same characteristics as the covariance.
+
+Note that a correlation coefficient of \(0\)
+indicates \textbf{no linear relationship} between the variables, and not necessarily indicative of \textbf{no relationship}.
+\section{Regression and Least Squares}
+A regression or least squares line of
+best fit provides both a graphical and numerical summary of the relationship between the variables.
+A linear relationship between two variables \(x\) and \(y\) is defined as
+\(
+    y = a + b x.
+    \)
+The least squares best fit determines the coefficients \(a\) and \(b\) that minimise the sum of the squares of the residuals
+(errors) between \(y\) and the line \(\hat{y} = a + b x\). Mathematically,
+\(
+    \min_{a,\: b} \sum_{i = 1}^n \left( y_i - \hat{y}\left( x_i \right) \right)^2.
+    \)
+The coefficients can be summarised by the formula
+\begin{align*}
+    b & = r \frac{s_y}{s_x} = \frac{s_{xy}}{s_x^2} \\
+    a & = \overline{y} - b \overline{x}.
+\end{align*}
+
+
     \section{Events and Probability}
     \subsection{Event}
     Set of outcomes from an experiment.
