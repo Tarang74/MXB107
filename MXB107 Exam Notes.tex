@@ -94,7 +94,6 @@ The variance is the average of the squared deviations from the mean.
               s^2 = \frac{1}{n - 1} \sum_{i = 1}^n (x_i - \overline{x})^2.
           \end{equation*}
 \end{itemize}
-The \textbf{population variance} is given by
 \subsection{Standard Deviation}
 The standard deviation is the square root of the variance.
 The \textbf{population standard deviation} is defined as
@@ -145,22 +144,16 @@ For a sample of size \(n\), the \textbf{sample skew} is defined as
     \item When the skew is \textbf{negative}, the data is \textbf{left-skewed} and the ``tail'' of the distribution is \textbf{longer on the left}
 \end{itemize}
 \section{Measures of Rank}
-It is often useful to know the rank or \textit{relative standing} of a value in a set of observations.
-This is natural for ordinal data whose ordering has implicit meaning, but it can
-also be useful for nominal data as a means of measuring dispersion.
 \subsection{Z-Score}
 The Z-score is a unitless quantity and can be used to make comparisons of relative rank between members of a population.
 \begin{equation*}
     Z = \frac{x  - \mu}{\sigma} \quad \text{or} \quad \frac{x - \overline{x}}{s}
 \end{equation*}
 \subsection{Quantiles}
-In addition to Z-scores, quantiles can be used to make comparisons of relative ranking between populations,
-as well as construct intervals bounding a given proportion of the observations.
 For a set of \(n\) observations, \(x_q\) is the \(q\)-th quantile, if \(q\)\% of the observations are less than \(x_q\).
 \subsection{Inter-Quartile Range}
 The inter-quartile range (IQR) is the difference between the 75th and 25th quantiles,
-or the range covered by the middle 50\% of data. It is a robust measure of the dispersion of the data,
-as it is not affected by extreme values unlike the range or variance.
+or the range covered by the middle 50\% of data.
 \section{Boxplots}
 \subsection{Five Number Summary}
 The five number summary is set of measurements that indicates the
@@ -224,64 +217,64 @@ The coefficients can be summarised by the formula
 
 
     \section{Events and Probability}
-    \subsection{Event}
-    Set of outcomes from an experiment.
-    \subsection{Sample Space}
-    Set of all possible outcomes \(\Omega\).
-    \subsection{Intersection}
-    Outcomes occur in both \(A\) and \(B\)
-    \begin{equation*}
-        A \cap B \quad\quad \text{or} \quad\quad AB
-    \end{equation*}
-    \subsection{Disjoint}
-    No common outcomes, \(AB = \varnothing\)
-    \begin{equation*}
-        \Pr{\left( AB \right)} = \Pr{\left( A \,\vert\, B \right)} = 0
-    \end{equation*}
-    \subsection{Union}
-    Set of outcomes in either \(A\) or \(B\)
-    \begin{equation*}
-        A \cup B
-    \end{equation*}
-    \subsection{Complement}
-    Set of all outcomes not in \(A\), but in \(\Omega \)
-    \begin{align*}
-        A\overline{A}       & = \varnothing \\
-        A \cup \overline{A} & = \Omega
-    \end{align*}
-    \subsection{Subset}
-    \(A\) is a (non-strict) subset of \(B\) if all elements in \(A\) are also in \(B\) --- \(A \subset B\).
-    \begin{equation*}
-        AB = A \quad\quad \text{and} \quad\quad A \cup B = B
-    \end{equation*}
-    \begin{equation*}
-        \forall A:A\subset \Omega \land \varnothing \subset A
-    \end{equation*}
-    \begin{align*}
-        \Pr{\left( A \right)}             & \leq \Pr{\left( B \right)}                            \\
-        \Pr{\left( B \,\vert\, A \right)} & = 1                                                   \\
-        \Pr{\left( A \,\vert\, B \right)} & = \frac{\Pr{\left( A \right)}}{\Pr{\left( B \right)}}
-    \end{align*}
-    \subsection{Identities}
-    \begin{align*}
-        A \left( BC \right)            & = \left( AB \right) C                             \\
-        A \cup \left( B \cup C \right) & = \left( A \cup B \right) \cup C                  \\
-        A \left(B \cup C\right)        & = AB \cup AC                                      \\
-        A \cup BC                      & = \left( A \cup B \right) \left( A \cup C \right)
-    \end{align*}
-    \subsection{Probability}
-    Measure of the likeliness of an event occurring
-    \begin{equation*}
-        \Pr{\left( A \right)} \quad\quad \text{or} \quad\quad \mathrm{P}\left( A \right)
-    \end{equation*}
-    \begin{equation*}
-        0 \leq \Pr{\left( A \right)} \leq 1
-    \end{equation*}
-    where a probability of 0 never happens, and 1 always happens.
-    \begin{align*}
-        \Pr{\left( \Omega \right)}       & = 1                         \\
-        \Pr{\left( \overline{A} \right)} & = 1 - \Pr{\left( A \right)}
-    \end{align*}
+    % \subsection{Event}
+    % Set of outcomes from an experiment.
+    % \subsection{Sample Space}
+    % Set of all possible outcomes \(\Omega\).
+    % \subsection{Intersection}
+    % Outcomes occur in both \(A\) and \(B\)
+    % \begin{equation*}
+    %     A \cap B \quad\quad \text{or} \quad\quad AB
+    % \end{equation*}
+    % \subsection{Disjoint}
+    % No common outcomes, \(AB = \varnothing\)
+    % \begin{equation*}
+    %     \Pr{\left( AB \right)} = \Pr{\left( A \,\vert\, B \right)} = 0
+    % \end{equation*}
+    % \subsection{Union}
+    % Set of outcomes in either \(A\) or \(B\)
+    % \begin{equation*}
+    %     A \cup B
+    % \end{equation*}
+    % \subsection{Complement}
+    % Set of all outcomes not in \(A\), but in \(\Omega \)
+    % \begin{align*}
+    %     A\overline{A}       & = \varnothing \\
+    %     A \cup \overline{A} & = \Omega
+    % \end{align*}
+    % \subsection{Subset}
+    % \(A\) is a (non-strict) subset of \(B\) if all elements in \(A\) are also in \(B\) --- \(A \subset B\).
+    % \begin{equation*}
+    %     AB = A \quad\quad \text{and} \quad\quad A \cup B = B
+    % \end{equation*}
+    % \begin{equation*}
+    %     \forall A:A\subset \Omega \land \varnothing \subset A
+    % \end{equation*}
+    % \begin{align*}
+    %     \Pr{\left( A \right)}             & \leq \Pr{\left( B \right)}                            \\
+    %     \Pr{\left( B \,\vert\, A \right)} & = 1                                                   \\
+    %     \Pr{\left( A \,\vert\, B \right)} & = \frac{\Pr{\left( A \right)}}{\Pr{\left( B \right)}}
+    % \end{align*}
+    % \subsection{Identities}
+    % \begin{align*}
+    %     A \left( BC \right)            & = \left( AB \right) C                             \\
+    %     A \cup \left( B \cup C \right) & = \left( A \cup B \right) \cup C                  \\
+    %     A \left(B \cup C\right)        & = AB \cup AC                                      \\
+    %     A \cup BC                      & = \left( A \cup B \right) \left( A \cup C \right)
+    % \end{align*}
+    % \subsection{Probability}
+    % Measure of the likeliness of an event occurring
+    % \begin{equation*}
+    %     \Pr{\left( A \right)} \quad\quad \text{or} \quad\quad \mathrm{P}\left( A \right)
+    % \end{equation*}
+    % \begin{equation*}
+    %     0 \leq \Pr{\left( A \right)} \leq 1
+    % \end{equation*}
+    % where a probability of 0 never happens, and 1 always happens.
+    % \begin{align*}
+    %     \Pr{\left( \Omega \right)}       & = 1                         \\
+    %     \Pr{\left( \overline{A} \right)} & = 1 - \Pr{\left( A \right)}
+    % \end{align*}
     \subsection{Multiplication Rule}
     For independent events \(A\) and \(B\)
     \begin{equation*}
@@ -373,7 +366,383 @@ The coefficients can be summarised by the formula
         \begin{equation*}
             \sigma = \sqrt{\Var{\left( X \right)}}
         \end{equation*}
+        
+
+\subsection{Central Limit Theorem}
+For a sample of size \(n\) from any random probability distribution with expected value \(\mu\)
+and variance \(\sigma^2\),
+\begin{equation*}
+    \frac{\sqrt{n}\left( \overline{x} - \mu \right)}{\sigma} \overset{p}{\rightarrow} \operatorname{N}{\left( 0,\: 1 \right)}
+\end{equation*}
+meaning that increasing the sample size will lead to a more normal distribution.
+In this case, a sample size of \(n = 30\) is sufficient to approximate a normal distribution.
+\subsection{Standard Error}
+\begin{equation*}
+    \operatorname{SE}{\left( \overline{x} \right)} = \frac{\sigma^2}{n}
+\end{equation*}
+\subsection{Sample Proportion}
+For a sample of size \(n\) let \(x\) be the number of members with a particular characteristic.
+The sample estimate of the population proportion \(p\) is
+\begin{equation*}
+    \hat{p} = \frac{x}{n}.
+\end{equation*}
+By assuming that the samples statistic \(x\) follows a binomial distribution with probability \(p\) and
+size \(n\), then \(\E{\left( x \right)} = np\) and \(\Var{\left( x \right)} = np\left( 1 - p \right)\).
+Therefore the expectation is
+\begin{equation*}
+    \E{\left( \hat{p} \right)} = p
+\end{equation*}
+and the standard error is
+\begin{equation*}
+    \operatorname{SE}{\left( \hat{p} \right)} = \sqrt{\frac{p\left( 1 - p \right)}{n}}.
+\end{equation*}
+For the above to apply, we must assume that the sample proportion and size are sufficiently large.
+In general, if \(np > 5\) and \(n\left( 1 - p \right) > 5\), then we can assume that the sampling distribution of \(\hat{p}\)
+is approximately normal.
+\subsection{Assessing Normality}
+\begin{itemize}
+    \item Histograms: if the data is approximately normal, then the histogram will be approximately symmetric and unimodal.
+    \item Boxplots: boxplots can be useful for showing outliers and skewness. Extreme clusters of an excessive number of
+          outliers can be evidence of non-normality.
+    \item Normal probability plots (\(q\)-\(q\) plots): these plots are constructed by plotting the sorted data values against
+          their \(Z\)-scores. If the data is approximately normal, then the points will lie approximately on a straight line.
+\end{itemize}
+\section{Large Sample Estimation}
+\subsection{Point Estimation}
+\subsection{Method of Moments}
+The moments of a probability distribution are defined
+\begin{align*}
+    \mu_n & = \E{\left( X^n \right)} = \int_{-\infty}^\infty x^n f\left( x \right) \odif{x}
+\end{align*}
+where \(f\left( x \right)\) is the probability density function of the distribution.
+Here \(\mu_1 = \E{\left( X \right)}\) and \(\Var{\left( X \right)} = \mu_2 - \mu_1^2\).
+Sample moments are defined similarly
+\begin{align*}
+    m_n & = \frac{1}{n} \sum_{i = 1}^n x_i^n
+\end{align*}
+where \(\overline{x} = m_1\).
+\subsection{Method of Maximum Likelihood Estimation}
+\begin{definition}[Likelihood function]
+    \begin{equation*}
+        \mathcal{L}\left( \theta \,\vert\, \symbfit{x} \right) = \prod_{i = 1}^n f\left( x_i \right) \\
+    \end{equation*}
+\end{definition}
+\begin{definition}[Maximum likelihood estimator]
+    \begin{equation*}
+        \hat{\theta} = \arg\max_\theta{\mathcal{L}\left( \theta \,\vert\, \symbfit{x} \right)}.
+    \end{equation*}
+\end{definition}
+\begin{definition}[Log-likelihood function]
+    The \textbf{log-likelihood function} is defined as
+    \begin{align*}
+        \ell\left( \theta \,\vert\, \symbfit{x} \right)& = \sum_{i = 1}^n \log{\left( f\left( x_i \right) \right)}
+    \end{align*}
+\end{definition}
+Due to the monotonicity of the log function, the maximum likelihood estimator is the same as the maximum log-likelihood estimator.
+\begin{definition}[Maximum log-likelihood estimator]
+    The \textbf{maximum log-likelihood estimator} is defined as
+    \begin{equation*}
+        \hat{\theta} = \arg\max_\theta{\ell\left( \theta \,\vert\, \symbfit{x} \right)}.
+    \end{equation*}
+\end{definition}
+\subsection{Properties of Estimators}
+\begin{definition}[Bias]
+    The \textbf{bias} of an estimator is defined as
+    the difference between the expected value of the estimator \(\E{\left( \hat{\theta} \right)}\) and the true value of the parameter \(\theta_0\).
+    \begin{equation*}
+        \operatorname{Bias}\left( \hat{\theta} \right) = \E{\left( \hat{\theta} \right)} - \theta
+    \end{equation*}
+    An estimator \(\hat{\theta}\) is \textbf{unbiased} if
+    \begin{equation*}
+        \E{\left( \hat{\theta} \right)} = \theta
+    \end{equation*}
+    so that the bias is zero.
+\end{definition}
+We can also compare the variance of two estimators, to assess which one is more preferable.
+If the variance of the estimator is small, then the estimator is more precise.
+Given two estimators \(\hat{\theta}_1\) and \(\hat{\theta}_2\), we would choose \(\hat{\theta}_1\) over \(\hat{\theta}_2\) if
+\begin{equation*}
+    \Var{\left( \hat{\theta}_1 \right)} < \Var{\left( \hat{\theta}_2 \right)}
+\end{equation*}
+\begin{definition}[Mean square error]
+    Given data \(x_i\) with variance \(\sigma^2\), the estimators of \(\theta = \E\left\{ X \right\}\)
+    are selected such that they minimise the \textbf{mean square error}:
+    \begin{align*}
+        \operatorname{MSE}\left( \hat{\theta} \right) & = \E{\left( \left( \hat{\theta} - \theta \right)^2 \right)}                             \\
+                                                      & = \operatorname{Bias}\left( \hat{\theta} \right)^2 + \Var{\left( \hat{\theta} \right)}.
+    \end{align*}
+    This quantity is used to determine the \textbf{bias-variance trade-off} of an estimator.
+    The \textbf{root mean square error} is defined as
+    \begin{equation*}
+        \operatorname{RMSE}\left( \hat{\theta} \right) = \sqrt{\operatorname{MSE}\left( \hat{\theta} \right)}.
+    \end{equation*}
+\end{definition}
+\subsection{Confidence Intervals}
+This interval ranges from the lower confidence limit (UCL) to the upper confidence limit (LCL)
+\begin{equation*}
+    L < \theta < U.
+\end{equation*}
+This interval has a \textbf{confidence coefficient} of \(1 - \alpha\), or a \textbf{confidence level} of \(\left( 1 - \alpha \right)\%\).
+The confidence interval is defined as
+\begin{align*}
+    {CI}_{1 - \alpha} &= \hat{\theta} \pm Z_{\alpha / 2} \operatorname{SE}\left( \hat{\theta} \right)
+\end{align*}
+\subsection{Confidence Interval for the Mean}
+\begin{equation*}
+    {CI}_{1-\alpha} = \overline{x} \pm Z_{\alpha/2} \frac{\sigma}{\sqrt{n}}
+\end{equation*}
+where
+\(
+    \operatorname{SE}\left( \overline{x} \right) = \frac{\sigma}{\sqrt{n}}.
+    \)
+\subsection{Confidence Interval for the Proportion}
+Given the sample size \(n\) and sample proportion \(\hat{p}\),
+\begin{equation*}
+    \hat{p} \sim \operatorname{N}\left( p,\: \frac{p\left( 1 - p \right)}{n} \right).
+\end{equation*}
+The confidence interval for the population proportion is
+\begin{equation*}
+    {CI}_{1-\alpha} = \hat{p} \pm Z_{\alpha/2} \sqrt{\frac{\hat{p}\left( 1 - \hat{p} \right)}{n}}
+\end{equation*}
+where the standard error is given by
+\begin{equation*}
+    \operatorname{SE}\left( \hat{p} \right) = \sqrt{\frac{p\left( 1 - p \right)}{n}}.
+\end{equation*}
+with the approximation \(p=\hat{p}\).
+Note that \(n \hat{p} > 5\) and \(n \left( 1 - \hat{p} \right) > 5\) are required for the approximation to be valid.
+\subsection{Confidence Interval for the Difference of Two Means}
+% Given two population means \(\mu_1\) and \(\mu_2\), we expect the difference of the population means
+% and the sample means to be equal. Consider the expectation of the difference of the sample means:
+% \begin{equation*}
+%     \E{\left( \overline{x}_1 - \overline{x}_2 \right)} = \mu_1 - \mu_2
+% \end{equation*}
+% with standard error
+% \begin{equation*}
+%     \operatorname{SE}\left( \overline{x}_1 - \overline{x}_2 \right) = \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}
+% \end{equation*}
+% with is estimated by \(\sigma=s\).
+% The confidence interval for the difference of the two means is
+\begin{equation*}
+    {CI}_{1-\alpha} = \overline{x}_1 - \overline{x}_2 \pm Z_{\alpha/2} \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}.
+\end{equation*}
+If the two populations follow a normal distribution, then the sampling distribution is exactly normal.
+If the two populations are not normal, then the sampling distribution is approximately normal, for \(n_1 > 30\) and \(n_2 > 30\).
+\subsection{Confidence Interval for the Difference of Two Proportions}
+\begin{equation*}
+    {CI}_{1-\alpha} = \hat{p}_1 - \hat{p}_2 \pm Z_{\alpha/2} \sqrt{\frac{\hat{p}_1\left( 1 - \hat{p}_1 \right)}{n_1} + \frac{\hat{p}_2\left( 1 - \hat{p}_2 \right)}{n_2}}.
+\end{equation*}
+Note that the following constraints must be satisfied:
+\begin{itemize}
+    \item \(n_1 \hat{p}_1 > 5\)
+    \item \(n_1 \left( 1 - \hat{p}_1 \right) > 5\)
+    \item \(n_2 \hat{p}_2 > 5\)
+    \item \(n_2 \left( 1 - \hat{p}_2 \right) > 5\)
+\end{itemize}
+\section{Hypothesis Testing}
+\subsection{Hypothesis Testing for the Population Mean}
+Given the sample statistic \(\overline{x}\),
+\begin{equation*}
+    \overline{x} \sim \operatorname{N}\left( \mu,\: \frac{\sigma^2}{n} \right)
+\end{equation*}
+the test statistic is defined
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\overline{x} - \mu_0}{\sigma/\sqrt{n}} \sim \operatorname{N}\left( 0,\: 1 \right).
+\end{equation*}
+\subsection{Hypothesis Testing for the Population Proportion}
+Given the sample statistic \(\hat{p}\),
+\begin{equation*}
+    \hat{p} \sim \operatorname{N}\left( p,\: \frac{p\left( 1 - p \right)}{n} \right)
+\end{equation*}
+for \(n \hat{p} > 5\) and \(n \left( 1 - \hat{p} \right) > 5\),
+the test statistic is defined
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\sqrt{n} \left( \hat{p} - p_0 \right)}{\sqrt{p_0 \left( 1 - p_0 \right)}}.
+\end{equation*}
+\subsection{Hypothesis Testing with Differences}
+The rejection regions for the difference between two parameters is defined:
+\begin{center}
+    \begin{tabular}{cc}
+        \toprule
+        \textbf{Null Hypothesis} \(H_0\) & \textbf{Rejection Region} \(R\)                       \\
+        \midrule
+        \(\theta_1 - \theta_0 = 0\)      & \(\abs*{T\left( \symbfit{x} \right)} > Z_{\alpha/2}\) \\
+        \(\theta_1 - \theta_2 \leq 0\)   & \(T\left( \symbfit{x} \right) > Z_{\alpha}\)          \\
+        \(\theta_1 - \theta_2 \geq 0\)   & \(T\left( \symbfit{x} \right) < -Z_{\alpha}\)         \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+\subsection{Hypothesis Testing for the Difference in Population Means}
+The point estimator of \(\mu_1 - \mu_2\) is given by
+\begin{equation*}
+    \overline{x}_1 - \overline{x}_2
+\end{equation*}
+and the standard error is given by
+\begin{equation*}
+    \operatorname{SE}_{\overline{x}_1 - \overline{x}_2} = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}.
+\end{equation*}
+The test statistic is defined
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\left( \overline{x}_1 - \overline{x}_2 \right) - \Delta_0}{\operatorname{SE}_{\overline{x}_1 - \overline{x}_2}}.
+\end{equation*}
+where \(\Delta_0 = \mu_1 - \mu_2\) is the hypothesized difference between the two population means.
+\subsection{Hypothesis Testing for the Difference in Population Proportions}
+The point estimator of the difference in proportions where \(p_1 = p_2\) is given by
+\begin{equation*}
+    \hat{p}_1 - \hat{p}_2
+\end{equation*}
+and the standard error is defined
+\begin{equation*}
+    \operatorname{SE}_{\hat{p}_1 - \hat{p}_2} = \sqrt{p_0 \left( 1 - p_0 \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}
+\end{equation*}
+where
+\begin{align*}
+    p_0 & = \frac{x_1 + x_2}{n_1 + n_2}                      \\
+    p_0 & = \frac{\hat{p}_1 n_1 + \hat{p}_2 n_2}{n_1 + n_2}.
+\end{align*}
+so that \(p_0 = p_1 = p_2\).
+The resulting test statistic is defined:
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\left( \hat{p}_1 - \hat{p}_2 \right)}{\operatorname{SE}_{\hat{p}_1 - \hat{p}_2}}.
+\end{equation*}
+When the hypothesised difference is not 0, i.e., \(p_1 - p_2 = \Delta_0\), the test statistic is defined:
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\left( \hat{p}_1 - \hat{p}_2 \right) - \Delta_0}{\sqrt{\frac{\hat{p}_1 \left( 1 - \hat{p}_1 \right)}{n_1} + \frac{\hat{p}_2 \left( 1 - \hat{p}_2 \right)}{n_2}}}.
+\end{equation*}
+\subsection{Power and Sample Size Selection}
+The power describes the probability that the test rejects the null hypothesis when the alternative hypothesis is true:
+\begin{align*}
+    \operatorname{Power} & = 1 - \beta                                                                                                   \\
+                         & = 1 - \Pr{\left( \abs*{T\left( \symbfit{x} \right)} \leq Z_{\alpha/2} \,\vert\, \theta = \theta^\ast \right)} \\
+                         & = \Pr{\left( \abs*{T\left( \symbfit{x} \right)} \geq Z_{\alpha/2} \,\vert\, \theta = \theta^\ast \right)}.
+\end{align*}
+Here the true value of \(\theta\) is \(\theta^\ast\) rather than \(\theta_0\).
+
+In this equation, as \(n\) increases, the Type II error rate decreases, and hence the power increases.
+The sample size \(n\) can therefore be selected to achieve a desired true value of \(\theta\) and a desired power.
+\subsection{Hypothesis Testing and Confidence Intervals}
+Hypothesis testing and confidence intervals both involve the probability based on the sampling distribution of a statistic.
+Here the rejection region is defined such that it is the \textbf{compliment} of the confidence region.
+
+The decision to reject the null hypothesis because it falls \underline{within} the rejection region is equivalent to
+rejecting the null hypothesis if the value \(\theta_0\) falls \underline{outside} the confidence interval.
+\subsection{Hypothesis Testing and P-Values}
+Rather than constructing rejection regions based on a given Type I error rate \(\alpha\), we
+can instead measure the strength of the evidence against the null hypothesis by compting the
+upper tail probability of the test statistic:
+\begin{equation*}
+    \alpha = \Pr{\left( Z \geq T\left( \symbfit{x} \right) \right)}.
+\end{equation*}
+The value obtained from this calculation is called the \textbf{\(p\)-value}.
+The strength of the evidence against the null hypothesis increases as the \(p\)-value decreases.
+\subsection{Significance of Results}
+When interpreting the results from a test statistic, the test can only be used to reject the null hypothesis.
+When the strength against the null hypothesis is weak, we cannot assume that the null hypothesis is true,
+rather, the test is inconclusive and the there is no statistical significance.
+\section{Small Sample Inference}
+Instead, we can use \textbf{Student's t-distribution}:
+\begin{equation*}
+    T\left( \symbfit{x} \right) \sim t_{\nu}
+\end{equation*}
+where the degrees of freedom \(\nu\) is equal to \(n - 1\). The t-distribution is similar to the Normal distribution,
+but has heavier tails for small values of \(n\). The expectation and variance are given by
+\begin{align*}
+    \E{\left( X \right)}   & = 0                   \\
+    \Var{\left( X \right)} & = \frac{\nu}{\nu - 2} \\
+\end{align*}
+for \(\nu > 2\), such that the variance is always greater than 1, and
+converges to 1 as \(\nu \rightarrow \infty\).
+\subsection{Inferencing}
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\overline{x} - \mu_0}{s / \sqrt{n}} \sim t_{\nu, \alpha/2}.
+\end{equation*}
+Here we also consider the Type I error rate \(\alpha\) to find the \textit{critical value} \(t_{\nu,\alpha/2}\), which is determined
+in the same way as for the normal distribution.
+\subsection{Hypothesis Testing for the Population Mean}
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\overline{x} - \mu_0}{s/\sqrt{n}} \sim t_{\nu, \alpha/2}.
+\end{equation*}
+\subsection{Hypothesis Testing for the Difference in Population Means}
+Given a small sample, the property
+\begin{equation*}
+    \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \approx \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}}
+\end{equation*}
+will only hold if the population variances are equal, \(\sigma_1^2 = \sigma_2^2\), giving
+us the test statistic:
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{s^2\left( \frac{1}{n_1} + \frac{1}{n_2} \right)}} \sim t_{\nu, \alpha/2}.
+\end{equation*}
+If the sample variances \(s_1^2\) and \(s_2^2\) are not equal, then we
+need to determine the common or \textit{pooled} variance \(s_p^2\).
+\begin{equation*}
+    s_p^2 = \frac{\left( n_1 - 1 \right)s_1^2 + \left( n_2 - 1 \right)s_2^2}{\nu}.
+\end{equation*}
+where \(\nu = n_1 + n_2 - 2\) for the two-sample \(t\)-test.
+This results in the following test statistic:
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\overline{x}_1 + \overline{x}_2}{\sqrt{s_p^2 \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}}.
+\end{equation*}
+The population variances between two samples vary \textit{greatly}, if
+they satisfy the following:
+\begin{equation*}
+    \frac{\max{\left( s_1^2,\: s_2^2 \right)}}{\min{\left( s_1^2,\: s_2^2 \right)}} > 3.
+\end{equation*}
+when this is the case, we must modify the test statistic to account for the
+different variances:
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\left( \overline{x}_1 - \overline{x}_2 \right) - \Delta_0}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
+\end{equation*}
+noting that \(\Delta_0\) is typically zero. The degrees of freedom are given by
+\begin{equation*}
+    \nu = \floor*{\frac{\left( \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} \right)^2}{\frac{\left( s_1^2 / n_1 \right)^2}{n_1 - 1} + \frac{\left( s_2^2 / n_2 \right)^2}{n_2 - 1}}}
+\end{equation*}
+where the value is truncated (towards zero).
+\subsection{Paired Differences}
+Note that the above only applies for independent samples.
+In the case of two dependent samples, we must be careful about the choice
+of test statistic.
+
+        
 \end{multicols}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|cc}
+        \toprule
+        \textbf{Decision}                  & \textbf{\(H_0\) is true}       & \textbf{\(H_0\) is false}      \\
+        \midrule
+        \textbf{Reject \(H_0\)}            & \(\alpha\) (Type I error rate) & \(1 - \beta\) (Power)          \\
+        \textbf{Failure to reject \(H_0\)} & \(1 - \alpha\)                 & \(\beta\) (Type II error rate) \\
+        \bottomrule
+    \end{tabular}
+    \caption{} % \label{}
+\end{table}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc}
+        \toprule
+        \textbf{Null Hypothesis} \(H_0\) & \textbf{Rejection Region} \(R\)                       \\
+        \midrule
+        \(\theta = \theta_0\)            & \(\abs*{T\left( \symbfit{x} \right)} > Z_{\alpha/2}\) \\
+        \(\theta \leq \theta_0\)         & \(T\left( \symbfit{x} \right) > Z_{\alpha}\)          \\
+        \(\theta \geq \theta_0\)         & \(T\left( \symbfit{x} \right) < -Z_{\alpha}\)         \\
+        \bottomrule
+    \end{tabular}
+    \caption{} % \label{}
+\end{table}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ccc}
+        \toprule
+        \textbf{Type I Error Rate} \(\alpha\) & \textbf{One Tail} \(Z_{\alpha}\) & \textbf{Two-Tail} \(Z_{\alpha/2}\) \\
+        \midrule
+        \(0.10\)                              & \(1.28\)                         & \(1.64\)                           \\
+        \(0.05\)                              & \(1.65\)                         & \(1.96\)                           \\
+        \(0.02\)                              & \(2.05\)                         & \(2.33\)                           \\
+        \(0.01\)                              & \(2.33\)                         & \(2.58\)                           \\
+        \bottomrule
+    \end{tabular}
+    \caption{} % \label{}
+\end{table}
+
 \begin{table}[H]
     \centering
     \begin{tabular}{c c c c c c}
