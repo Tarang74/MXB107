@@ -498,16 +498,17 @@ Note that \(n \hat{p} > 5\) and \(n \left( 1 - \hat{p} \right) > 5\) are require
 If the two populations follow a normal distribution, then the sampling distribution is exactly normal.
 If the two populations are not normal, then the sampling distribution is approximately normal, for \(n_1 > 30\) and \(n_2 > 30\).
 \subsection{Confidence Interval for the Difference of Two Proportions}
-\begin{equation*}
+% {\scriptsize
+% \begin{equation*}
+\(
     {CI}_{1-\alpha} = \hat{p}_1 - \hat{p}_2 \pm Z_{\alpha/2} \sqrt{\frac{\hat{p}_1\left( 1 - \hat{p}_1 \right)}{n_1} + \frac{\hat{p}_2\left( 1 - \hat{p}_2 \right)}{n_2}}.
-\end{equation*}
-Note that the following constraints must be satisfied:
-\begin{itemize}
-    \item \(n_1 \hat{p}_1 > 5\)
-    \item \(n_1 \left( 1 - \hat{p}_1 \right) > 5\)
-    \item \(n_2 \hat{p}_2 > 5\)
-    \item \(n_2 \left( 1 - \hat{p}_2 \right) > 5\)
-\end{itemize}
+    \)
+% \end{equation*}
+% }
+Note
+\(n_i \hat{p}_i > 5\), and 
+\(n_i \left( 1 - \hat{p}_i \right) > 5\) for \(i=1,2\)
+to use this.
 \section{Hypothesis Testing}
 \subsection{Hypothesis Testing for the Population Mean}
 Given the sample statistic \(\overline{x}\),
@@ -529,18 +530,6 @@ the test statistic is defined
     T\left( \symbfit{x} \right) = \frac{\sqrt{n} \left( \hat{p} - p_0 \right)}{\sqrt{p_0 \left( 1 - p_0 \right)}}.
 \end{equation*}
 \subsection{Hypothesis Testing with Differences}
-The rejection regions for the difference between two parameters is defined:
-\begin{center}
-    \begin{tabular}{cc}
-        \toprule
-        \textbf{Null Hypothesis} \(H_0\) & \textbf{Rejection Region} \(R\)                       \\
-        \midrule
-        \(\theta_1 - \theta_0 = 0\)      & \(\abs*{T\left( \symbfit{x} \right)} > Z_{\alpha/2}\) \\
-        \(\theta_1 - \theta_2 \leq 0\)   & \(T\left( \symbfit{x} \right) > Z_{\alpha}\)          \\
-        \(\theta_1 - \theta_2 \geq 0\)   & \(T\left( \symbfit{x} \right) < -Z_{\alpha}\)         \\
-        \bottomrule
-    \end{tabular}
-\end{center}
 \subsection{Hypothesis Testing for the Difference in Population Means}
 The point estimator of \(\mu_1 - \mu_2\) is given by
 \begin{equation*}
@@ -574,10 +563,11 @@ The resulting test statistic is defined:
 \begin{equation*}
     T\left( \symbfit{x} \right) = \frac{\left( \hat{p}_1 - \hat{p}_2 \right)}{\operatorname{SE}_{\hat{p}_1 - \hat{p}_2}}.
 \end{equation*}
-When the hypothesised difference is not 0, i.e., \(p_1 - p_2 = \Delta_0\), the test statistic is defined:
-\begin{equation*}
-    T\left( \symbfit{x} \right) = \frac{\left( \hat{p}_1 - \hat{p}_2 \right) - \Delta_0}{\sqrt{\frac{\hat{p}_1 \left( 1 - \hat{p}_1 \right)}{n_1} + \frac{\hat{p}_2 \left( 1 - \hat{p}_2 \right)}{n_2}}}.
-\end{equation*}
+% % unsure if needed
+% When the hypothesised difference is not 0, i.e., \(p_1 - p_2 = \Delta_0\), the test statistic is defined:
+% \begin{equation*}
+%     T\left( \symbfit{x} \right) = \frac{\left( \hat{p}_1 - \hat{p}_2 \right) - \Delta_0}{\sqrt{\frac{\hat{p}_1 \left( 1 - \hat{p}_1 \right)}{n_1} + \frac{\hat{p}_2 \left( 1 - \hat{p}_2 \right)}{n_2}}}.
+% \end{equation*}
 \subsection{Significance of Results}
 When interpreting the results from a test statistic, the test can only be used to reject the null hypothesis.
 \section{Small Sample Inference}
@@ -599,39 +589,29 @@ where the degrees of freedom \(\nu\) is equal to \(n - 1\).
     T\left( \symbfit{x} \right) = \frac{\overline{x} - \mu_0}{s/\sqrt{n}} \sim t_{\nu, \alpha/2}.
 \end{equation*}
 \subsection{Hypothesis Testing for the Difference in Population Means}
+For independent samples,
 \begin{equation*}
     T\left( \symbfit{x} \right) = \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{s^2\left( \frac{1}{n_1} + \frac{1}{n_2} \right)}} \sim t_{\nu, \alpha/2}.
 \end{equation*}
-If the sample variances \(s_1^2\) and \(s_2^2\) are not equal, then we
-need to determine the common or \textit{pooled} variance \(s_p^2\).
+If \(s_1^2 \ne s_2^2\) use 
 \begin{equation*}
     s_p^2 = \frac{\left( n_1 - 1 \right)s_1^2 + \left( n_2 - 1 \right)s_2^2}{\nu}.
 \end{equation*}
 where \(\nu = n_1 + n_2 - 2\) for the two-sample \(t\)-test.
-This results in the following test statistic:
-\begin{equation*}
-    T\left( \symbfit{x} \right) = \frac{\overline{x}_1 + \overline{x}_2}{\sqrt{s_p^2 \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}}.
-\end{equation*}
 The population variances between two samples vary \textit{greatly}, if
-they satisfy the following:
-\begin{equation*}
+\(
     \frac{\max{\left( s_1^2,\: s_2^2 \right)}}{\min{\left( s_1^2,\: s_2^2 \right)}} > 3.
-\end{equation*}
-when this is the case, we must modify the test statistic to account for the
-different variances:
+    \)
+    . If so use
 \begin{equation*}
-    T\left( \symbfit{x} \right) = \frac{\left( \overline{x}_1 - \overline{x}_2 \right) - \Delta_0}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
+    T\left( \symbfit{x} \right) = \frac{\overline{x}_1 - \overline{x}_2 }{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
 \end{equation*}
-noting that \(\Delta_0\) is typically zero. The degrees of freedom are given by
 \begin{equation*}
     \nu = \floor*{\frac{\left( \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} \right)^2}{\frac{\left( s_1^2 / n_1 \right)^2}{n_1 - 1} + \frac{\left( s_2^2 / n_2 \right)^2}{n_2 - 1}}}
 \end{equation*}
-where the value is truncated (towards zero).
-
-Note that the above only applies for independent samples.
 
         
-\begin{minipage}{80mm}
+\begin{minipage}{70mm}
 \begin{table}[H]
     \centering
     \begin{tabular}{c|cc}
@@ -646,7 +626,7 @@ Note that the above only applies for independent samples.
 \end{table}
 \end{minipage}
 
-\begin{minipage}{80mm}
+\begin{minipage}{70mm}
 \begin{table}[H]
     \centering
     \begin{tabular}{cc}
