@@ -154,27 +154,9 @@ For a set of \(n\) observations, \(x_q\) is the \(q\)-th quantile, if \(q\)\% of
 \subsection{Inter-Quartile Range}
 The inter-quartile range (IQR) is the difference between the 75th and 25th quantiles,
 or the range covered by the middle 50\% of data.
-\section{Boxplots}
-\subsection{Five Number Summary}
-The five number summary is set of measurements that indicates the
-\begin{itemize}
-    \item minimum value
-    \item 25\% quartile
-    \item median
-    \item 75\% quartile
-    \item maximum value
-\end{itemize}
-
-\subsection{Outliers}
-Outliers are extreme observations that fall outside some
-interval defined either by quantiles (above 95\% or below 5\% quantiles) or in terms of the Empirical rule
-(outside two standard deviations from the mean).
-They should be investigated to determine if they are errors or naturally occurring
-extreme values.
 
 \subsection{Covariance and Correlation Coefficients}
 Covariance is the measure of the linear correlation between variables.
-For variables \(x\) and \(y\),
 \begin{equation*}
     s_{xy} = \frac{\sum_{i = 1}^n \left( x_i - \overline{x} \right) \left( y_i - \overline{y} \right)}{n - 1}.
 \end{equation*}
@@ -185,31 +167,19 @@ The covariance has the following characteristics:
     \item \(s_{xy} < 0\): As \(x\) increases, \(y\) decreases.
     \item \(s_{xy} \approx 0\): No relationship between \(x\) and \(y\).
 \end{itemize}
-Although the covariance is a useful tool to measure relationships, it is
-only generalisable in terms of its sign. Thus, if we want to compare across
-data sets, we need to use the correlation coefficient.
+\textbf{Correlation Coefficient}
 \begin{equation*}
-    r_{xy} = \frac{s_{xy}}{s_x s_y}
+    -1 \le r_{xy} = \frac{s_{xy}}{s_x s_y} \le 1
 \end{equation*}
-The \textbf{correlation coefficient} is a measure of the strength of the relationship between the variables.
-It is a scale-free and unitless measure bounded between \(-1\) and \(1\) and
-has the same characteristics as the covariance.
 
 Note that a correlation coefficient of \(0\)
 indicates \textbf{no linear relationship} between the variables, and not necessarily indicative of \textbf{no relationship}.
 \section{Regression and Least Squares}
-A regression or least squares line of
-best fit provides both a graphical and numerical summary of the relationship between the variables.
 A linear relationship between two variables \(x\) and \(y\) is defined as
 \(
     y = a + b x.
     \)
 The least squares best fit determines the coefficients \(a\) and \(b\) that minimise the sum of the squares of the residuals
-(errors) between \(y\) and the line \(\hat{y} = a + b x\). Mathematically,
-\(
-    \min_{a,\: b} \sum_{i = 1}^n \left( y_i - \hat{y}\left( x_i \right) \right)^2.
-    \)
-The coefficients can be summarised by the formula
 \begin{align*}
     b & = r \frac{s_y}{s_x} = \frac{s_{xy}}{s_x^2} \\
     a & = \overline{y} - b \overline{x}.
@@ -608,66 +578,27 @@ When the hypothesised difference is not 0, i.e., \(p_1 - p_2 = \Delta_0\), the t
 \begin{equation*}
     T\left( \symbfit{x} \right) = \frac{\left( \hat{p}_1 - \hat{p}_2 \right) - \Delta_0}{\sqrt{\frac{\hat{p}_1 \left( 1 - \hat{p}_1 \right)}{n_1} + \frac{\hat{p}_2 \left( 1 - \hat{p}_2 \right)}{n_2}}}.
 \end{equation*}
-\subsection{Power and Sample Size Selection}
-The power describes the probability that the test rejects the null hypothesis when the alternative hypothesis is true:
-\begin{align*}
-    \operatorname{Power} & = 1 - \beta                                                                                                   \\
-                         & = 1 - \Pr{\left( \abs*{T\left( \symbfit{x} \right)} \leq Z_{\alpha/2} \,\vert\, \theta = \theta^\ast \right)} \\
-                         & = \Pr{\left( \abs*{T\left( \symbfit{x} \right)} \geq Z_{\alpha/2} \,\vert\, \theta = \theta^\ast \right)}.
-\end{align*}
-Here the true value of \(\theta\) is \(\theta^\ast\) rather than \(\theta_0\).
-
-In this equation, as \(n\) increases, the Type II error rate decreases, and hence the power increases.
-The sample size \(n\) can therefore be selected to achieve a desired true value of \(\theta\) and a desired power.
-\subsection{Hypothesis Testing and Confidence Intervals}
-Hypothesis testing and confidence intervals both involve the probability based on the sampling distribution of a statistic.
-Here the rejection region is defined such that it is the \textbf{compliment} of the confidence region.
-
-The decision to reject the null hypothesis because it falls \underline{within} the rejection region is equivalent to
-rejecting the null hypothesis if the value \(\theta_0\) falls \underline{outside} the confidence interval.
-\subsection{Hypothesis Testing and P-Values}
-Rather than constructing rejection regions based on a given Type I error rate \(\alpha\), we
-can instead measure the strength of the evidence against the null hypothesis by compting the
-upper tail probability of the test statistic:
-\begin{equation*}
-    \alpha = \Pr{\left( Z \geq T\left( \symbfit{x} \right) \right)}.
-\end{equation*}
-The value obtained from this calculation is called the \textbf{\(p\)-value}.
-The strength of the evidence against the null hypothesis increases as the \(p\)-value decreases.
 \subsection{Significance of Results}
 When interpreting the results from a test statistic, the test can only be used to reject the null hypothesis.
-When the strength against the null hypothesis is weak, we cannot assume that the null hypothesis is true,
-rather, the test is inconclusive and the there is no statistical significance.
 \section{Small Sample Inference}
-Instead, we can use \textbf{Student's t-distribution}:
+\textbf{Student's t-distribution}:
 \begin{equation*}
     T\left( \symbfit{x} \right) \sim t_{\nu}
 \end{equation*}
-where the degrees of freedom \(\nu\) is equal to \(n - 1\). The t-distribution is similar to the Normal distribution,
-but has heavier tails for small values of \(n\). The expectation and variance are given by
+where the degrees of freedom \(\nu\) is equal to \(n - 1\).
 \begin{align*}
     \E{\left( X \right)}   & = 0                   \\
     \Var{\left( X \right)} & = \frac{\nu}{\nu - 2} \\
 \end{align*}
-for \(\nu > 2\), such that the variance is always greater than 1, and
-converges to 1 as \(\nu \rightarrow \infty\).
 \subsection{Inferencing}
 \begin{equation*}
     T\left( \symbfit{x} \right) = \frac{\overline{x} - \mu_0}{s / \sqrt{n}} \sim t_{\nu, \alpha/2}.
 \end{equation*}
-Here we also consider the Type I error rate \(\alpha\) to find the \textit{critical value} \(t_{\nu,\alpha/2}\), which is determined
-in the same way as for the normal distribution.
 \subsection{Hypothesis Testing for the Population Mean}
 \begin{equation*}
     T\left( \symbfit{x} \right) = \frac{\overline{x} - \mu_0}{s/\sqrt{n}} \sim t_{\nu, \alpha/2}.
 \end{equation*}
 \subsection{Hypothesis Testing for the Difference in Population Means}
-Given a small sample, the property
-\begin{equation*}
-    \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \approx \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}}
-\end{equation*}
-will only hold if the population variances are equal, \(\sigma_1^2 = \sigma_2^2\), giving
-us the test statistic:
 \begin{equation*}
     T\left( \symbfit{x} \right) = \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{s^2\left( \frac{1}{n_1} + \frac{1}{n_2} \right)}} \sim t_{\nu, \alpha/2}.
 \end{equation*}
@@ -696,52 +627,76 @@ noting that \(\Delta_0\) is typically zero. The degrees of freedom are given by
     \nu = \floor*{\frac{\left( \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} \right)^2}{\frac{\left( s_1^2 / n_1 \right)^2}{n_1 - 1} + \frac{\left( s_2^2 / n_2 \right)^2}{n_2 - 1}}}
 \end{equation*}
 where the value is truncated (towards zero).
-\subsection{Paired Differences}
+
 Note that the above only applies for independent samples.
-In the case of two dependent samples, we must be careful about the choice
-of test statistic.
 
         
-\end{multicols}
+\begin{minipage}{80mm}
 \begin{table}[H]
     \centering
     \begin{tabular}{c|cc}
         \toprule
-        \textbf{Decision}                  & \textbf{\(H_0\) is true}       & \textbf{\(H_0\) is false}      \\
+        \textbf{Decision}                  & \textbf{\(H_0\)}       & \textbf{\(\lnot H_0\)}      \\
         \midrule
-        \textbf{Reject \(H_0\)}            & \(\alpha\) (Type I error rate) & \(1 - \beta\) (Power)          \\
-        \textbf{Failure to reject \(H_0\)} & \(1 - \alpha\)                 & \(\beta\) (Type II error rate) \\
+        \textbf{Reject \(H_0\)}            & \(\alpha\)  & \(1 - \beta\)           \\
+        \textbf{Fail to reject} & \(1 - \alpha\)                 & \(\beta\)  \\
         \bottomrule
     \end{tabular}
-    \caption{} % \label{}
+    % \caption{} % \label{}
 \end{table}
+\end{minipage}
+
+\begin{minipage}{80mm}
 \begin{table}[H]
     \centering
     \begin{tabular}{cc}
         \toprule
-        \textbf{Null Hypothesis} \(H_0\) & \textbf{Rejection Region} \(R\)                       \\
+        \(H_0\) & \textbf{Rejection Region} \(R\)                       \\
         \midrule
         \(\theta = \theta_0\)            & \(\abs*{T\left( \symbfit{x} \right)} > Z_{\alpha/2}\) \\
         \(\theta \leq \theta_0\)         & \(T\left( \symbfit{x} \right) > Z_{\alpha}\)          \\
         \(\theta \geq \theta_0\)         & \(T\left( \symbfit{x} \right) < -Z_{\alpha}\)         \\
         \bottomrule
     \end{tabular}
-    \caption{} % \label{}
+    % \caption{} % \label{}
 \end{table}
-\begin{table}[H]
-    \centering
-    \begin{tabular}{ccc}
-        \toprule
-        \textbf{Type I Error Rate} \(\alpha\) & \textbf{One Tail} \(Z_{\alpha}\) & \textbf{Two-Tail} \(Z_{\alpha/2}\) \\
-        \midrule
-        \(0.10\)                              & \(1.28\)                         & \(1.64\)                           \\
-        \(0.05\)                              & \(1.65\)                         & \(1.96\)                           \\
-        \(0.02\)                              & \(2.05\)                         & \(2.33\)                           \\
-        \(0.01\)                              & \(2.33\)                         & \(2.58\)                           \\
-        \bottomrule
-    \end{tabular}
-    \caption{} % \label{}
-\end{table}
+\end{minipage}
+
+% Should be provided according to Slack
+% \begin{minipage}{126.1962963mm}
+% \begin{table}[H]
+%     \centering
+%     \begin{tabular}{ccc}
+%         \toprule
+%         \textbf{Type I Error Rate} \(\alpha\) & \textbf{One Tail} \(Z_{\alpha}\) & \textbf{Two-Tail} \(Z_{\alpha/2}\) \\
+%         \midrule
+%         \(0.10\)                              & \(1.28\)                         & \(1.64\)                           \\
+%         \(0.05\)                              & \(1.65\)                         & \(1.96\)                           \\
+%         \(0.02\)                              & \(2.05\)                         & \(2.33\)                           \\
+%         \(0.01\)                              & \(2.33\)                         & \(2.58\)                           \\
+%         \bottomrule
+%     \end{tabular}
+%     \caption{} % \label{}
+% \end{table}
+% \end{minipage}
+
+\begin{minipage}{70mm}
+    \begin{table}[H]
+        \centering
+        \scriptsize
+        \begin{tabular}{c c c }
+            \toprule
+                                                     & \textbf{Discrete}                              & \textbf{Continuous}                                    \\
+            \midrule
+            \(\E{\left( X \right)}\)                 & \(\sum_{\Omega} xp_x\)                         & \(\int_{\Omega} xf(x)\odif{x}\)                        \\
+            \(\E{\left( g\left( X \right) \right)}\) & \(\sum_{\Omega} g\left( x \right)p_x\)         & \(\int_{\Omega} g\left( x \right)f(x)\odif{x}\)        \\
+            \(\Var{\left( X \right)}\)               & \(\sum_{\Omega} \left( x - \mu \right)^2 p_x\) & \(\int_{\Omega} \left( x - \mu \right)^2f(x)\odif{x}\) \\
+            \bottomrule
+        \end{tabular}
+        % \caption{Probability rules for univariate \(X\).} % \label{}
+    \end{table}
+\end{minipage}
+\end{multicols}
 
 \begin{table}[H]
     \centering
@@ -755,7 +710,7 @@ of test statistic.
         \( N \sim \operatorname{Poisson}{\left( \lambda \right)}\) & \(n \geq 0\)                                           & \(\frac{\lambda^n e^{-\lambda}}{n!}\)                     & \(e^{-\lambda} \sum_{u = 0}^n \frac{\lambda^u}{u!}\)                     & \(\lambda\)                         & \(\lambda\)                                   \\
         \bottomrule
     \end{tabular}
-    \caption{Discrete probability distributions.} % \label{}
+    % \caption{Discrete probability distributions.} % \label{}
 \end{table}
 \begin{table}[H]
     \centering
@@ -768,23 +723,6 @@ of test statistic.
         \(X \sim \operatorname{N}{\left( \mu,\: \sigma^2 \right)}\) & \(x \in \left\{ 0, \dots, n \right\}\) & \(\frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{\left( x - \mu \right)^2}{2 \sigma^2}}\) & \(\frac{1}{2} \left( 1 + \erf{\left( \frac{x - \mu}{\sigma \sqrt{2}} \right)} \right)\) & \(\mu\)                  & \(\sigma^2\)                          \\
         \bottomrule
     \end{tabular}
-    \caption{Continuous probability distributions.} % \label{}
+    % \caption{Continuous probability distributions.} % \label{}
 \end{table}
-\begin{minipage}{126.1962963mm}
-    \begin{table}[H]
-        \centering
-        \begin{tabular}{c c c }
-            \toprule
-                                                     & \textbf{Discrete}                              & \textbf{Continuous}                                    \\
-            \midrule
-            Valid probabilities                      & \(0 \leq p_x \leq 1\)                          & \(f(x) \geq 0\)                                        \\
-            Cumulative probability                   & \(\sum_{u \leq x} p_u\)                        & \(\int_{-\infty}^{x} f(u) \odif{u}\)                   \\
-            \(\E{\left( X \right)}\)                 & \(\sum_{\Omega} xp_x\)                         & \(\int_{\Omega} xf(x)\odif{x}\)                        \\
-            \(\E{\left( g\left( X \right) \right)}\) & \(\sum_{\Omega} g\left( x \right)p_x\)         & \(\int_{\Omega} g\left( x \right)f(x)\odif{x}\)        \\
-            \(\Var{\left( X \right)}\)               & \(\sum_{\Omega} \left( x - \mu \right)^2 p_x\) & \(\int_{\Omega} \left( x - \mu \right)^2f(x)\odif{x}\) \\
-            \bottomrule
-        \end{tabular}
-        \caption{Probability rules for univariate \(X\).} % \label{}
-    \end{table}
-\end{minipage}
 \end{document}
