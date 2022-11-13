@@ -304,21 +304,22 @@ The least squares best fit determines the coefficients \(a\) and \(b\) that mini
         \begin{equation*}
             \Pr{\left( X > x \right)} = 1 - \Pr{\left( X \leq x \right)} = 1 - F\left( x \right)
         \end{equation*}
-        \subsection{\texorpdfstring{\(p\)}{p}-Quantiles}
-        \begin{equation*}
-            F\left( x \right) = \int_{-\infty}^x f\left( u \right) \odif{u} = p
-        \end{equation*}
-        \subsection{Special Quantiles}
-        \begin{align*}
-            \text{Lower quartile \(q_1\):}  &  &  & p = \frac{1}{4} \\
-            \text{Median \(m\):}            &  &  & p = \frac{1}{2} \\
-            \text{Upper quartile \(q_2\):}  &  &  & p = \frac{3}{4} \\
-            \text{Interquartile range IQR:} &  &  & q_2 - q_1
-        \end{align*}
-        \subsection{Quantile Function}
-        \begin{equation*}
-            x = F^{-1}\left( p \right) = Q\left( p \right)
-        \end{equation*}
+        % Apparently not on exam says Slack
+        % \subsection{\texorpdfstring{\(p\)}{p}-Quantiles}
+        % \begin{equation*}
+        %     F\left( x \right) = \int_{-\infty}^x f\left( u \right) \odif{u} = p
+        % \end{equation*}
+        % \subsection{Special Quantiles}
+        % \begin{align*}
+        %     \text{Lower quartile \(q_1\):}  &  &  & p = \frac{1}{4} \\
+        %     \text{Median \(m\):}            &  &  & p = \frac{1}{2} \\
+        %     \text{Upper quartile \(q_2\):}  &  &  & p = \frac{3}{4} \\
+        %     \text{Interquartile range IQR:} &  &  & q_2 - q_1
+        % \end{align*}
+        % \subsection{Quantile Function}
+        % \begin{equation*}
+        %     x = F^{-1}\left( p \right) = Q\left( p \right)
+        % \end{equation*}
         \subsection{Expectation (Mean)}
         Expected value given an infinite number of observations. For \(a < c < b\):
         \begin{equation*}
@@ -610,7 +611,56 @@ The population variances between two samples vary \textit{greatly}, if
     \nu = \floor*{\frac{\left( \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} \right)^2}{\frac{\left( s_1^2 / n_1 \right)^2}{n_1 - 1} + \frac{\left( s_2^2 / n_2 \right)^2}{n_2 - 1}}}
 \end{equation*}
 
-        
+
+\section{ANOVA}
+An experimental unit is the object whose outcome or response is measured and is of interest in the process of the experiment.
+The outcome or response measured is called the dependent variable.
+A factor is an independent variable controlled and varied by the experimenter.
+A treatment is a specific combination of factor levels.
+A response is the variable measured by the experimenter, typically continuous numeric.
+\[
+    \frac{S^2_1}{s^2_2} \sim F_{\nu_1,\nu_2} \quad \nu_i=n_i-1
+\]
+\[
+    s^2_j = \frac{1}{\nu_j} \sum_{i=1}^{n_j} \left( x_i - \bar{x} \right)^2
+\]
+\(H_0:\) All are same, \(H_A:\) At least one is different.
+Reject if \(F>F_{critical}=F_{\nu_1,\nu_2,\alpha}\).
+\(\Pr\left( F<F_{critical} \right)=1-\alpha\).
+\subsection{Tukey's HSD}
+\[
+    q_{I,I(J-1)}\max_{i_1,i_2}\frac{|(\bar{y}_{i_1}-\mu_{i_1})-(\bar{y}_{i_2}-\mu_{i_2})|}{s_p/\sqrt{J}}
+\]
+\[
+    H_0: \mu_i = \mu_j, \quad H_A: \mu_i \ne \mu_j
+\]
+Reject if \(|\bar{y}_{i_1}-\bar{y}_{i_2}|>q_{I,I(J-1),\alpha}\frac{s_p}{\sqrt{J}}\)
+\subsection{Blocking}
+\subsection{Two-factor Experiments}
+\section{ANCOVA}
+\subsection{Linear Regression}
+Relationship is linear if \(y_i = \beta_0+\beta_1x_i+\epsilon_i\).
+\begin{align*}
+    \hat{\beta}_0 & = \bar{y}-\hat{\beta}_1\bar{x}\\
+    \hat{\beta}_1 & =
+    \frac{\sum_{i=1}^n(x_1-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^n(x_i-\bar{x})^2}\\
+    s^2 & =
+    \frac{\sum_{i=1}^n(y_i-\hat{\beta}_0-\hat{\beta}_1x_i)^2}{n-2}
+\end{align*}
+Caveat that errors/residuals \(e_i\stackrel{iid}{\sim}N(0,\sigma^2)\).
+\subsection{Testing Inference}
+\subsection{Coefficient of Determination}
+\(R^2 = \frac{SSR}{SST} = 1-\frac{SSE}{SST}\).
+Close to 1 is good but could overfit, small can still be good, weak measure.
+We can use \(F=R^2\) for test.
+\subsection{Regression Diagnostics}
+\subsection{Estimation and Prediction}
+\subsection{Doing ANCOVA}
+\section{Categorical Data}
+\subsection{2x2 Tables}
+\subsection{\texorpdfstring{\(\chi^2\)}{Chi-Squared} Homogeneity}
+\subsection{\texorpdfstring{\(\chi^2\)}{Chi-Squared} Independence}
+
 \begin{minipage}{70mm}
 \begin{table}[H]
     \centering
