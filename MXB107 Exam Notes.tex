@@ -64,15 +64,15 @@ The population mean is denoted \(\mu\).
 A drawback to the mean is that it can be misleading when the data is skewed.
 The \textbf{median} is the middle value of a set of \(n\) observations when arranged
 from largest to smallest.
-
-If \(n\) is odd:
 \begin{equation*}
-    \text{median} = x^{\left( \frac{n + 1}{2} \right)}
+    \text{median} = \begin{cases}
+    x^{\left( \frac{n + 1}{2} \right)} & n \text{ odd}
+    \\
+    \frac{x^{\left( \frac{n}{2} \right)} + x^{\left( \frac{n}{2} + 1 \right)}}{2}
+    & n \text{ even}
+    \end{cases}
 \end{equation*}
-or the \(\left( n + 1 \right) / 2\)th value of the sorted list.
-If \(n\) is even, the median is the :
 \begin{equation*}
-    \text{median} = \frac{x^{\left( \frac{n}{2} \right)} + x^{\left( \frac{n}{2} + 1 \right)}}{2}
 \end{equation*}
 \subsection{Mode}
 Given discrete data, the mode is defined as the most common value in a set of observations.
@@ -95,12 +95,11 @@ The variance is the average of the squared deviations from the mean.
           \end{equation*}
 \end{itemize}
 \subsection{Standard Deviation}
-The standard deviation is the square root of the variance.
-The \textbf{population standard deviation} is defined as
+The \textbf{population standard deviation} is
 \(
               \sigma = \sqrt{\sigma^2}.
               \)
-The \textbf{sample standard deviation} is defined as
+The \textbf{sample standard deviation} is
 \(
               s = \sqrt{s^2}.
               \)
@@ -120,25 +119,25 @@ The \textbf{sample standard deviation} is defined as
         \item 99\% of the data falls within \textbf{three} standard deviations of the mean
     \end{itemize}
 \end{theorem}
-Often the standard deviation cannot be computed directly, but can be approximated
-using the Empirical rule. Here we assume that
-\begin{equation*}
+Approximate
+\(
     \text{range} \approx 4 s
-\end{equation*}
+    \)
 so that
-\begin{equation*}
-    s = \frac{\text{range}}{4}.
-\end{equation*}
+\(
+    s = \frac{\text{range}}{4}
+    \).
 \section{Skew}
 The \textbf{skew} describes the asymmetry of the distribution.
-For a finite population of size \(N\), the \textbf{population skew} is defined as
-\begin{equation*}
-    \frac{1}{N} \sum_{i = 1}^N \left( \frac{x_i - \mu}{\sigma} \right)^3
-\end{equation*}
-For a sample of size \(n\), the \textbf{sample skew} is defined as
-\begin{equation*}
-    \frac{\frac{1}{n} \sum_{i = 1}^n \left( x_i - \overline{x} \right)^3}{\left( \sqrt{\frac{1}{n - 1} \sum_{i = 1}^n \left( x_i - \overline{x} \right)^2} \right)^3}
-\end{equation*}
+% No calculations needed according to Slack
+% For a finite population of size \(N\), the \textbf{population skew} is defined as
+% \begin{equation*}
+%     \frac{1}{N} \sum_{i = 1}^N \left( \frac{x_i - \mu}{\sigma} \right)^3
+% \end{equation*}
+% For a sample of size \(n\), the \textbf{sample skew} is defined as
+% \begin{equation*}
+%     \frac{\frac{1}{n} \sum_{i = 1}^n \left( x_i - \overline{x} \right)^3}{\left( \sqrt{\frac{1}{n - 1} \sum_{i = 1}^n \left( x_i - \overline{x} \right)^2} \right)^3}
+% \end{equation*}
 \begin{itemize}
     \item When the skew is \textbf{positive}, the data is \textbf{right-skewed} and the ``tail'' of the distribution is \textbf{longer on the right}
     \item When the skew is \textbf{negative}, the data is \textbf{left-skewed} and the ``tail'' of the distribution is \textbf{longer on the left}
@@ -152,9 +151,7 @@ The Z-score is a unitless quantity and can be used to make comparisons of relati
 \subsection{Quantiles}
 For a set of \(n\) observations, \(x_q\) is the \(q\)-th quantile, if \(q\)\% of the observations are less than \(x_q\).
 \subsection{Inter-Quartile Range}
-The inter-quartile range (IQR) is the difference between the 75th and 25th quantiles,
-or the range covered by the middle 50\% of data.
-
+The inter-quartile range (IQR) is \(x_{75} - x_{25}\).
 \subsection{Covariance and Correlation Coefficients}
 Covariance is the measure of the linear correlation between variables.
 \begin{equation*}
@@ -174,16 +171,6 @@ The covariance has the following characteristics:
 
 Note that a correlation coefficient of \(0\)
 indicates \textbf{no linear relationship} between the variables, and not necessarily indicative of \textbf{no relationship}.
-\section{Regression and Least Squares}
-A linear relationship between two variables \(x\) and \(y\) is defined as
-\(
-    y = a + b x.
-    \)
-The least squares best fit determines the coefficients \(a\) and \(b\) that minimise the sum of the squares of the residuals
-\begin{align*}
-    b & = r \frac{s_y}{s_x} = \frac{s_{xy}}{s_x^2} \\
-    a & = \overline{y} - b \overline{x}.
-\end{align*}
 
 
     \section{Events and Probability}
@@ -340,13 +327,14 @@ The least squares best fit determines the coefficients \(a\) and \(b\) that mini
         
 
 \subsection{Central Limit Theorem}
-For a sample of size \(n\) from any random probability distribution with expected value \(\mu\)
-and variance \(\sigma^2\),
+For a sample of size \(n \ge 30\),
+% from any random probability distribution with expected value \(\mu\)
+% and variance \(\sigma^2\),
 \begin{equation*}
     \frac{\sqrt{n}\left( \overline{x} - \mu \right)}{\sigma} \overset{p}{\rightarrow} \operatorname{N}{\left( 0,\: 1 \right)}
 \end{equation*}
-meaning that increasing the sample size will lead to a more normal distribution.
-In this case, a sample size of \(n = 30\) is sufficient to approximate a normal distribution.
+% meaning that increasing the sample size will lead to a more normal distribution.
+% In this case, a sample size of \(n = 30\) is sufficient to approximate a normal distribution.
 \subsection{Standard Error}
 \begin{equation*}
     \operatorname{SE}{\left( \overline{x} \right)} = \frac{\sigma^2}{n}
@@ -544,7 +532,7 @@ The test statistic is defined
 \begin{equation*}
     T\left( \symbfit{x} \right) = \frac{\left( \overline{x}_1 - \overline{x}_2 \right) - \Delta_0}{\operatorname{SE}_{\overline{x}_1 - \overline{x}_2}}.
 \end{equation*}
-where \(\Delta_0 = \mu_1 - \mu_2\) is the hypothesized difference between the two population means.
+where \(\Delta_0 = \mu_1 - \mu_2\) is the hypothesised difference between the two population means.
 \subsection{Hypothesis Testing for the Difference in Population Proportions}
 The point estimator of the difference in proportions where \(p_1 = p_2\) is given by
 \begin{equation*}
@@ -602,8 +590,8 @@ where \(\nu = n_1 + n_2 - 2\) for the two-sample \(t\)-test.
 The population variances between two samples vary \textit{greatly}, if
 \(
     \frac{\max{\left( s_1^2,\: s_2^2 \right)}}{\min{\left( s_1^2,\: s_2^2 \right)}} > 3.
-    \)
-    . If so use
+    \).
+If so use
 \begin{equation*}
     T\left( \symbfit{x} \right) = \frac{\overline{x}_1 - \overline{x}_2 }{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
 \end{equation*}
@@ -625,7 +613,7 @@ A response is the variable measured by the experimenter, typically continuous nu
     s^2_j = \frac{1}{\nu_j} \sum_{i=1}^{n_j} \left( x_i - \bar{x} \right)^2
 \]
 \(H_0:\) All are same, \(H_A:\) At least one is different.
-Reject if \(F>F_{critical}=F_{\nu_1,\nu_2,\alpha}\).
+Reject \(H_0\) if \(F>F_{critical}=F_{\nu_1,\nu_2,\alpha}\).
 \(\Pr\left( F<F_{critical} \right)=1-\alpha\).
 \subsection{Tukey's HSD}
 \[
@@ -634,12 +622,24 @@ Reject if \(F>F_{critical}=F_{\nu_1,\nu_2,\alpha}\).
 \[
     H_0: \mu_i = \mu_j, \quad H_A: \mu_i \ne \mu_j
 \]
-Reject if \(|\bar{y}_{i_1}-\bar{y}_{i_2}|>q_{I,I(J-1),\alpha}\frac{s_p}{\sqrt{J}}\)
+Reject \(H_0\) if \(|\bar{y}_{i_1}-\bar{y}_{i_2}|>q_{I,I(J-1),\alpha}\frac{s_p}{\sqrt{J}}\)
 \subsection{Blocking}
 \subsection{Two-factor Experiments}
 \section{ANCOVA}
 \subsection{Linear Regression}
-Relationship is linear if \(y_i = \beta_0+\beta_1x_i+\epsilon_i\).
+A linear relationship between two variables \(x\) and \(y\) is defined as
+\(
+    y = a + b x.
+    \)
+The least squares best fit determines the coefficients \(a\) and \(b\) that minimise the sum of the squares of the residuals
+\begin{align*}
+    b & = r \frac{s_y}{s_x} = \frac{s_{xy}}{s_x^2} \\
+    a & = \overline{y} - b \overline{x}.
+\end{align*}
+
+For estimators, relationship is linear if \(y_i = \beta_0+\beta_1x_i+\epsilon_i\).
+Parameters \(\frac{\hat{\beta}_i-\beta_i}{s_{\beta_i}}\sim t_{n-2}\).
+Errors/residuals \(e_i\stackrel{iid}{\sim}N(0,\sigma^2)\).
 \begin{align*}
     \hat{\beta}_0 & = \bar{y}-\hat{\beta}_1\bar{x}\\
     \hat{\beta}_1 & =
@@ -647,7 +647,6 @@ Relationship is linear if \(y_i = \beta_0+\beta_1x_i+\epsilon_i\).
     s^2 & =
     \frac{\sum_{i=1}^n(y_i-\hat{\beta}_0-\hat{\beta}_1x_i)^2}{n-2}
 \end{align*}
-Caveat that errors/residuals \(e_i\stackrel{iid}{\sim}N(0,\sigma^2)\).
 \subsection{Testing Inference}
 \subsection{Coefficient of Determination}
 \(R^2 = \frac{SSR}{SST} = 1-\frac{SSE}{SST}\).
