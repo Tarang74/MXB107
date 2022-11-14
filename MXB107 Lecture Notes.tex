@@ -184,7 +184,7 @@ If the data is taken from a sample, the sample mean is denoted \(\overline{x}\).
 \subsubsection{Median}
 A drawback to the mean is that it can be misleading when the data is skewed.
 The \textbf{median} is the middle value of a set of \(n\) observations when arranged
-from largest to smallest.
+from smallest to largest.
 
 If \(n\) is odd:
 \begin{equation*}
@@ -952,7 +952,7 @@ Given two estimators \(\hat{\theta}_1\) and \(\hat{\theta}_2\), we would choose 
     \Var{\left( \hat{\theta}_1 \right)} < \Var{\left( \hat{\theta}_2 \right)}
 \end{equation*}
 \begin{definition}[Mean square error]
-    Given data \(x_i\) with variance \(\sigma^2\), the estimators of \(\theta = \E\left\{ X \right\}\)
+    Given data \(x_i\) with variance \(\sigma^2\), the estimators of \(\theta = \E{\left( X \right)}\)
     are selected such that they minimise the \textbf{mean square error}:
     \begin{align*}
         \operatorname{MSE}\left( \hat{\theta} \right) & = \E{\left( \left( \hat{\theta} - \theta \right)^2 \right)}                             \\
@@ -1357,19 +1357,19 @@ Note that the above only applies for independent samples.
 In the case of two dependent samples, we must be careful about the choice
 of test statistic. We can instead test the mean of the differences:
 \begin{equation*}
-    \overline{x}_d = \overline{x}_1 - \overline{x}_2.
+    \overline{d} = \overline{x}_1 - \overline{x}_2.
 \end{equation*}
 The test statistic is then given by:
 \begin{equation*}
-    T\left( \symbfit{x} \right) = \frac{\overline{x}_d - x_d}{s_d / \sqrt{n}} \sim t_{\nu, \alpha/2}
+    T\left( \symbfit{x} \right) = \frac{\overline{d} - d_0}{s_d / \sqrt{n}} \sim t_{\nu, \alpha/2}
 \end{equation*}
 for the hypothesis test:
 \begin{equation*}
-    H_0: \overline{x}_d = x_d \quad \text{vs.} \quad H_A: \overline{x}_d \neq x_d
+    H_0: \overline{d} = d_0 \quad \text{vs.} \quad H_A: \overline{d} \neq d_0
 \end{equation*}
 or the confidence interval:
 \begin{equation*}
-    CI_{1-\alpha} = \overline{x}_d \pm t_{\nu, \alpha/2} \frac{s_d}{\sqrt{n}}.
+    CI_{1-\alpha} = \overline{d} \pm t_{\nu, \alpha/2} \frac{s_d}{\sqrt{n}}.
 \end{equation*}
 \section{Analysis of Variance}
 When considering hypothesis testing, we often want to compare the effects of various \textit{factors} that have more
@@ -1478,7 +1478,7 @@ Under these hypotheses, the null assumption means that
 \end{equation*}
 or the variance between treatments was approximately equal to the variance within treatments, or that
 all treatment means are equal. In this case, we would reject the null hypothesis if MSTr was significantly larger than MSE,
-meaning that the treatment accounted for more of the total variance that the error.
+meaning that the treatment accounted for more of the total variance than the error.
 
 This decision means that we reject the null hypothesis for large values of \(F_{\mathrm{test}}\),
 \begin{equation*}
@@ -1491,7 +1491,7 @@ on a Type I Error rate of \(\alpha\).
 \end{equation*}
 where
 \begin{equation*}
-    \Pr{\left( F_{\mathrm{test}} < F_\mathrm{critical} \right)} = 1 - \alpha.
+    \Pr{\left( F \leq F_\mathrm{critical} \right)} = 1 - \alpha.
 \end{equation*}
 While the \(F\)-test for ANOVA is robust, it does not provide any information about which treatments are different.
 
@@ -1867,7 +1867,7 @@ the \(\chi^2\) distribution. The \(\chi^2\) distribution is a continuous probabi
 where \(Z_i \sim \mathrm{N}\left( 0,\: 1 \right)\) and \(\nu = n - 1\).
 \subsubsection{Test of Homoegeneity}
 The \(\chi^2\) test of homogeneity tests whether the distribution
-of items across categories the same for different factors.
+of items across categories is the same for different factors.
 
 Given the data
 \begin{table}[H]
@@ -1891,7 +1891,7 @@ This lets us calculate the expected counts for each cell in the table as
 \end{equation*}
 We can then form the null hypothesis that the distribution of items across categories is the same for all factors,
 \begin{equation*}
-    H_0: \pi_{ij} = \pi_{i} \forall i, j \quad \text{vs.} \quad H_1: \text{at least one \(\pi_{ij}\) is different from \(\pi_{i}\)}.
+    H_0: \pi_{ij} = \pi_{i} : \forall i, j \quad \text{vs.} \quad H_1: \text{at least one \(\pi_{ij}\) is different from \(\pi_{i}\)}.
 \end{equation*}
 The value \(\pi_i\) is estimated by
 \begin{equation*}
@@ -1910,17 +1910,18 @@ for \(\nu = \left( I - 1 \right)\left( J - 1 \right)\) degrees of freedom. We ca
 \begin{equation*}
     X^2 > \chi_{\nu, \: 1 - \alpha}^2.
 \end{equation*}
-This is known as Pearson's \(\chi^2\) test.
+This is known as Pearson's \(\chi^2\) test. This test assumes that the row and column sums are fixed.
 \subsubsection{Test of Independence}
 The \(\chi^2\) test of independence tests whether the distribution of items across categories is independent of the
 factors. The formulation of the test statistic is the same as the test of homogeneity, and we use the following
 null hypothesis:
 \begin{align*}
     H_0 & : \text{The categories and factors are independent}            \\
-    H_1 & : \text{at least one category is not independent of a factor}.
+    H_A & : \text{at least one category is not independent of a factor}.
 \end{align*}
 We can reject the null hypothesis if
 \begin{equation*}
     X^2 > \chi_{\nu, \: 1 - \alpha}^2.
 \end{equation*}
+Note that in this test we assume only the total \(n\) is fixed.
 \end{document}
