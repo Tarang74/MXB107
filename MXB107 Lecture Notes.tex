@@ -1066,10 +1066,10 @@ The confidence interval for the difference of the two means is
 If the two populations follow a normal distribution, then the sampling distribution is exactly normal.
 If the two populations are not normal, then the sampling distribution is approximately normal, for \(n_1 > 30\) and \(n_2 > 30\).
 \subsubsection{Confidence Interval for the Difference of Two Proportions}
-Given two population proportions \(\hat{p}_1\) and \(\hat{p}_2\), we expect the difference of the population proportions
+Given two population proportions \(p_1\) and \(p_2\), we expect the difference of the population proportions
 and the sample proportions to be equal. Consider the expectation of the difference of the sample proportions:
 \begin{equation*}
-    \E{\left( \hat{p}_1 - \hat{p}_2 \right)} = \hat{p}_1 - \hat{p}_2
+    \E{\left( \hat{p}_1 - \hat{p}_2 \right)} = p_1 - p_2
 \end{equation*}
 with standard error
 \begin{equation*}
@@ -1129,7 +1129,9 @@ and right-tail tests:
 \begin{equation*}
     H_0: \theta \geq \theta_0 \quad \text{vs.} \quad H_A: \theta < \theta_0
 \end{equation*}
-The rejection region is chosen so that \(\Pr{\left( T\left( \symbfit{x} \in R \right) \right)} = \alpha\),
+for a given value of \(\theta_0\), where \(\theta\) is the parameter of interest.
+
+The rejection region \(R\) is chosen so that \(\Pr{\left( T\left( \symbfit{x} \in R \right) \right)} = \alpha\),
 where \(\alpha\) is the Type I error rate defined:
 \begin{equation*}
     \alpha = \Pr{\left( \text{reject \(H_0\)} \,\vert\, \text{\(H_0\) is true} \right)}.
@@ -1210,7 +1212,7 @@ The rejection regions for the difference between two parameters is defined:
         \toprule
         \textbf{Null Hypothesis} \(H_0\) & \textbf{Rejection Region} \(R\)                       \\
         \midrule
-        \(\theta_1 - \theta_0 = 0\)      & \(\abs*{T\left( \symbfit{x} \right)} > Z_{\alpha/2}\) \\
+        \(\theta_1 - \theta_2 = 0\)      & \(\abs*{T\left( \symbfit{x} \right)} > Z_{\alpha/2}\) \\
         \(\theta_1 - \theta_2 \leq 0\)   & \(T\left( \symbfit{x} \right) > Z_{\alpha}\)          \\
         \(\theta_1 - \theta_2 \geq 0\)   & \(T\left( \symbfit{x} \right) < -Z_{\alpha}\)         \\
         \bottomrule
@@ -1229,7 +1231,7 @@ The test statistic is defined
 \begin{equation*}
     T\left( \symbfit{x} \right) = \frac{\left( \overline{x}_1 - \overline{x}_2 \right) - \Delta_0}{\operatorname{SE}_{\overline{x}_1 - \overline{x}_2}}.
 \end{equation*}
-where \(\Delta_0 = \mu_1 - \mu_2\) is the hypothesized difference between the two population means.
+where \(\Delta_0 = \mu_1 - \mu_2\) is the hypothesised difference between the two population means.
 \subsection{Hypothesis Testing for the Difference in Population Proportions}
 The point estimator of the difference in proportions where \(p_1 = p_2\) is given by
 \begin{equation*}
@@ -1272,7 +1274,7 @@ The decision to reject the null hypothesis because it falls \underline{within} t
 rejecting the null hypothesis if the value \(\theta_0\) falls \underline{outside} the confidence interval.
 \subsection{Hypothesis Testing and P-Values}
 Rather than constructing rejection regions based on a given Type I error rate \(\alpha\), we
-can instead measure the strength of the evidence against the null hypothesis by compting the
+can instead measure the strength of the evidence against the null hypothesis by computing the
 upper tail probability of the test statistic:
 \begin{equation*}
     \alpha = \Pr{\left( Z \geq T\left( \symbfit{x} \right) \right)}.
@@ -1282,7 +1284,7 @@ The strength of the evidence against the null hypothesis increases as the \(p\)-
 \subsection{Significance of Results}
 When interpreting the results from a test statistic, the test can only be used to reject the null hypothesis.
 When the strength against the null hypothesis is weak, we cannot assume that the null hypothesis is true,
-rather, the test is inconclusive and the there is no statistical significance.
+rather, the test is inconclusive and that there is no statistical significance.
 \section{Small Sample Inference}
 In the previous two sections, we assumed sample sizes of above 30.
 However, in many situations, this may be infeasible.
@@ -1333,7 +1335,7 @@ need to determine the common or \textit{pooled} variance \(s_p^2\).
 where \(\nu = n_1 + n_2 - 2\) for the two-sample \(t\)-test.
 This results in the following test statistic:
 \begin{equation*}
-    T\left( \symbfit{x} \right) = \frac{\overline{x}_1 + \overline{x}_2}{\sqrt{s_p^2 \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}}.
+    T\left( \symbfit{x} \right) = \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{s_p^2 \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}}.
 \end{equation*}
 The population variances between two samples vary \textit{greatly}, if
 they satisfy the following:
@@ -1353,5 +1355,572 @@ where the value is truncated (towards zero).
 \subsection{Paired Differences}
 Note that the above only applies for independent samples.
 In the case of two dependent samples, we must be careful about the choice
-of test statistic.
+of test statistic. We can instead test the mean of the differences:
+\begin{equation*}
+    \overline{x}_d = \overline{x}_1 - \overline{x}_2.
+\end{equation*}
+The test statistic is then given by:
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\overline{x}_d - x_d}{s_d / \sqrt{n}} \sim t_{\nu, \alpha/2}
+\end{equation*}
+for the hypothesis test:
+\begin{equation*}
+    H_0: \overline{x}_d = x_d \quad \text{vs.} \quad H_A: \overline{x}_d \neq x_d
+\end{equation*}
+or the confidence interval:
+\begin{equation*}
+    CI_{1-\alpha} = \overline{x}_d \pm t_{\nu, \alpha/2} \frac{s_d}{\sqrt{n}}.
+\end{equation*}
+\section{Analysis of Variance}
+When considering hypothesis testing, we often want to compare the effects of various \textit{factors} that have more
+than one or two possible \textit{levels}. In this case, we can use \textbf{Analysis of Variance} (ANOVA) to compare the
+effects of these factors.
+\subsection{Designing Experiments}
+An experiment is a trial that attempts to isolate the effects of factors of interest on specific outcomes while
+eliminating as much as possible, extraneous effects on outcomes. Experiments are typically designed to focus on a few factors and include
+some degree of repetition and randomisation to make statistical inferences.
+\begin{itemize}
+    \item An \textbf{experimental unit} is the object whose outcome or response is measured and is of interest. The outcome or response measured is called the \textbf{dependent variable}.
+    \item A \textbf{factor} is an independent variable that is controlled and varied in an experiment. The levels of a factor are the values that the factor can take on, and these levels take discrete states rather than continuous values.
+    \item A \textbf{treatment} is a specific combination of factor levels that is applied to an experimental unit.
+    \item A \textbf{response} is the variable measured for each experimental unit, typically a continuous numeric response.
+\end{itemize}
+\subsection{ANOVA}
+ANOVA is a generalisation of the two-sample \(t\)-test. Let the outcome of an experiment for replication \(j\) of treatment \(i\)
+be denoted by \(y_{ij}\).
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c | c c c c}
+        \toprule
+                    & \multicolumn{4}{c}{Treatment}                                        \\
+        Replication & 1                             & 2          & \(\cdots\) & \(I\)      \\
+        \midrule
+        1           & \(y_{11}\)                    & \(y_{21}\) & \(\cdots\) & \(y_{I1}\) \\
+        2           & \(y_{12}\)                    & \(y_{22}\) & \(\cdots\) & \(y_{I2}\) \\
+        \(\vdots\)  & \(\vdots\)                    & \(\vdots\) & \(\ddots\) & \(\vdots\) \\
+        \(J\)       & \(y_{1J}\)                    & \(y_{2J}\) & \(\cdots\) & \(y_{IJ}\) \\
+        \bottomrule
+    \end{tabular}
+    % \caption{} % \label{}
+\end{table}
+The following equation models the responses:
+\begin{equation*}
+    y_{ij} = \mu_i + \epsilon_{ij},
+\end{equation*}
+and the total outcome of the experiment is given by
+\begin{equation*}
+    \symbfit{y} = \left( y_{11},\: y_{12},\: y_{IJ} \right).
+\end{equation*}
+where there are \(I\) different treatments, and \(J\) replications of each treatment, for a total of \(n = IJ\) experimental units.
+The total variation in experimental outcomes can be described by the \textbf{total sum of squares} (SST):
+\begin{equation*}
+    \mathrm{SST} = \sum_{i = 1}^I \sum_{j = 1}^J \left( y_{ij} - \overline{y}_{..} \right)^2
+\end{equation*}
+where \(\overline{y}_{..}\) is the grand mean, or the overall average response over all treatments and repetitions.
+The total sum of squares can be decomposed into two parts, the \textbf{error sum of squares} (SSE),
+which is the pooled variation in the outcomes within treatment group \(i\):
+\begin{equation*}
+    \mathrm{SSE} = \sum_{i = 1}^I \sum_{j = 1}^J \left( y_{ij} - \overline{y}_i \right)^2
+\end{equation*}
+and the \textbf{treatment sum of squares} (SSTr), which is the variation in the outcomes due to the different treatments:
+\begin{equation*}
+    \mathrm{SSTr} = J \sum_{i = 1}^I \left( \overline{y}_i - \overline{y}_{..} \right)^2
+\end{equation*}
+where \(\overline{y}_i\) is the mean response for treatment \(i\) given by
+\begin{equation*}
+    \overline{y}_i = \frac{1}{J} \sum_{j = 1}^J y_{ij}.
+\end{equation*}
+This yields the following decomposition of the total sum of squares:
+\begin{equation*}
+    \mathrm{SST} = \mathrm{SSTr} + \mathrm{SSE}.
+\end{equation*}
+Each source of variation is computed as a sum of squares and can be divided by the degrees of freedom,
+as an estimate of their contribution to the total variation. These results are presented in an
+\textbf{analysis of variance} (ANOVA) table.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c c c c c}
+        \toprule
+        \textbf{Source} & \textbf{DoF} & \textbf{SS}       & \textbf{MS}                     & \(F_{\mathrm{test}}\)                  & \(p\)                                                                            \\
+        \midrule
+        Treatment       & \(I - 1\)    & \(\mathrm{SSTr}\) & \(\frac{\mathrm{SSTr}}{I - 1}\) & \(\frac{\mathrm{MSTr}}{\mathrm{MSE}}\) & \(\Pr{\left( F_{I - 1, n - I} \geq \frac{\mathrm{MSTr}}{\mathrm{MSE}} \right)}\) \\ [0.15in]
+        Error           & \(n - I\)    & \(\mathrm{SSE}\)  & \(\frac{\mathrm{SSE}}{n - I}\)  &                                                                                                                           \\ [0.15in]
+        Total           & \(n - 1\)    & \(\mathrm{SST}\)  &                                 &                                                                                                                           \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Note that \(n = IJ\), and the mean squares are the sum of squares divided by the degrees of freedom.
+The statistic \(F\) is the ratio of the mean squares for the treatment and error sources of variation,
+or the ratio of the variation between treatments to the variation within treatments.
+\subsection{ANOVA Inference}
+Assuming that the observations \(y_{ij}\) are independent and normally distributed with mean \(\mu_{ij}\) and variance \(\sigma^2\),
+the test statistic \(F\) is distributed as an \(F\)-distribution. The \(F\)-distribution is a continuous probability distribution that describes
+the sampling distribution of the ratio of two sample variances. The \(F\)-distribution has two parameters, \(\nu_1\) and \(\nu_2\), which are the
+degrees of freedom for the numerator and denominator degrees of freedom, respectively.
+\begin{equation*}
+    \frac{s_1^2}{s_2^2} \sim F\left( \nu_1,\: \nu_2 \right)
+\end{equation*}
+where if
+\begin{equation*}
+    s_1^2 = \frac{1}{n_1 - 1} \sum_{i = 1}^{n_1} \left( x_i - \overline{x} \right)^2 \quad \text{and} \quad s_2^2 = \frac{1}{n_2 - 1} \sum_{j = 1}^{n_2} \left( y_i - \overline{y} \right)^2
+\end{equation*}
+then
+\begin{equation*}
+    \nu_1 = n_1 - 1 \quad \text{and} \quad \nu_2 = n_2 - 1.
+\end{equation*}
+This allows us to form a hypothesis test which tests if one treatments produces a significantly different response than another.
+\begin{equation*}
+    H_0: \mu_1 = \mu_2 = \cdots = \mu_I \quad \text{vs.} \quad H_A: \text{at least one treatment mean is different}
+\end{equation*}
+Under these hypotheses, the null assumption means that
+\begin{equation*}
+    \mathrm{SSTr} = \mathrm{SSE}
+\end{equation*}
+or the variance between treatments was approximately equal to the variance within treatments, or that
+all treatment means are equal. In this case, we would reject the null hypothesis if MSTr was significantly larger than MSE,
+meaning that the treatment accounted for more of the total variance that the error.
+
+This decision means that we reject the null hypothesis for large values of \(F_{\mathrm{test}}\),
+\begin{equation*}
+    F_{\mathrm{test}} > F_\mathrm{critical}
+\end{equation*}
+where \(F_\mathrm{critical}\) is the critical value of the \(F\)-distribution with parameters \(\nu_1\) and \(\nu_2\), based
+on a Type I Error rate of \(\alpha\).
+\begin{equation*}
+    F_\mathrm{critical} = F_{\nu_1,\: \nu_2,\: \alpha}
+\end{equation*}
+where
+\begin{equation*}
+    \Pr{\left( F_{\mathrm{test}} < F_\mathrm{critical} \right)} = 1 - \alpha.
+\end{equation*}
+While the \(F\)-test for ANOVA is robust, it does not provide any information about which treatments are different.
+
+Therefore, assuming a Type I Error rate of \(\alpha = 0.05\), we can reject the null hypothesis if
+the column \(p\) in the ANOVA table is less than 0.05. This means that at least one treatment mean is different from the others.
+\subsection{Testing the Equality of the Treatment Means}
+Tukey's Honest Significant Difference (HSD) test is based on the distribution of
+\begin{equation*}
+    q_{I,\: I\left( J - 1 \right)} \max_{i_1,\: i_2} \frac{\abs*{\left( \overline{y}_{i_1} - \mu_{i_1} - \left( \overline{y}_{i_2} - \mu_{i_2} \right) \right)}}{s_p / \sqrt{J}}
+\end{equation*}
+where \(i_1\) and \(i_2\) refer to any arbitrary pairwise comparison of treatments. Using this sampling distribution, we can construct a confidence interval to perform the
+pairwise test of
+\begin{equation*}
+    H_0 : \mu_{i_1} = \mu_{i_2} \quad \text{vs.} \quad H_A : \mu_{i_1} \neq \mu_{i_2}
+\end{equation*}
+For a Type I Error rate of \(\alpha\) we can reject \(H_0\) if
+\begin{equation*}
+    \abs*{\overline{y}_{i_1} - \overline{y}_{i_2}} > q_{I,\: I\left( J - 1 \right),\: \alpha} \frac{s_p}{\sqrt{J}}
+\end{equation*}
+\subsection{Randomised Block Design: Two-Way Classification}
+The single factor completely randomised designs mentioned are extensions of
+two-sample \(t\)-tests using \(F\)-tests for inference and adjusting the Type I Error rates to
+account for multiple comparisons. However, this model assumes that the only sources for observed variation
+in responses are the treatment effects or random effects. However, not all subjects are homogeneous, and
+so we must control for this source of variation. We can do this by using a \textbf{randomised block design},
+as an extension to the \textit{matched pairs design}.
+\subsection{Blocking}
+In a randomised experimental design, if there are \(I\) treatments, the experimenter chooses \(J > I\) blocks
+each with \(I\) subjects, one for each treatment. This is done to isolate block-to-block variability that may
+obscure the treatment effects. The model for a randomised block design is then defined
+\begin{equation*}
+    y_{ij} = \alpha_i + \beta_j + \epsilon_{ij}
+\end{equation*}
+where \(\alpha_i\) is the mean effect of the \(i\)th treatment and
+\(\beta_j\) is the mean effect of the \(j\)th block.
+
+Again using ANOVA, the total variation of the responses can be partitioned
+into three parts:
+\begin{equation*}
+    \mathrm{SST} = \mathrm{SSTr} + \mathrm{SSB} + \mathrm{SSE}
+\end{equation*}
+where \(\mathrm{SSB}\) measures the variability between blocks:
+\begin{equation*}
+    \mathrm{SSB} = I \sum_{j = 1}^J \left( \overline{y}_j - \overline{y}_{..} \right)^2
+\end{equation*}
+with
+\begin{equation*}
+    \overline{y}_j = \frac{1}{I} \sum_{i = 1}^I y_{ij}
+\end{equation*}
+and
+\begin{equation*}
+    \mathrm{SSE} = \sum_{i = 1}^I \sum_{j = 1}^J \left( y_{ij} - \overline{y}_j - \overline{y}_i + \overline{y}_{..} \right)^2.
+\end{equation*}
+The ANOVA table is then
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c c c c c}
+        \toprule
+        \textbf{Source} & \textbf{DoF}                                 & \textbf{SS}       & \textbf{MS}                                                       & \(F_{\mathrm{test}}\)                  & \(p\)                                                                                                               \\
+        \midrule
+        Block           & \(J - 1\)                                    & \(\mathrm{SSB}\)  & \(\frac{\mathrm{SSB}}{J - 1}\)                                    & \(\frac{\mathrm{MSB}}{\mathrm{MSE}}\)  & \(\Pr{\left( F_{J - 1, \left( I - 1 \right)\left( J - 1 \right)} \geq \frac{\mathrm{MSB}}{\mathrm{MSE}} \right)}\)  \\ [0.15in]
+        Treatment       & \(I - 1\)                                    & \(\mathrm{SSTr}\) & \(\frac{\mathrm{SSTr}}{I - 1}\)                                   & \(\frac{\mathrm{MSTr}}{\mathrm{MSE}}\) & \(\Pr{\left( F_{I - 1, \left( I - 1 \right)\left( J - 1 \right)} \geq \frac{\mathrm{MSTr}}{\mathrm{MSE}} \right)}\) \\ [0.15in]
+        Error           & \(\left( I - 1 \right)\left( J - 1 \right)\) & \(\mathrm{SSE}\)  & \(\frac{\mathrm{SSE}}{\left( I - 1 \right)\left( J - 1 \right)}\) &                                                                                                                                                              \\ [0.15in]
+        Total           & \(n - 1\)                                    & \(\mathrm{SST}\)  &                                                                   &                                                                                                                                                              \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+The null hypotheses are then either
+\begin{equation*}
+    H_0 : \text{all treatment means are the same} \quad \text{vs.} \quad H_A : \text{at least one treatment mean is different}
+\end{equation*}
+or
+\begin{equation*}
+    H_0 : \text{all block means are the same} \quad \text{vs.} \quad H_A : \text{at least one block mean is different}
+\end{equation*}
+Again, we can conclude that the null hypothesis is rejected if \(p \leq 0.05\).
+\subsection{Two-Factor Randomised Block Design}
+The two factor randomised block design is an extension of the one factor randomised block design, where
+both the interaction between two different factors are of interest. The model is defined as
+\begin{equation*}
+    y_{ijk} = \alpha_i + \beta_j + \left( \alpha \beta \right)_{ij} + \epsilon_{ijk}
+\end{equation*}
+where \(\alpha_i\) is the mean effect of the first factor, \(\beta_j\) is the mean effect of the second
+factor and \(\left( \alpha \beta \right)_{ij}\) is the mean effect of the interaction between the two factors.
+
+In a two-factor experiment, factor \(A\) has \(I\) levels and factor \(B\) has \(J\) levels, and
+each of these factors is replicated \(K\) times. The total variation of the responses can be partitioned
+into four parts:
+\begin{equation*}
+    \mathrm{SST} = \mathrm{SSA} + \mathrm{SSB} + \mathrm{SSAB} + \mathrm{SSE}
+\end{equation*}
+where \(\mathrm{SSA}\) measures the variability between the means of factor \(A\):
+\begin{equation*}
+    \mathrm{SSA} = JK \sum_{i = 1}^I \left( \overline{y}_i - \overline{y}_{..} \right)^2, \quad \text{with} \quad  \overline{y}_i = \frac{1}{JK} \sum_{j = 1}^J \sum_{k = 1}^K y_{ijk}
+\end{equation*}
+\(\mathrm{SSB}\) measures the variability between the means of factor \(B\):
+\begin{equation*}
+    \mathrm{SSB} = IK \sum_{j = 1}^J \left( \overline{y}_j - \overline{y}_{..} \right)^2 \quad \text{with} \quad \overline{y}_j = \frac{1}{IK} \sum_{i = 1}^I \sum_{k = 1}^K y_{ijk}
+\end{equation*}
+\(\mathrm{SSAB}\) measures the variability between the means of the interaction between the two factors:
+\begin{equation*}
+    \mathrm{SSAB} = K \sum_{i = 1}^I \sum_{j = 1}^J \left( \overline{y}_{ij} - \overline{y}_i - \overline{y}_j + \overline{y}_{..} \right)^2
+\end{equation*}
+and \(\mathrm{SSE}\) measures the variability among the observations within each combination of levels for \(A\) and \(B\):
+\begin{equation*}
+    \mathrm{SSE} = \sum_{i = 1}^I \sum_{j = 1}^J \sum_{k = 1}^K \left( y_{ijk} - \overline{y}_{ij} \right)^2.
+\end{equation*}
+with
+\begin{equation*}
+    \overline{y}_{ij} = \frac{1}{K} \sum_{k = 1}^K y_{ijk}
+\end{equation*}
+The ANOVA table is then
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c c c c c}
+        \toprule
+        \textbf{Source} & \textbf{DoF}                                 & \textbf{SS}       & \textbf{MS}                                                        & \(F_{\mathrm{test}}\)                  & \(p\)                                                                                                                                \\
+        \midrule
+        A               & \(I - 1\)                                    & \(\mathrm{SSA}\)  & \(\frac{\mathrm{SSA}}{I - 1}\)                                     & \(\frac{\mathrm{MSA}}{\mathrm{MSE}}\)  & \(\Pr{\left( F_{I - 1, IJ\left( K - 1 \right)} \geq \frac{\mathrm{MSA}}{\mathrm{MSE}} \right)}\)                                     \\ [0.15in]
+        B               & \(J - 1\)                                    & \(\mathrm{SSB}\)  & \(\frac{\mathrm{SSB}}{J - 1}\)                                     & \(\frac{\mathrm{MSB}}{\mathrm{MSE}}\)  & \(\Pr{\left( F_{J - 1, IJ\left( K - 1 \right)} \geq \frac{\mathrm{MSB}}{\mathrm{MSE}} \right)}\)                                     \\ [0.15in]
+        AB              & \(\left( I - 1 \right)\left( J - 1 \right)\) & \(\mathrm{SSAB}\) & \(\frac{\mathrm{SSAB}}{\left( I - 1 \right)\left( J - 1 \right)}\) & \(\frac{\mathrm{MSAB}}{\mathrm{MSE}}\) & \(\Pr{\left( F_{\left( I - 1 \right)\left( J - 1 \right), IJ\left( K - 1 \right)} \geq \frac{\mathrm{MSAB}}{\mathrm{MSE}} \right)}\) \\ [0.15in]
+        Error           & \(IJ\left( K - 1 \right)\)                   & \(\mathrm{SSE}\)  & \(\frac{\mathrm{SSE}}{IJ\left( K - 1 \right)}\)                    &                                                                                                                                                                               \\ [0.15in]
+        Total           & \(IJK - 1\)                                  & \(\mathrm{SST}\)  &                                                                    &                                                                                                                                                                               \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+The null hypotheses are then either
+\begin{equation*}
+    H_0 : \text{Factor A treatment means are the same} \quad \text{vs.} \quad H_A : \text{at least one treatment mean is different}
+\end{equation*}
+or
+\begin{equation*}
+    H_0 : \text{Factor B treatment means are the same} \quad \text{vs.} \quad H_A : \text{at least one treatment mean is different}
+\end{equation*}
+or
+\begin{equation*}
+    H_0 : \text{There is no interaction between A and B} \quad \text{vs.} \quad H_A : \text{A and B interact}.
+\end{equation*}
+We can conclude that the null hypothesis is rejected if \(p \leq 0.05\).
+\section{Linear Regression}
+A simple linear regression describes the relationship between a dependent variable \(y\)
+called the response,
+and an independent variable \(x\), called the predictor. The model is given by:
+\begin{equation*}
+    y_i = \beta_0 + \beta_1 x_i + \epsilon_i
+\end{equation*}
+where we assume that the error terms \(\epsilon_i\) are independent and normally distributed with zero mean and \(\sigma^2\) variance.
+\begin{equation*}
+    \epsilon_i \overset{\mathrm{iid}}{\sim} \mathrm{N}\left( 0,\: \sigma^2 \right).
+\end{equation*}
+As \(y_i\) depends on \(\epsilon_i\), we can also show that
+\begin{equation*}
+    y_i \sim \mathrm{N}\left( \beta_0 + \beta_1 x_i,\: \sigma^2 \right)
+\end{equation*}
+where \(y_i\) is normal for fixed values of \(x_i\).
+The regression coefficients \(\beta_0\) and \(\beta_1\) are estimated by minimizing the sum of squared residuals:
+\subsection{Estimation and Inference}
+By using the method of maximum likelihood for the two parameters \(\beta_0\) and \(\beta_1\), or using the least squares solution by minimising the
+squared error, we obtain the following estimators:
+\begin{align*}
+    \hat{\beta}_0 & = \overline{y} - \hat{\beta}_1 \overline{x}                                                                                                     \\
+    \hat{\beta}_1 & = \frac{\sum_{i = 1}^n \left( x_i - \overline{x} \right) \left( y_i - \overline{y} \right)}{\sum_{i = 1}^n \left( x_i - \overline{x} \right)^2} \\
+    s^2           & = \frac{1}{n - 2} \sum_{i = 1}^n \left( y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i \right)^2
+\end{align*}
+where each estimator has a Gaussian distribution, due to them being linear combinations of \(x\).
+\subsection{Hypothesis Testing}
+We can perform hypothesis testing on the regression coefficients \(\beta_0\) and \(\beta_1\).
+The sampling distributions for \(\hat{\beta}_0\) and \(\hat{\beta}_1\) are
+\begin{align*}
+    \hat{\beta}_0 \sim \mathrm{N}\left( \beta_0,\: s^2_{\hat{\beta}_0} \right) \\
+    \hat{\beta}_1 \sim \mathrm{N}\left( \beta_1,\: s^2_{\hat{\beta}_1} \right)
+\end{align*}
+where
+\begin{align*}
+    s^2_{\hat{\beta}_0} & = \frac{s^2 \overline{x}^2}{n \sum_{i = 1}^n \left( x_i - \overline{x} \right)^2} \\
+    s^2_{\hat{\beta}_1} & = \frac{s^2}{\sum_{i = 1}^n \left( x_i - \overline{x} \right)^2}
+\end{align*}
+so that the test statistics are
+\begin{align*}
+    t_{\hat{\beta}_0} & = \frac{\hat{\beta}_0 - \beta_0}{s_{\hat{\beta}_0}} \sim t_{n - 2} \\
+    t_{\hat{\beta}_1} & = \frac{\hat{\beta}_1 - \beta_1}{s_{\hat{\beta}_1}} \sim t_{n - 2}
+\end{align*}
+Based on this, we can construct confidence intervals for the regression coefficients \(\beta_0\) and \(\beta_1\):
+\begin{align*}
+    \hat{\beta}_0 \pm t_{\alpha / 2, n - 2} s_{\hat{\beta}_0} \quad \text{and} \quad \hat{\beta}_1 \pm t_{\alpha / 2, n - 2} s_{\hat{\beta}_1}
+\end{align*}
+where
+\begin{equation*}
+    \Pr{\left( t < t_{\alpha / 2, n - 2} \right)} = 1 - \alpha / 2.
+\end{equation*}
+The null hypotheses are chosen such that the regression coefficients are equal to zero.
+As \(\beta_0\) is the intercept of the linear model, it is usually not of interest, however the estimator \(\beta_1\)
+can be tested to determine whether there is indeed a linear relationship between the predictor and the response.
+The hypothesis test is then
+\begin{equation*}
+    H_0 : \beta_1 = 0 \quad \text{vs.} \quad H_A : \beta_1 \neq 0
+\end{equation*}
+with the test statistic
+\begin{equation*}
+    t = \frac{\hat{\beta}_1}{s_{\hat{\beta}_1}}.
+\end{equation*}
+\subsection{Assumptions}
+When performing a linear regression, there are several assumptions that must be met.
+\begin{enumerate}
+    \item The parameter estimates \(\hat{\beta}_0\) and \(\hat{\beta}_1\) are unbiased, i.e., the expected value of \(\epsilon_i = y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i\) is zero.
+    \item The residuals \(\epsilon_i\) are independent, i.e., \(\Corr{\left( \epsilon_i,\: \epsilon_j \right)} = 0\) for \(i \neq j\).
+    \item The residuals follow a Gaussian distribution, i.e., \(\epsilon_i \sim \mathrm{N}\left( 0,\: \sigma^2 \right)\).
+\end{enumerate}
+To test these assumptions, we can perform the following diagnostics:
+\begin{enumerate}
+    \item Using a histogram of the residuals, we can check whether the residuals are unimodal and thus normally distributed.
+    \item Using a \(q\)-\(q\) plot, we can check whether the residuals lie on a straight line.
+    \item Using a plot of the residuals against the fitted values, we can check whether the residuals are independent, i.e.,
+          there are no patterns in the residuals and their variance is roughly equal or constant (they lie randomly around 0).
+          This is known as homoscedasticity.
+\end{enumerate}
+\subsection{ANOVA for Linear Regression}
+By performing ANOVA, we can determine how much of the variation in \(y\) is explained by the model.
+The ANOVA table for linear regression is as follows:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c c c}
+        \toprule
+        \textbf{Source}   & \textbf{DoF} & \textbf{SS}      & \textbf{MS}                    \\
+        \midrule
+        \text{Regression} & \(1\)        & \(\mathrm{SSR}\) & \(\frac{\mathrm{SSR}}{1}\)     \\ [0.15in]
+        \text{Error}      & \(n - 2\)    & \(\mathrm{SSE}\) & \(\frac{\mathrm{SSE}}{n - 2}\) \\ [0.15in]
+        \text{Total}      & \(n - 1\)    & \(\mathrm{SST}\) &                                \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+where
+\begin{align*}
+    \mathrm{SSR} & = \sum_{i = 1}^n \left( \hat{y}_i - \overline{y} \right)^2 \\
+    \mathrm{SSE} & = \sum_{i = 1}^n \left( y_i - \hat{y}_i \right)^2          \\
+    \mathrm{SST} & = \sum_{i = 1}^n \left( y_i - \overline{y} \right)^2
+\end{align*}
+and \(\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i\). Note that \(s^2 = \frac{\mathrm{SSE}}{n - 2}\).
+
+The \(F\) statistic is
+\begin{equation*}
+    F = \frac{\mathrm{SSR}}{\mathrm{SSE}} \sim F_{1, n - 2}
+\end{equation*}
+where the null hypothesis is
+\begin{equation*}
+    H_0 : \text{The regression model explains more variation in \(y\) than the sample mean \(\overline{y}\)}
+\end{equation*}
+with the alternative hypothesis
+\begin{equation*}
+    H_A : \text{The regression model explains less variation in \(y\) than the sample mean \(\overline{y}\)}.
+\end{equation*}
+where we can reject the null hypothesis if \(F > F_{1 - \alpha, 1, n - 2}\). For one independent variable \(x\),
+the \(F\) statistic is equivalent to the \(t\) statistic squared, i.e., \(F \equiv t^2\), and the
+hypothesis test is simply
+\begin{equation*}
+    H_0 : \beta_1 = 0 \quad \text{vs.} \quad H_A : \beta_1 \neq 0.
+\end{equation*}
+\subsection{Coefficient of Determination}
+The coefficient of determination \(R^2\) is defined as
+\begin{equation*}
+    R^2 = \frac{\mathrm{SSR}}{\mathrm{SST}} = 1 - \frac{\mathrm{SSE}}{\mathrm{SST}}
+\end{equation*}
+which is the proportion of the total variation in \(y\) that is explained by the model.
+In practice, values close to 1 typically indicate ``over-fitting'' in the model, and sometimes small values
+may be acceptable. Therefore the coefficient of determination should only be used as a subjective measure.
+\subsection{Estimation and Prediction}
+Using the estimated regression coefficients \(\hat{\beta}_0\) and \(\hat{\beta}_1\), we can estimate the response
+for a given predictor value \(x\), i.e., \(\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i\).
+The standard error of the estimate is
+\begin{equation*}
+    s_{\hat{y}_i} = \sqrt{s^2 \left( \frac{1}{n} + \frac{\left( x_i - \overline{x} \right)^2}{\sum_{i = 1}^n \left( x_i - \overline{x} \right)^2} \right)}
+\end{equation*}
+and the confidence intervals and hypothesis testing will be based on the sampling distribution
+\begin{equation*}
+    \frac{\hat{y}_i - \E{\left( y_i \right)}}{s_{\hat{y}_i}} \sim t_{n - 2}
+\end{equation*}
+where the confidence interval gives us a region of values that we expect to contain the true value of \(y_i\):
+\begin{equation*}
+    \hat{y}_i \pm t_{n - 2, 1 - \alpha / 2} s_{\hat{y}_i}.
+\end{equation*}
+Note that the confidence interval is narrowest when \(x_i\) is near \(\overline{x}\), so that we are most confident
+of our estimates, for values of \(x\) close to \(\overline{x}\).
+
+If we wish to predict a value of \(y\) for a new (unobserved) value \(x^\ast\), we have
+\begin{equation*}
+    y^\ast = \hat{\beta}_0 + \hat{\beta}_1 x^\ast
+\end{equation*}
+and the standard error for this prediction is given by
+\begin{equation*}
+    s_{y^\ast} = \sqrt{s^2 \left( 1 + \frac{1}{n} + \frac{\left( x^\ast - \overline{x} \right)^2}{\sum_{i = 1}^n \left( x_i - \overline{x} \right)^2} \right)}
+\end{equation*}
+and the prediction interval gives us a region of values that we expect to contain the true value of \(y^\ast\):
+\begin{equation*}
+    y^\ast \pm t_{n - 2, 1 - \alpha / 2} s_{y^\ast}.
+\end{equation*}
+This interval is even wider than the confidence interval with greater confidence in predictions close to the mean.
+For this reason, extreme caution should be used when extrapolating outside the data domain.
+\subsection{ANCOVA}
+The ANCOVA model is a generalization of the ANOVA model that allows for the inclusion of continuous
+covariates that should be accounted for in our analysis. In this model, we can
+account for effects that could not be controlled for in the ANOVA model.
+Recall the ANOVA model:
+\begin{equation*}
+    y_{ij} = \alpha_i + \epsilon_{ij}
+\end{equation*}
+where \(\alpha_i\) represents the \(i\)th treatment mean. The ANCOVA model accounts for covariate values \(x_{ij}\)
+by including the following terms:
+\begin{equation*}
+    y_{ij} = \alpha_i + \beta\left( x_{ij} - \overline{x} \right) + \epsilon_{ij}.
+\end{equation*}
+These terms produce similar sum of squares terms as the ANOVA model, but with the addition of the
+sum of the squares of the covariate (SSR) terms, with the same calculation of the \(F\) statistic.
+
+The addition of the covariate terms increases the power of the test in detecting treatment effects and is
+therefore useful in many situations. It should however be noted that all constraints of linear regression
+regarding the independence and homogeneity of residuals and their normality also apply to the covariate effects
+in the model.
+
+The ANCOVA model also requires another assumption, that there is homogeneity of regression slopes, i.e.,
+the slope, \(\beta\), is approximately the same for all levels of treatment. This assumption can be visually confirmed by
+plotting the response variable against the covariate and fitting a least-squares line for each treatment,
+or by fitting an interaction term between the treatment and the covariate, and testing if this interaction is
+\textbf{not} statistically significant (\(p\) value greater than 0.05), which would indicate that the slopes
+are approximately the same for all treatments.
+\section{Categorical Data Analysis}
+In this section, data are counts of members in each category, and we are interested in the relationships between the
+categories.
+\subsection{\texorpdfstring{\(2 \times 2\)}{2x2} Contingency Tables}
+Given two factors with two categories each, we can use a \(2 \times 2\) contingency table to summarise the data.
+The count of the members correspond to a specific cell in the table and hence the table is a set of summary statistics displayed
+as cell counts.
+
+The counts are random variables and should therefore have associated sampling distributions, however because the row sums
+and column sums are fixed, the sampling distribution of the counts are not independent, and we must consider a joint
+sampling distribution for the counts.
+\subsection{Hypergeometric Distribution}
+The hypergeometric distribution is a discrete probability distribution that describes the probability of drawing
+\(k\) successes from a population of size \(N\) without replacement, where the population contains a total of
+\(K\) successes, and we draw a sample of size \(n\).
+The probability mass function is given by
+\begin{equation*}
+    \Pr{\left( X = k \right)} = \frac{\binom{K}{k} \binom{N - K}{n - k}}{\binom{N}{n}}.
+\end{equation*}
+For example, if we had the data
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c c c}
+        \toprule
+                                     & \textbf{Factor 1} & \textbf{Factor 2} & \textbf{Total Successes (\(K\))} \\
+        \midrule
+        \textbf{Category 1}          & \(k_{11}\)        & \(k_{12}\)        & \(K_1\)                          \\
+        \textbf{Category 2}          & \(k_{21}\)        & \(k_{22}\)        & \(K_2\)                          \\
+        \textbf{Total Draws (\(n\))} & \(n_1\)           & \(n_2\)           & \(N\)                            \\
+        \bottomrule
+    \end{tabular}
+    % \caption{} % \label{}
+\end{table}
+then the probability of drawing \(k_{11}\) successes from the population of size \(N\) without replacement, where the population contains a total of
+\(K_1\) successes, and we draw a sample of size \(n_1\) is given by
+\begin{equation*}
+    \Pr{\left( X = k_{11} \right)} = \frac{\binom{K_1}{k_{11}} \binom{N - K_1}{n_1 - k_{11}}}{\binom{N}{n_1}}.
+\end{equation*}
+We can construct a null hypothesis that tests whether the two factors have an equal probability of being
+associated with a category, then we can use the hypergeometric distribution to calculate the probability of
+observing the data given the null hypothesis, and reject the null hypothesis if the probability (two-sided multiplied by 2)
+is less than 0.05. This is known as the Fisher's exact test.
+\subsection{Chi-Squared Distribution}
+When we have more than two categories, Fisher's test becomes computationally infeasible, and we must use
+the \(\chi^2\) distribution. The \(\chi^2\) distribution is a continuous probability distribution defined by
+\begin{equation*}
+    X = \sum_{i = 1}^n Z_i^2 \sim \chi_\nu^2
+\end{equation*}
+where \(Z_i \sim \mathrm{N}\left( 0,\: 1 \right)\) and \(\nu = n - 1\).
+\subsubsection{Test of Homoegeneity}
+The \(\chi^2\) test of homogeneity tests whether the distribution
+of items across categories the same for different factors.
+
+Given the data
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c c c c c}
+        \toprule
+                                        & \textbf{Factor 1} & \textbf{Factor 2} & \(\cdots\) & \textbf{Factor \(J\)} & \textbf{Total Successes (\(n_{i.}\))} \\
+        \midrule
+        \textbf{Category 1}             & \(\pi_{11}\)      & \(\pi_{12}\)      & \(\cdots\) & \(\pi_{1J}\)          & \(n_{1.}\)                            \\
+        \textbf{Category 2}             & \(\pi_{21}\)      & \(\pi_{22}\)      & \(\cdots\) & \(\pi_{2J}\)          & \(n_{2.}\)                            \\
+        \(\vdots\)                      & \(\vdots\)        & \(\vdots\)        & \(\ddots\) & \(\vdots\)            & \(\vdots\)                            \\
+        \textbf{Category \(I\)}         & \(\pi_{I1}\)      & \(\pi_{I2}\)      & \(\cdots\) & \(\pi_{IJ}\)          & \(n_{..}\)                            \\
+        \textbf{Total Draws \(n_{.j}\)} & \(n_{.1}\)        & \(n_{.2}\)        & \(\cdots\) & \(n_{.J}\)            & \(n_{..}\)                            \\
+        \bottomrule
+    \end{tabular}
+    % \caption{} % \label{}
+\end{table}
+This lets us calculate the expected counts for each cell in the table as
+\begin{equation*}
+    E_{ij} = \frac{n_{i.} n_{.j}}{n_{..}}.
+\end{equation*}
+We can then form the null hypothesis that the distribution of items across categories is the same for all factors,
+\begin{equation*}
+    H_0: \pi_{ij} = \pi_{i} \forall i, j \quad \text{vs.} \quad H_1: \text{at least one \(\pi_{ij}\) is different from \(\pi_{i}\)}.
+\end{equation*}
+The value \(\pi_i\) is estimated by
+\begin{equation*}
+    \hat{\pi}_i = \frac{n_{i.}}{n_{..}}.
+\end{equation*}
+If we assume that \(\pi_{ij}\) have a Poisson distribution, then the expected value and variance are equal, so that
+the \(Z\)-score \(Z_{ij}\) is given by
+\begin{equation*}
+    Z_{ij} = \frac{\pi_{ij} - E_{ij}}{\sqrt{E_{ij}}} \sim \mathrm{N}\left( 0,\: 1 \right).
+\end{equation*}
+The \(\chi^2\) statistic is given by
+\begin{equation*}
+    X^2 = \sum_{i = 1}^I \sum_{j = 1}^J \frac{\left( \pi_{ij} - E_{ij} \right)^2}{E_{ij}} \sim \chi_{\nu}^2
+\end{equation*}
+for \(\nu = \left( I - 1 \right)\left( J - 1 \right)\) degrees of freedom. We can therefore reject the null hypothesis if
+\begin{equation*}
+    X^2 > \chi_{\nu, \: 1 - \alpha}^2.
+\end{equation*}
+This is known as Pearson's \(\chi^2\) test.
+\subsubsection{Test of Independence}
+The \(\chi^2\) test of independence tests whether the distribution of items across categories is independent of the
+factors. The formulation of the test statistic is the same as the test of homogeneity, and we use the following
+null hypothesis:
+\begin{align*}
+    H_0 & : \text{The categories and factors are independent}            \\
+    H_1 & : \text{at least one category is not independent of a factor}.
+\end{align*}
+We can reject the null hypothesis if
+\begin{equation*}
+    X^2 > \chi_{\nu, \: 1 - \alpha}^2.
+\end{equation*}
 \end{document}
