@@ -4,34 +4,754 @@
 \input{LaTeX-Submodule/template.tex}
 
 % Additional packages & macros
+\usepackage{mathdots}
+\setitemize{leftmargin=*,topsep=1ex,partopsep=0ex,itemsep=-1ex,partopsep=0ex,parsep=1ex}
+\setlist{leftmargin=*,topsep=1ex,partopsep=0ex,itemsep=-1ex,partopsep=0ex,parsep=1ex}
+
+\usepackage{changepage} % Modify page width
+\usepackage{multicol} % Use multiple columns
+\usepackage[explicit]{titlesec} % Modify section heading styles
+
+\titleformat{\section}{\raggedright\normalfont\bfseries}{}{0em}{#1}
+\titleformat{\subsection}{\raggedright\normalfont\small\bfseries}{}{0em}{#1}
 
 %% A4 page
 \geometry{
-	a4paper,
-	margin = 10mm
+a4paper,
+margin = 10mm
 }
 
 %% Hide horizontal rule
 \renewcommand{\headrulewidth}{0pt}
+\fancyhead{}
 
-% Modify spacing
-\titlespacing*{\section}{0pt}{0\baselineskip}{0\baselineskip}
-\titlespacing*{\subsection}{0pt}{0\baselineskip}{0\baselineskip}
+%% Hide page numbers
+\pagenumbering{gobble}
 
-% Metadata for README
-\newcommand{\unitName}{Introduction to Statistical Modelling}
-\newcommand{\unitTime}{Semester 2, 2022}
-\newcommand{\unitCoordinator}{Dr Gentry White}
-\newcommand{\documentAuthors}{Tarang Janawalkar}
+%% Multi-columns setup
+\setlength\columnsep{4pt}
 
-%% Copyright
-\usepackage[
-    type={CC},
-    modifier={by-nc-sa},
-    version={4.0},
-    imagewidth={5em},
-    hyphenation={raggedright}
-]{doclicense}
+%% Paragraph setup
+\setlength\parindent{0pt}
+\setlength\parskip{0pt}
+
+%% Customise section heading styles
+% \titleformat*\section{\raggedright\bfseries}
 
 \begin{document}
+\begin{multicols}{3}
+    \section{Introduction}
+    \subsection{Population}
+    The entire group we are concerned with.
+    \subsection{Sample}
+    A representative subset of the population.
+    \subsection{Quantitative Data}
+    Numerical data.
+    Could be nominal (discrete or continuous), or ordinal (ordered).
+    \subsection{Qualitative Data}
+    Categorical data, e.g.\ colour, model.
+
+\section{Measures of Centrality}
+\subsection{Mean}
+Given a set of \(n\) observations \(x_1,\: x_2,\: \ldots,\: x_n\), the \textbf{arithmetic mean}
+or \textbf{average} is defined as
+\begin{equation*}
+    \frac{1}{n} \sum_{i = 1}^n x_i
+\end{equation*}
+The sample mean is denoted \(\overline{x}\).
+The population mean is denoted \(\mu\).
+\subsection{Median}
+A drawback to the mean is that it can be misleading when the data is skewed.
+The \textbf{median} is the middle value of a set of \(n\) observations when arranged
+from largest to smallest.
+\begin{equation*}
+    \text{median} = \begin{cases}
+    x^{\left( \frac{n + 1}{2} \right)} & n \text{ odd}
+    \\
+    \frac{x^{\left( \frac{n}{2} \right)} + x^{\left( \frac{n}{2} + 1 \right)}}{2}
+    & n \text{ even}
+    \end{cases}
+\end{equation*}
+\begin{equation*}
+\end{equation*}
+\subsection{Mode}
+Given discrete data, the mode is defined as the most common value in a set of observations.
+\section{Measures of Dispersion}
+Dispersion refers to how much variation there is in a set of observations.
+\subsection{Range}
+The range is the difference between the maximum and minimum observation.
+\subsection{Variance}
+The variance is the average of the squared deviations from the mean.
+\begin{itemize}
+    \item Given the observations \(x_1,\: x_2,\: \ldots,\: x_N\), from a population of size \(N\) with mean \(\mu\),
+          the \textbf{population variance} is defined as
+          \begin{equation*}
+              \sigma^2 = \frac{1}{N} \sum_{i = 1}^N (x_i - \mu)^2.
+          \end{equation*}
+    \item Given the observations \(x_1,\: x_2,\: \ldots,\: x_n\), from a sample of size \(n\) with mean \(\overline{x}\),
+          the \textbf{sample variance} is defined as
+          \begin{equation*}
+              s^2 = \frac{1}{n - 1} \sum_{i = 1}^n (x_i - \overline{x})^2.
+          \end{equation*}
+\end{itemize}
+\subsection{Standard Deviation}
+The \textbf{population standard deviation} is
+\(
+              \sigma = \sqrt{\sigma^2}.
+              \)
+The \textbf{sample standard deviation} is
+\(
+              s = \sqrt{s^2}.
+              \)
+\begin{theorem}[Chebyshev's Theorem]
+    Given a set of \(n\) observations, at least
+    \begin{equation*}
+        1 - \frac{1}{k^2}
+    \end{equation*}
+    of them are within \(k\) standard deviations of the mean,
+    where \(k \geq 1\).
+\end{theorem}
+\begin{theorem}[Empirical Rule]
+    If a histogram of the data is approximately unimodal and symmetric, then,
+    \begin{itemize}
+        \item 68\% of the data falls within \textbf{one} standard deviation of the mean
+        \item 95\% of the data falls within \textbf{two} standard deviations of the mean
+        \item 99\% of the data falls within \textbf{three} standard deviations of the mean
+    \end{itemize}
+\end{theorem}
+Approximate
+\(
+    \text{range} \approx 4 s
+    \)
+so that
+\(
+    s = \frac{\text{range}}{4}
+    \).
+\section{Skew}
+The \textbf{skew} describes the asymmetry of the distribution.
+% No calculations needed according to Slack
+% For a finite population of size \(N\), the \textbf{population skew} is defined as
+% \begin{equation*}
+%     \frac{1}{N} \sum_{i = 1}^N \left( \frac{x_i - \mu}{\sigma} \right)^3
+% \end{equation*}
+% For a sample of size \(n\), the \textbf{sample skew} is defined as
+% \begin{equation*}
+%     \frac{\frac{1}{n} \sum_{i = 1}^n \left( x_i - \overline{x} \right)^3}{\left( \sqrt{\frac{1}{n - 1} \sum_{i = 1}^n \left( x_i - \overline{x} \right)^2} \right)^3}
+% \end{equation*}
+\begin{itemize}
+    \item When the skew is \textbf{positive}, the data is \textbf{right-skewed} and the ``tail'' of the distribution is \textbf{longer on the right}
+    \item When the skew is \textbf{negative}, the data is \textbf{left-skewed} and the ``tail'' of the distribution is \textbf{longer on the left}
+\end{itemize}
+\section{Measures of Rank}
+\subsection{Z-Score}
+The Z-score is a unitless quantity and can be used to make comparisons of relative rank between members of a population.
+\begin{equation*}
+    Z = \frac{x  - \mu}{\sigma} \quad \text{or} \quad \frac{x - \overline{x}}{s}
+\end{equation*}
+\subsection{Quantiles}
+For a set of \(n\) observations, \(x_q\) is the \(q\)-th quantile, if \(q\)\% of the observations are less than \(x_q\).
+\subsection{Inter-Quartile Range}
+The inter-quartile range (IQR) is \(x_{75} - x_{25}\).
+\subsection{Covariance and Correlation Coefficients}
+Covariance is the measure of the linear correlation between variables.
+\begin{equation*}
+    s_{xy} = \frac{\sum_{i = 1}^n \left( x_i - \overline{x} \right) \left( y_i - \overline{y} \right)}{n - 1}.
+\end{equation*}
+Note that when \(x = y\), the formula simplifies to the sample variance of \(x\).
+The covariance has the following characteristics:
+\begin{itemize}
+    \item \(s_{xy} > 0\): As \(x\) increases, \(y\) also increases.
+    \item \(s_{xy} < 0\): As \(x\) increases, \(y\) decreases.
+    \item \(s_{xy} \approx 0\): No relationship between \(x\) and \(y\).
+\end{itemize}
+\textbf{Correlation Coefficient}
+\begin{equation*}
+    -1 \le r_{xy} = \frac{s_{xy}}{s_x s_y} \le 1
+\end{equation*}
+
+Note that a correlation coefficient of \(0\)
+indicates \textbf{no linear relationship} between the variables, and not necessarily indicative of \textbf{no relationship}.
+
+
+    \section{Events and Probability}
+    % \subsection{Event}
+    % Set of outcomes from an experiment.
+    % \subsection{Sample Space}
+    % Set of all possible outcomes \(\Omega\).
+    % \subsection{Intersection}
+    % Outcomes occur in both \(A\) and \(B\)
+    % \begin{equation*}
+    %     A \cap B \quad\quad \text{or} \quad\quad AB
+    % \end{equation*}
+    % \subsection{Disjoint}
+    % No common outcomes, \(AB = \varnothing\)
+    % \begin{equation*}
+    %     \Pr{\left( AB \right)} = \Pr{\left( A \,\vert\, B \right)} = 0
+    % \end{equation*}
+    % \subsection{Union}
+    % Set of outcomes in either \(A\) or \(B\)
+    % \begin{equation*}
+    %     A \cup B
+    % \end{equation*}
+    % \subsection{Complement}
+    % Set of all outcomes not in \(A\), but in \(\Omega \)
+    % \begin{align*}
+    %     A\overline{A}       & = \varnothing \\
+    %     A \cup \overline{A} & = \Omega
+    % \end{align*}
+    % \subsection{Subset}
+    % \(A\) is a (non-strict) subset of \(B\) if all elements in \(A\) are also in \(B\) --- \(A \subset B\).
+    % \begin{equation*}
+    %     AB = A \quad\quad \text{and} \quad\quad A \cup B = B
+    % \end{equation*}
+    % \begin{equation*}
+    %     \forall A:A\subset \Omega \land \varnothing \subset A
+    % \end{equation*}
+    % \begin{align*}
+    %     \Pr{\left( A \right)}             & \leq \Pr{\left( B \right)}                            \\
+    %     \Pr{\left( B \,\vert\, A \right)} & = 1                                                   \\
+    %     \Pr{\left( A \,\vert\, B \right)} & = \frac{\Pr{\left( A \right)}}{\Pr{\left( B \right)}}
+    % \end{align*}
+    % \subsection{Identities}
+    % \begin{align*}
+    %     A \left( BC \right)            & = \left( AB \right) C                             \\
+    %     A \cup \left( B \cup C \right) & = \left( A \cup B \right) \cup C                  \\
+    %     A \left(B \cup C\right)        & = AB \cup AC                                      \\
+    %     A \cup BC                      & = \left( A \cup B \right) \left( A \cup C \right)
+    % \end{align*}
+    % \subsection{Probability}
+    % Measure of the likeliness of an event occurring
+    % \begin{equation*}
+    %     \Pr{\left( A \right)} \quad\quad \text{or} \quad\quad \mathrm{P}\left( A \right)
+    % \end{equation*}
+    % \begin{equation*}
+    %     0 \leq \Pr{\left( A \right)} \leq 1
+    % \end{equation*}
+    % where a probability of 0 never happens, and 1 always happens.
+    % \begin{align*}
+    %     \Pr{\left( \Omega \right)}       & = 1                         \\
+    %     \Pr{\left( \overline{A} \right)} & = 1 - \Pr{\left( A \right)}
+    % \end{align*}
+    \subsection{Multiplication Rule}
+    For independent events \(A\) and \(B\)
+    \begin{equation*}
+        \Pr{\left( AB \right)} = \Pr{\left( A \right)} \Pr{\left( B \right)}.
+    \end{equation*}
+    For dependent events \(A\) and \(B\)
+    \begin{equation*}
+        \Pr{\left( AB \right)} = \Pr{\left( A \,\vert \, B \right)} \Pr{\left( B \right)}
+    \end{equation*}
+    \subsection{Addition Rule}
+    For independent \(A\) and \(B\)
+    \begin{equation*}
+        \Pr{\left( A \cup B \right)} = \Pr{\left( A \right)} + \Pr{\left( B \right)} - \Pr{\left( AB \right)}.
+    \end{equation*}
+    If \(AB = \varnothing \), then \(\Pr{\left( AB \right)} = 0\), so that \(\Pr{\left( A \cup B \right)} = \Pr{\left( A \right)} + \Pr{\left( B \right)}\).
+    \subsection{De Morgan's Laws}
+    \begin{align*}
+        \overline{A \cup B} & = \overline{A} \ \overline{B}     \\
+        \overline{AB}       & = \overline{A} \cup \overline{B}.
+    \end{align*}
+    \begin{align*}
+        \Pr{\left( A \cup B \right)} & = 1 - \Pr{\left( \overline{A} \ \overline{B} \right)}    \\
+        \Pr{\left( AB \right)}       & = 1 - \Pr{\left( \overline{A} \cup \overline{B} \right)}
+    \end{align*} 
+    \subsection{Bayes' Theorem}
+    \begin{equation*}
+        \Pr{\left( A \,\vert\, B \right)} = \frac{\Pr{\left( B \,\vert\, A \right)}\Pr{\left( A \right)}}{\Pr{\left( B \right)}}
+    \end{equation*}
+    \section{Random Variables}
+        Measurable variable whose value holds some uncertainty.
+        An event is when a random variable assumes a certain value or range of values.
+        \subsection{Probability Distribution}
+        The probability distribution of a random variable \(X\) is a function that links all outcomes \(x \in \Omega\)
+        to the probability that they will occur \(\Pr{\left( X = x \right)}\).
+        \subsection{Probability Mass Function}
+        \begin{equation*}
+            \Pr{\left( X = x \right)} = p_x
+        \end{equation*}
+        \subsection{Probability Density Function}
+        \begin{equation*}
+            \Pr{\left( x_1 \leq X \leq x_2 \right)} = \int_{x_1}^{x_2} f\left( x \right) \odif{x}
+        \end{equation*}
+        \subsection{Cumulative Distribution Function}
+        Probability that a random variable is
+        less than or equal to a particular realisation \(x\).
+
+        \(F\left( x \right)\) is a valid CDF if:
+        \begin{enumerate}
+            \item \(F\) is monotonically increasing and continuous
+            \item \(\lim_{x \to -\infty} F\left( x \right) = 0\)
+            \item \(\lim_{x \to \infty} F\left( x \right) = 1\)
+        \end{enumerate}
+        \begin{equation*}
+            \odv{F\left( x \right)}{x} = \odv{}{x} \int_{-\infty}^x f\left( u \right) \odif{u} = f\left( x \right)
+        \end{equation*}
+        \subsection{Complementary CDF (Survival Function)}
+        \begin{equation*}
+            \Pr{\left( X > x \right)} = 1 - \Pr{\left( X \leq x \right)} = 1 - F\left( x \right)
+        \end{equation*}
+        % Apparently not on exam says Slack
+        % \subsection{\texorpdfstring{\(p\)}{p}-Quantiles}
+        % \begin{equation*}
+        %     F\left( x \right) = \int_{-\infty}^x f\left( u \right) \odif{u} = p
+        % \end{equation*}
+        % \subsection{Special Quantiles}
+        % \begin{align*}
+        %     \text{Lower quartile \(q_1\):}  &  &  & p = \frac{1}{4} \\
+        %     \text{Median \(m\):}            &  &  & p = \frac{1}{2} \\
+        %     \text{Upper quartile \(q_2\):}  &  &  & p = \frac{3}{4} \\
+        %     \text{Interquartile range IQR:} &  &  & q_2 - q_1
+        % \end{align*}
+        % \subsection{Quantile Function}
+        % \begin{equation*}
+        %     x = F^{-1}\left( p \right) = Q\left( p \right)
+        % \end{equation*}
+        \subsection{Expectation (Mean)}
+        Expected value given an infinite number of observations. For \(a < c < b\):
+        \begin{equation*}
+            \E{\left(X\right)} = \begin{aligned}[t]
+                 & -\int_{a}^c F\left( x \right) \odif{x}                     \\
+                 & + \int_c^b \left(1 - F\left( x \right)\right) \odif{x} + c
+            \end{aligned}
+        \end{equation*}
+        \subsection{Variance}
+        Measure of spread of the distribution (average squared distance of each value from the mean).
+        \begin{equation*}
+            \Var{\left( X \right)} = \sigma^2 = \E{\left( X^2 \right)} - \E{\left( X \right)}^2
+        \end{equation*}
+        \subsection{Standard Deviation}
+        \begin{equation*}
+            \sigma = \sqrt{\Var{\left( X \right)}}
+        \end{equation*}
+        
+
+\subsection{Central Limit Theorem}
+For a sample of size \(n \ge 30\),
+% from any random probability distribution with expected value \(\mu\)
+% and variance \(\sigma^2\),
+\begin{equation*}
+    \frac{\sqrt{n}\left( \overline{x} - \mu \right)}{\sigma} \overset{p}{\rightarrow} \operatorname{N}{\left( 0,\: 1 \right)}
+\end{equation*}
+% meaning that increasing the sample size will lead to a more normal distribution.
+% In this case, a sample size of \(n = 30\) is sufficient to approximate a normal distribution.
+\subsection{Standard Error}
+\begin{equation*}
+    \operatorname{SE}{\left( \overline{x} \right)} = \frac{\sigma^2}{n}
+\end{equation*}
+\subsection{Sample Proportion}
+For a sample of size \(n\) let \(x\) be the number of members with a particular characteristic.
+The sample estimate of the population proportion \(p\) is
+\begin{equation*}
+    \hat{p} = \frac{x}{n}.
+\end{equation*}
+By assuming that the samples statistic \(x\) follows a binomial distribution with probability \(p\) and
+size \(n\), then \(\E{\left( x \right)} = np\) and \(\Var{\left( x \right)} = np\left( 1 - p \right)\).
+Therefore the expectation is
+\begin{equation*}
+    \E{\left( \hat{p} \right)} = p
+\end{equation*}
+and the standard error is
+\begin{equation*}
+    \operatorname{SE}{\left( \hat{p} \right)} = \sqrt{\frac{p\left( 1 - p \right)}{n}}.
+\end{equation*}
+For the above to apply, we must assume that the sample proportion and size are sufficiently large.
+In general, if \(np > 5\) and \(n\left( 1 - p \right) > 5\), then we can assume that the sampling distribution of \(\hat{p}\)
+is approximately normal.
+\subsection{Assessing Normality}
+\begin{itemize}
+    \item Histograms: if the data is approximately normal, then the histogram will be approximately symmetric and unimodal.
+    \item Boxplots: boxplots can be useful for showing outliers and skewness. Extreme clusters of an excessive number of
+          outliers can be evidence of non-normality.
+    \item Normal probability plots (\(q\)-\(q\) plots): these plots are constructed by plotting the sorted data values against
+          their \(Z\)-scores. If the data is approximately normal, then the points will lie approximately on a straight line.
+\end{itemize}
+\section{Large Sample Estimation}
+\subsection{Point Estimation}
+\subsection{Method of Moments}
+The moments of a probability distribution are defined
+\begin{align*}
+    \mu_n & = \E{\left( X^n \right)} = \int_{-\infty}^\infty x^n f\left( x \right) \odif{x}
+\end{align*}
+where \(f\left( x \right)\) is the probability density function of the distribution.
+Here \(\mu_1 = \E{\left( X \right)}\) and \(\Var{\left( X \right)} = \mu_2 - \mu_1^2\).
+Sample moments are defined similarly
+\begin{align*}
+    m_n & = \frac{1}{n} \sum_{i = 1}^n x_i^n
+\end{align*}
+where \(\overline{x} = m_1\).
+\subsection{Method of Maximum Likelihood Estimation}
+\begin{definition}[Likelihood function]
+    \begin{equation*}
+        \mathcal{L}\left( \theta \,\vert\, \symbfit{x} \right) = \prod_{i = 1}^n f\left( x_i \right) \\
+    \end{equation*}
+\end{definition}
+\begin{definition}[Maximum likelihood estimator]
+    \begin{equation*}
+        \hat{\theta} = \arg\max_\theta{\mathcal{L}\left( \theta \,\vert\, \symbfit{x} \right)}.
+    \end{equation*}
+\end{definition}
+\begin{definition}[Log-likelihood function]
+    The \textbf{log-likelihood function} is defined as
+    \begin{align*}
+        \ell\left( \theta \,\vert\, \symbfit{x} \right)& = \sum_{i = 1}^n \log{\left( f\left( x_i \right) \right)}
+    \end{align*}
+\end{definition}
+Due to the monotonicity of the log function, the maximum likelihood estimator is the same as the maximum log-likelihood estimator.
+\begin{definition}[Maximum log-likelihood estimator]
+    The \textbf{maximum log-likelihood estimator} is defined as
+    \begin{equation*}
+        \hat{\theta} = \arg\max_\theta{\ell\left( \theta \,\vert\, \symbfit{x} \right)}.
+    \end{equation*}
+\end{definition}
+\subsection{Properties of Estimators}
+\begin{definition}[Bias]
+    The \textbf{bias} of an estimator is defined as
+    the difference between the expected value of the estimator \(\E{\left( \hat{\theta} \right)}\) and the true value of the parameter \(\theta_0\).
+    \begin{equation*}
+        \operatorname{Bias}\left( \hat{\theta} \right) = \E{\left( \hat{\theta} \right)} - \theta
+    \end{equation*}
+    An estimator \(\hat{\theta}\) is \textbf{unbiased} if
+    \begin{equation*}
+        \E{\left( \hat{\theta} \right)} = \theta
+    \end{equation*}
+    so that the bias is zero.
+\end{definition}
+We can also compare the variance of two estimators, to assess which one is more preferable.
+If the variance of the estimator is small, then the estimator is more precise.
+Given two estimators \(\hat{\theta}_1\) and \(\hat{\theta}_2\), we would choose \(\hat{\theta}_1\) over \(\hat{\theta}_2\) if
+\begin{equation*}
+    \Var{\left( \hat{\theta}_1 \right)} < \Var{\left( \hat{\theta}_2 \right)}
+\end{equation*}
+\begin{definition}[Mean square error]
+    Given data \(x_i\) with variance \(\sigma^2\), the estimators of \(\theta = \E\left\{ X \right\}\)
+    are selected such that they minimise the \textbf{mean square error}:
+    \begin{align*}
+        \operatorname{MSE}\left( \hat{\theta} \right) & = \E{\left( \left( \hat{\theta} - \theta \right)^2 \right)}                             \\
+                                                      & = \operatorname{Bias}\left( \hat{\theta} \right)^2 + \Var{\left( \hat{\theta} \right)}.
+    \end{align*}
+    This quantity is used to determine the \textbf{bias-variance trade-off} of an estimator.
+    The \textbf{root mean square error} is defined as
+    \begin{equation*}
+        \operatorname{RMSE}\left( \hat{\theta} \right) = \sqrt{\operatorname{MSE}\left( \hat{\theta} \right)}.
+    \end{equation*}
+\end{definition}
+\subsection{Confidence Intervals}
+This interval ranges from the lower confidence limit (UCL) to the upper confidence limit (LCL)
+\begin{equation*}
+    L < \theta < U.
+\end{equation*}
+This interval has a \textbf{confidence coefficient} of \(1 - \alpha\), or a \textbf{confidence level} of \(\left( 1 - \alpha \right)\%\).
+The confidence interval is defined as
+\begin{align*}
+    {CI}_{1 - \alpha} &= \hat{\theta} \pm Z_{\alpha / 2} \operatorname{SE}\left( \hat{\theta} \right)
+\end{align*}
+\subsection{Confidence Interval for the Mean}
+\begin{equation*}
+    {CI}_{1-\alpha} = \overline{x} \pm Z_{\alpha/2} \frac{\sigma}{\sqrt{n}}
+\end{equation*}
+where
+\(
+    \operatorname{SE}\left( \overline{x} \right) = \frac{\sigma}{\sqrt{n}}.
+    \)
+\subsection{Confidence Interval for the Proportion}
+Given the sample size \(n\) and sample proportion \(\hat{p}\),
+\begin{equation*}
+    \hat{p} \sim \operatorname{N}\left( p,\: \frac{p\left( 1 - p \right)}{n} \right).
+\end{equation*}
+The confidence interval for the population proportion is
+\begin{equation*}
+    {CI}_{1-\alpha} = \hat{p} \pm Z_{\alpha/2} \sqrt{\frac{\hat{p}\left( 1 - \hat{p} \right)}{n}}
+\end{equation*}
+where the standard error is given by
+\begin{equation*}
+    \operatorname{SE}\left( \hat{p} \right) = \sqrt{\frac{p\left( 1 - p \right)}{n}}.
+\end{equation*}
+with the approximation \(p=\hat{p}\).
+Note that \(n \hat{p} > 5\) and \(n \left( 1 - \hat{p} \right) > 5\) are required for the approximation to be valid.
+\subsection{Confidence Interval for the Difference of Two Means}
+% Given two population means \(\mu_1\) and \(\mu_2\), we expect the difference of the population means
+% and the sample means to be equal. Consider the expectation of the difference of the sample means:
+% \begin{equation*}
+%     \E{\left( \overline{x}_1 - \overline{x}_2 \right)} = \mu_1 - \mu_2
+% \end{equation*}
+% with standard error
+% \begin{equation*}
+%     \operatorname{SE}\left( \overline{x}_1 - \overline{x}_2 \right) = \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}
+% \end{equation*}
+% with is estimated by \(\sigma=s\).
+% The confidence interval for the difference of the two means is
+\begin{equation*}
+    {CI}_{1-\alpha} = \overline{x}_1 - \overline{x}_2 \pm Z_{\alpha/2} \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}.
+\end{equation*}
+If the two populations follow a normal distribution, then the sampling distribution is exactly normal.
+If the two populations are not normal, then the sampling distribution is approximately normal, for \(n_1 > 30\) and \(n_2 > 30\).
+\subsection{Confidence Interval for the Difference of Two Proportions}
+% {\scriptsize
+% \begin{equation*}
+\(
+    {CI}_{1-\alpha} = \hat{p}_1 - \hat{p}_2 \pm Z_{\alpha/2} \sqrt{\frac{\hat{p}_1\left( 1 - \hat{p}_1 \right)}{n_1} + \frac{\hat{p}_2\left( 1 - \hat{p}_2 \right)}{n_2}}.
+    \)
+% \end{equation*}
+% }
+Note
+\(n_i \hat{p}_i > 5\), and 
+\(n_i \left( 1 - \hat{p}_i \right) > 5\) for \(i=1,2\)
+to use this.
+\section{Hypothesis Testing}
+\subsection{Hypothesis Testing for the Population Mean}
+Given the sample statistic \(\overline{x}\),
+\begin{equation*}
+    \overline{x} \sim \operatorname{N}\left( \mu,\: \frac{\sigma^2}{n} \right)
+\end{equation*}
+the test statistic is defined
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\overline{x} - \mu_0}{\sigma/\sqrt{n}} \sim \operatorname{N}\left( 0,\: 1 \right).
+\end{equation*}
+\subsection{Hypothesis Testing for the Population Proportion}
+Given the sample statistic \(\hat{p}\),
+\begin{equation*}
+    \hat{p} \sim \operatorname{N}\left( p,\: \frac{p\left( 1 - p \right)}{n} \right)
+\end{equation*}
+for \(n \hat{p} > 5\) and \(n \left( 1 - \hat{p} \right) > 5\),
+the test statistic is defined
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\sqrt{n} \left( \hat{p} - p_0 \right)}{\sqrt{p_0 \left( 1 - p_0 \right)}}.
+\end{equation*}
+\subsection{Hypothesis Testing with Differences}
+\subsection{Hypothesis Testing for the Difference in Population Means}
+The point estimator of \(\mu_1 - \mu_2\) is given by
+\begin{equation*}
+    \overline{x}_1 - \overline{x}_2
+\end{equation*}
+and the standard error is given by
+\begin{equation*}
+    \operatorname{SE}_{\overline{x}_1 - \overline{x}_2} = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}.
+\end{equation*}
+The test statistic is defined
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\left( \overline{x}_1 - \overline{x}_2 \right) - \Delta_0}{\operatorname{SE}_{\overline{x}_1 - \overline{x}_2}}.
+\end{equation*}
+where \(\Delta_0 = \mu_1 - \mu_2\) is the hypothesised difference between the two population means.
+\subsection{Hypothesis Testing for the Difference in Population Proportions}
+The point estimator of the difference in proportions where \(p_1 = p_2\) is given by
+\begin{equation*}
+    \hat{p}_1 - \hat{p}_2
+\end{equation*}
+and the standard error is defined
+\begin{equation*}
+    \operatorname{SE}_{\hat{p}_1 - \hat{p}_2} = \sqrt{p_0 \left( 1 - p_0 \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}
+\end{equation*}
+where
+\begin{align*}
+    p_0 & = \frac{x_1 + x_2}{n_1 + n_2}                      \\
+    p_0 & = \frac{\hat{p}_1 n_1 + \hat{p}_2 n_2}{n_1 + n_2}.
+\end{align*}
+so that \(p_0 = p_1 = p_2\).
+The resulting test statistic is defined:
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\left( \hat{p}_1 - \hat{p}_2 \right)}{\operatorname{SE}_{\hat{p}_1 - \hat{p}_2}}.
+\end{equation*}
+% % unsure if needed
+% When the hypothesised difference is not 0, i.e., \(p_1 - p_2 = \Delta_0\), the test statistic is defined:
+% \begin{equation*}
+%     T\left( \symbfit{x} \right) = \frac{\left( \hat{p}_1 - \hat{p}_2 \right) - \Delta_0}{\sqrt{\frac{\hat{p}_1 \left( 1 - \hat{p}_1 \right)}{n_1} + \frac{\hat{p}_2 \left( 1 - \hat{p}_2 \right)}{n_2}}}.
+% \end{equation*}
+\subsection{Significance of Results}
+When interpreting the results from a test statistic, the test can only be used to reject the null hypothesis.
+\section{Small Sample Inference}
+\textbf{Student's t-distribution}:
+\begin{equation*}
+    T\left( \symbfit{x} \right) \sim t_{\nu}
+\end{equation*}
+where the degrees of freedom \(\nu\) is equal to \(n - 1\).
+\begin{align*}
+    \E{\left( X \right)}   & = 0                   \\
+    \Var{\left( X \right)} & = \frac{\nu}{\nu - 2} \\
+\end{align*}
+\subsection{Inferencing}
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\overline{x} - \mu_0}{s / \sqrt{n}} \sim t_{\nu, \alpha/2}.
+\end{equation*}
+\subsection{Hypothesis Testing for the Population Mean}
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\overline{x} - \mu_0}{s/\sqrt{n}} \sim t_{\nu, \alpha/2}.
+\end{equation*}
+\subsection{Hypothesis Testing for the Difference in Population Means}
+For independent samples,
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{s^2\left( \frac{1}{n_1} + \frac{1}{n_2} \right)}} \sim t_{\nu, \alpha/2}.
+\end{equation*}
+If \(s_1^2 \ne s_2^2\) use 
+\begin{equation*}
+    s_p^2 = \frac{\left( n_1 - 1 \right)s_1^2 + \left( n_2 - 1 \right)s_2^2}{\nu}.
+\end{equation*}
+where \(\nu = n_1 + n_2 - 2\) for the two-sample \(t\)-test.
+The population variances between two samples vary \textit{greatly}, if
+\(
+    \frac{\max{\left( s_1^2,\: s_2^2 \right)}}{\min{\left( s_1^2,\: s_2^2 \right)}} > 3.
+    \).
+If so use
+\begin{equation*}
+    T\left( \symbfit{x} \right) = \frac{\overline{x}_1 - \overline{x}_2 }{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
+\end{equation*}
+\begin{equation*}
+    \nu = \floor*{\frac{\left( \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} \right)^2}{\frac{\left( s_1^2 / n_1 \right)^2}{n_1 - 1} + \frac{\left( s_2^2 / n_2 \right)^2}{n_2 - 1}}}
+\end{equation*}
+
+
+\section{ANOVA}
+An experimental unit is the object whose outcome or response is measured and is of interest in the process of the experiment.
+The outcome or response measured is called the dependent variable.
+A factor is an independent variable controlled and varied by the experimenter.
+A treatment is a specific combination of factor levels.
+A response is the variable measured by the experimenter, typically continuous numeric.
+\[
+    \frac{S^2_1}{s^2_2} \sim F_{\nu_1,\nu_2} \quad \nu_i=n_i-1
+\]
+\[
+    s^2_j = \frac{1}{\nu_j} \sum_{i=1}^{n_j} \left( x_i - \bar{x} \right)^2
+\]
+\(H_0:\) All are same, \(H_A:\) At least one is different.
+Reject \(H_0\) if \(F>F_{critical}=F_{\nu_1,\nu_2,\alpha}\).
+\(\Pr\left( F<F_{critical} \right)=1-\alpha\).
+\subsection{Tukey's HSD}
+\[
+    q_{I,I(J-1)}\max_{i_1,i_2}\frac{|(\bar{y}_{i_1}-\mu_{i_1})-(\bar{y}_{i_2}-\mu_{i_2})|}{s_p/\sqrt{J}}
+\]
+\[
+    H_0: \mu_i = \mu_j, \quad H_A: \mu_i \ne \mu_j
+\]
+Reject \(H_0\) if \(|\bar{y}_{i_1}-\bar{y}_{i_2}|>q_{I,I(J-1),\alpha}\frac{s_p}{\sqrt{J}}\)
+\subsection{Blocking}
+\subsection{Two-factor Experiments}
+\section{ANCOVA}
+\subsection{Linear Regression}
+A linear relationship between two variables \(x\) and \(y\) is defined as
+\(
+    y = a + b x.
+    \)
+The least squares best fit determines the coefficients \(a\) and \(b\) that minimise the sum of the squares of the residuals
+\begin{align*}
+    b & = r \frac{s_y}{s_x} = \frac{s_{xy}}{s_x^2} \\
+    a & = \overline{y} - b \overline{x}.
+\end{align*}
+
+For estimators, relationship is linear if \(y_i = \beta_0+\beta_1x_i+\epsilon_i\).
+Parameters \(\frac{\hat{\beta}_i-\beta_i}{s_{\beta_i}}\sim t_{n-2}\).
+Errors/residuals \(e_i\stackrel{iid}{\sim}N(0,\sigma^2)\).
+\begin{align*}
+    \hat{\beta}_0 & = \bar{y}-\hat{\beta}_1\bar{x}\\
+    \hat{\beta}_1 & =
+    \frac{\sum_{i=1}^n(x_1-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^n(x_i-\bar{x})^2}\\
+    s^2 & =
+    \frac{\sum_{i=1}^n(y_i-\hat{\beta}_0-\hat{\beta}_1x_i)^2}{n-2}
+\end{align*}
+\subsection{Testing Inference}
+\subsection{Coefficient of Determination}
+\(R^2 = \frac{SSR}{SST} = 1-\frac{SSE}{SST}\).
+Close to 1 is good but could overfit, small can still be good, weak measure.
+We can use \(F=R^2\) for test.
+\subsection{Regression Diagnostics}
+\subsection{Estimation and Prediction}
+\subsection{Doing ANCOVA}
+\section{Categorical Data}
+\subsection{2x2 Tables}
+\subsection{\texorpdfstring{\(\chi^2\)}{Chi-Squared} Homogeneity}
+\subsection{\texorpdfstring{\(\chi^2\)}{Chi-Squared} Independence}
+
+\begin{minipage}{70mm}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|cc}
+        \toprule
+        \textbf{Decision}                  & \textbf{\(H_0\)}       & \textbf{\(\lnot H_0\)}      \\
+        \midrule
+        \textbf{Reject \(H_0\)}            & \(\alpha\)  & \(1 - \beta\)           \\
+        \textbf{Fail to reject} & \(1 - \alpha\)                 & \(\beta\)  \\
+        \bottomrule
+    \end{tabular}
+    % \caption{} % \label{}
+\end{table}
+\end{minipage}
+
+\begin{minipage}{70mm}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc}
+        \toprule
+        \(H_0\) & \textbf{Rejection Region} \(R\)                       \\
+        \midrule
+        \(\theta = \theta_0\)            & \(\abs*{T\left( \symbfit{x} \right)} > Z_{\alpha/2}\) \\
+        \(\theta \leq \theta_0\)         & \(T\left( \symbfit{x} \right) > Z_{\alpha}\)          \\
+        \(\theta \geq \theta_0\)         & \(T\left( \symbfit{x} \right) < -Z_{\alpha}\)         \\
+        \bottomrule
+    \end{tabular}
+    % \caption{} % \label{}
+\end{table}
+\end{minipage}
+
+% Should be provided according to Slack
+% \begin{minipage}{126.1962963mm}
+% \begin{table}[H]
+%     \centering
+%     \begin{tabular}{ccc}
+%         \toprule
+%         \textbf{Type I Error Rate} \(\alpha\) & \textbf{One Tail} \(Z_{\alpha}\) & \textbf{Two-Tail} \(Z_{\alpha/2}\) \\
+%         \midrule
+%         \(0.10\)                              & \(1.28\)                         & \(1.64\)                           \\
+%         \(0.05\)                              & \(1.65\)                         & \(1.96\)                           \\
+%         \(0.02\)                              & \(2.05\)                         & \(2.33\)                           \\
+%         \(0.01\)                              & \(2.33\)                         & \(2.58\)                           \\
+%         \bottomrule
+%     \end{tabular}
+%     \caption{} % \label{}
+% \end{table}
+% \end{minipage}
+
+\begin{minipage}{70mm}
+    \begin{table}[H]
+        \centering
+        \scriptsize
+        \begin{tabular}{c c c }
+            \toprule
+                                                     & \textbf{Discrete}                              & \textbf{Continuous}                                    \\
+            \midrule
+            \(\E{\left( X \right)}\)                 & \(\sum_{\Omega} xp_x\)                         & \(\int_{\Omega} xf(x)\odif{x}\)                        \\
+            \(\E{\left( g\left( X \right) \right)}\) & \(\sum_{\Omega} g\left( x \right)p_x\)         & \(\int_{\Omega} g\left( x \right)f(x)\odif{x}\)        \\
+            \(\Var{\left( X \right)}\)               & \(\sum_{\Omega} \left( x - \mu \right)^2 p_x\) & \(\int_{\Omega} \left( x - \mu \right)^2f(x)\odif{x}\) \\
+            \bottomrule
+        \end{tabular}
+        % \caption{Probability rules for univariate \(X\).} % \label{}
+    \end{table}
+\end{minipage}
+\end{multicols}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c c c c c}
+        \toprule
+        \textbf{Distribution}                                      & \textbf{Restrictions}                                  & \textbf{PMF}                                              & \textbf{CDF}                                                             & \(\E{\left( X \right)}\)            & \(\Var{\left( X \right)}\)                    \\
+        \midrule
+        \(X \sim \operatorname{Uniform}{\left( a,\: b \right)}\)   & \(x \in \left\{ a, \dots, b \right\}\)                 & \(\frac{1}{b - a + 1}\)                                   & \(\frac{x - a + 1}{b - a + 1}\)                                          & \(\frac{a + b}{2}\)                 & \(\frac{\left( b - a + 1 \right)^2 - 1}{12}\) \\
+        \(X \sim \operatorname{Bernoulli}{\left( p \right)}\)      & \(p \in \interval{0}{1}, x \in \left\{ 0, 1 \right\}\) & \(p^x \left( 1 - p \right)^{1 - x}\)                      & \(1 - p\)                                                                & \(p\)                               & \(p \left( 1 - p \right)\)                    \\
+        \(X \sim \operatorname{Binomial}{\left( n,\: p \right)}\)  & \(x \in \left\{ 0, \dots, n \right\}\)                 & \(\binom{n}{x} p^x \left( 1 - p \right)^{n - x}\)         & \(\sum_{u = 0}^x \binom{n}{u} p^u \left( 1 - p \right)^{n - u}\)         & \(np\)                              & \(np\left( 1 - p \right)\)                    \\
+        \( N \sim \operatorname{Poisson}{\left( \lambda \right)}\) & \(n \geq 0\)                                           & \(\frac{\lambda^n e^{-\lambda}}{n!}\)                     & \(e^{-\lambda} \sum_{u = 0}^n \frac{\lambda^u}{u!}\)                     & \(\lambda\)                         & \(\lambda\)                                   \\
+        \bottomrule
+    \end{tabular}
+    % \caption{Discrete probability distributions.} % \label{}
+\end{table}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c c c c c}
+        \toprule
+        \textbf{Distribution}                                       & \textbf{Restrictions}                  & \textbf{PDF}                                                                         & \textbf{CDF}                                                                            & \(\E{\left( X \right)}\) & \(\Var{\left( X \right)}\)            \\
+        \midrule
+        \(X \sim \operatorname{Uniform}{\left( a,\: b \right)}\)    & \(a < x < b\)                          & \(\frac{1}{b - a}\)                                                                  & \(\frac{x - a}{b - a}\)                                                                 & \(\frac{a + b}{2}\)      & \(\frac{\left( b - a \right)^2}{12}\) \\
+        \(T \sim \operatorname{Exp}{\left( \eta \right)}\)          & \(t > 0\)                              & \(\eta e^{-\eta t}\)                                                                 & \(1 - e^{-\eta t}\)                                                                     & \(1/\eta\)               & \(1/\eta\)                            \\
+        \(X \sim \operatorname{N}{\left( \mu,\: \sigma^2 \right)}\) & \(x \in \left\{ 0, \dots, n \right\}\) & \(\frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{\left( x - \mu \right)^2}{2 \sigma^2}}\) & \(\frac{1}{2} \left( 1 + \erf{\left( \frac{x - \mu}{\sigma \sqrt{2}} \right)} \right)\) & \(\mu\)                  & \(\sigma^2\)                          \\
+        \bottomrule
+    \end{tabular}
+    % \caption{Continuous probability distributions.} % \label{}
+\end{table}
 \end{document}
