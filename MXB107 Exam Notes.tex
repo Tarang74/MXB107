@@ -719,121 +719,142 @@ Reject \(H_0\) if \(\mathrm{MSXX} \gg \mathrm{MSE}\), (XX accounted for more of 
 \section{Categorical Data Analysis}
 Data are counts of members in each category, and we are interested in the relationships between categories.
 \begin{multicols}{3}
+    \begingroup
+    \allowdisplaybreaks
+    \raggedbottom
     \subsection{\texorpdfstring{\(2 \times 2\)}{2x2} Contingency Tables}
     2 factors with 2 categories, where cells are the counts of observations in each category.
     Counts are random variables and have sampling distributions, but because row/column sums are fixed, they are not
-independent.
-\subsection{Hypergeometric Distribution}
-Probability of drawing \(k\) successes from a population of size \(N\) without replacement,
-where the population contains \(K\) successes, and the draw size is \(n\):
-\begin{equation*}
-    \Pr{\left( X = k \right)} = \frac{\binom{K}{k} \binom{N - K}{n - k}}{\binom{N}{n}}.
-\end{equation*}
-Using the example table below,
-the probability of drawing \(k_{11}\) successes from the population of size \(N\) without replacement, where the population contains a total of
-\(K_1\) successes, and we draw a sample of size \(n_1\) is given by
-\begin{equation*}
-    \Pr{\left( X = k_{11} \right)} = \frac{\binom{K_1}{k_{11}} \binom{N - K_1}{n_1 - k_{11}}}{\binom{N}{n_1}}.
-\end{equation*}
-We can construct a null hypothesis that tests whether the two factors have an equal probability of being
-associated with a category, then we can use the hypergeometric distribution to calculate the probability of
-observing the data given the null hypothesis, and reject the null hypothesis if the probability (two-sided multiplied by 2)
-is less than 0.05.
-\subsection{Chi-Squared Distribution}
-\begin{equation*}
-    X = \sum_{i = 1}^n Z_i^2 \sim \chi_\nu^2
-\end{equation*}
-with \(Z_i \sim \mathrm{N}\left( 0,\: 1 \right)\) and \(\nu = n - 1\).
-\subsection{Test of Homogeneity}
-Tests whether the distribution
-of items across categories is the same for different factors.
+    independent.
+    \subsection{Hypergeometric Distribution}
+    Probability of drawing \(k\) successes from a population of size \(N\) without replacement,
+    where the population contains \(K\) successes, and the draw size is \(n\):
+    \begin{equation*}
+        \Pr{\left( X = k \right)} = \frac{\binom{K}{k} \binom{N - K}{n - k}}{\binom{N}{n}}.
+    \end{equation*}
+    Using the example table below,
+    the probability of drawing \(k_{11}\) successes from the population of size \(N\) without replacement, where the population contains a total of
+    \(K_1\) successes, and we draw a sample of size \(n_1\) is given by
+    \begin{equation*}
+        \Pr{\left( X = k_{11} \right)} = \frac{\binom{K_1}{k_{11}} \binom{N - K_1}{n_1 - k_{11}}}{\binom{N}{n_1}}.
+    \end{equation*}
+    We can construct a null hypothesis that tests whether the two factors have an equal probability of being
+    associated with a category, then we can use the hypergeometric distribution to calculate the probability of
+    observing the data given the null hypothesis, and reject the null hypothesis if the probability (two-sided multiplied by 2)
+    is less than 0.05.
+    \subsection{Chi-Squared Distribution}
+    \begin{equation*}
+        X = \sum_{i = 1}^n Z_i^2 \sim \chi_\nu^2
+    \end{equation*}
+    with \(Z_i \sim \mathrm{N}\left( 0,\: 1 \right)\) and \(\nu = n - 1\).
+    \subsection{Test of Homogeneity}
+    Tests whether the distribution
+    of items across categories is the same for different factors.
 
-Using the table below,
-calculate the expected counts for each cell in the table as
-\begin{equation*}
-    E_{ij} = \frac{n_{i.} n_{.j}}{n_{..}}.
-\end{equation*}
-The null hypothesis is that the distribution of items across
-categories is the same for all factors,
-\begin{align*}
-    H_0 & : \pi_{ij} = \pi_{i} \forall i, j \\
-    H_1 & : \text{at least one \(\pi_{ij}\) is different from \(\pi_{i}\)}.
-\end{align*}
-\begin{equation*}
-    \pi_i \approx \hat{\pi}_i = \frac{n_{i.}}{n_{..}}.
-\end{equation*}
-Assume \(\pi_{ij} \sim \operatorname{Poisson}\)
-then the \(Z\)-score \(Z_{ij}\) is given by
-\begin{equation*}
-    Z_{ij} = \frac{\pi_{ij} - E_{ij}}{\sqrt{E_{ij}}} \sim \mathrm{N}\left( 0,\: 1 \right).
-\end{equation*}
-The \(\chi^2\) statistic is given by
-\begin{equation*}
-    X^2 = \sum_{i = 1}^I \sum_{j = 1}^J \frac{\left( \pi_{ij} - E_{ij} \right)^2}{E_{ij}} \sim \chi_{\nu}^2
-\end{equation*}
-for \(\nu = \left( I - 1 \right)\left( J - 1 \right)\) degrees of freedom. We can therefore reject the null hypothesis if
-\begin{equation*}
-    X^2 > \chi_{\nu, \: 1 - \alpha}^2.
-\end{equation*}
-This test assumes that row/column sums (\(\pi_{i.}\) and \(\pi_{.j}\)) are fixed.
-\subsection{Test of Independence}
-Tests whether the distribution of items across categories is independent of the
-factors. The formulation of the test statistic is the same as the test of homogeneity, and we use the following
-null hypothesis:
-\begin{align*}
-    H_0 & : \text{\parbox{4.5cm}{The categories and factors are independent}}            \\
-    H_A & : \text{\parbox{4.5cm}{at least one category is not independent of a factor.}}
-\end{align*}
-We can reject the null hypothesis if
-\begin{equation*}
-    X^2 > \chi_{\nu, \: 1 - \alpha}^2.
-\end{equation*}
-This test assumes only the total \(n\) is fixed.
+    Using the table below,
+    calculate the expected counts for each cell in the table as
+    \begin{equation*}
+        E_{ij} = \frac{n_{i.} n_{.j}}{n_{..}}.
+    \end{equation*}
+    The null hypothesis is that the distribution of items across
+    categories is the same for all factors,
+    \begin{align*}
+        H_0 & : \pi_{ij} = \pi_{i} \forall i, j                                 \\
+        H_1 & : \text{at least one \(\pi_{ij}\) is different from \(\pi_{i}\)}.
+    \end{align*}
+    \begin{equation*}
+        \pi_i \approx \hat{\pi}_i = \frac{n_{i.}}{n_{..}}.
+    \end{equation*}
+    Assume \(\pi_{ij} \sim \operatorname{Poisson}\)
+    then the \(Z\)-score \(Z_{ij}\) is given by
+    \begin{equation*}
+        Z_{ij} = \frac{\pi_{ij} - E_{ij}}{\sqrt{E_{ij}}} \sim \mathrm{N}\left( 0,\: 1 \right).
+    \end{equation*}
+    The \(\chi^2\) statistic is given by
+    \begin{equation*}
+        X^2 = \sum_{i = 1}^I \sum_{j = 1}^J \frac{\left( \pi_{ij} - E_{ij} \right)^2}{E_{ij}} \sim \chi_{\nu}^2
+    \end{equation*}
+    for \(\nu = \left( I - 1 \right)\left( J - 1 \right)\) degrees of freedom. We can therefore reject the null hypothesis if
+    \begin{equation*}
+        X^2 > \chi_{\nu, \: 1 - \alpha}^2.
+    \end{equation*}
+    This test assumes that row/column sums (\(\pi_{i.}\) and \(\pi_{.j}\)) are fixed.
+    \subsection{Test of Independence}
+    Tests whether the distribution of items across categories is independent of the
+    factors:
+    \begin{align*}
+        H_0 & : \text{\parbox{4.5cm}{The categories and factors are independent}}            \\
+        H_A & : \text{\parbox{4.5cm}{at least one category is not independent of a factor.}}
+    \end{align*}
+    We can reject the null hypothesis if
+    \begin{equation*}
+        X^2 > \chi_{\nu, \: 1 - \alpha}^2.
+    \end{equation*}
+    This test assumes only the total \(n\) is fixed.
+    \subsection{Uniform Distribution}
+    Single trial \(X\) in a set of equally likely elements.
+    \subsection{Bernoulli (Binary) Distribution}
+    Boolean-valued outcome \(X\), i.e., success (1) or failure (0).
+    \subsection{Binomial Distribution}
+    Number of successes \(X\) for \(n\) independent trials.
+    \subsection{Geometric Distribution}
+    Number of trials \(N\) up to and including the first success.
+    \subsection{Poisson Distribution}
+    Number of events \(N\) which occur over a fixed interval of time: \(\lambda = \eta t\).
+    \subsection{Uniform Distribution}
+    Outcome \(X\) within some interval, where the probability of an outcome in one interval is the same as all other intervals of the same length.
+    \subsection{Exponential Distribution}
+    Time \(T\) between events with rate \(\eta\).
+    \subsection{Memoryless Property}
+    % For \(T \sim \operatorname{Exp}{\left( \lambda \right)}\):
+    \begin{equation*}
+        \Pr{\left( T > s + t \,\vert\, T > t \right)} = \Pr{\left( T > s \right)}
+    \end{equation*}
+    \endgroup
 \end{multicols}
 \begin{multicols}{2}
     \begin{table}[H]
+        \centering
         \begin{tabular}{ccc}
             \toprule
-        Single value             & Difference                     & \textbf{Rejection Region} \(R\)                       \\
-        \midrule
-        \(\theta = \theta_0\)    & \(\theta_1 - \theta_2 = 0\)    & \(\abs*{T\left( \symbfit{x} \right)} > Z_{\alpha/2}\) \\
-        \(\theta \leq \theta_0\) & \(\theta_1 - \theta_2 \leq 0\) & \(T\left( \symbfit{x} \right) > Z_{\alpha}\)          \\
-        \(\theta \geq \theta_0\) & \(\theta_1 - \theta_2 \geq 0\) & \(T\left( \symbfit{x} \right) < -Z_{\alpha}\)         \\
-        \bottomrule
-    \end{tabular}
-    \caption{Rejection regions for hypothesis testing.}
-\end{table}
-\begin{align*}
-    \Pr{\left( Z \geq Z_{\alpha / 2} \right)} & = \frac{\alpha}{2} \\
-    \Pr{\left( Z \geq Z_{\alpha} \right)}     & = \alpha           \\
-    \Pr{\left( Z \leq -Z_{\alpha} \right)}    & = \alpha.
-\end{align*}
+            \textbf{Equality}        & \textbf{Difference}            & \(R\)                                                 \\
+            \midrule
+            \(\theta = \theta_0\)    & \(\theta_1 - \theta_2 = 0\)    & \(\abs*{T\left( \symbfit{x} \right)} > Z_{\alpha/2}\) \\
+            \(\theta \leq \theta_0\) & \(\theta_1 - \theta_2 \leq 0\) & \(T\left( \symbfit{x} \right) > Z_{\alpha}\)          \\
+            \(\theta \geq \theta_0\) & \(\theta_1 - \theta_2 \geq 0\) & \(T\left( \symbfit{x} \right) < -Z_{\alpha}\)         \\
+            \bottomrule
+        \end{tabular}
+        \caption{Rejection regions for hypothesis testing.}
+        \begin{equation*}
+            \Pr{\left( Z \geq Z_{\alpha / 2} \right)} = \frac{\alpha}{2},\: \Pr{\left( Z \geq Z_{\alpha} \right)} = \Pr{\left( Z \leq -Z_{\alpha} \right)} = \alpha
+        \end{equation*}
+    \end{table}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c|cc}
+            \toprule
+            \textbf{Decision} & \textbf{\(H_0\) true}     & \textbf{\(H_0\) false}    \\
+            \midrule
+            \textbf{Reject}   & \(\alpha\) (Type I error) & \(1 - \beta\) (Power)     \\
+            \textbf{Fail}     & \(1 - \alpha\)            & \(\beta\) (Type II error) \\
+            \bottomrule
+        \end{tabular}
+        \caption{Probability of rows given columns.}
+    \end{table}
+    % \begin{table}[H]
+    %     \centering
+    %     \begin{tabular}{c c c }
+    %         \toprule
+    %                                                  & \textbf{Discrete}                              & \textbf{Continuous}                                    \\
+    %         \midrule
+    %         \(\E{\left( X \right)}\)                 & \(\sum_{\Omega} xp_x\)                         & \(\int_{\Omega} xf(x)\odif{x}\)                        \\
+    %         \(\E{\left( g\left( X \right) \right)}\) & \(\sum_{\Omega} g\left( x \right)p_x\)         & \(\int_{\Omega} g\left( x \right)f(x)\odif{x}\)        \\
+    %         \(\Var{\left( X \right)}\)               & \(\sum_{\Omega} \left( x - \mu \right)^2 p_x\) & \(\int_{\Omega} \left( x - \mu \right)^2f(x)\odif{x}\) \\
+    %         \bottomrule
+    %     \end{tabular}
+    %     \caption{Probability rules for univariate \(X\).} % \label{}
+    % \end{table}
 \end{multicols}
-\begin{table}[H]
-    \centering
-    \begin{tabular}{c|cc}
-        \toprule
-        \textbf{Decision}   & \textbf{\(H_0\) is true}       & \textbf{\(H_0\) is false}      \\
-        \midrule
-        \textbf{Reject \(H_0\)}            & \(\alpha\) (Type I error rate) & \(1 - \beta\) (Power)          \\
-        \textbf{Failure to reject \(H_0\)} & \(1 - \alpha\)                 & \(\beta\) (Type II error rate) \\
-        \bottomrule
-    \end{tabular}
-    \caption{Probability of rows given columns.}
-\end{table}
-\begin{table}[H]
-    \centering
-    \begin{tabular}{c c c }
-        \toprule
-                                                 & \textbf{Discrete}                              & \textbf{Continuous}                                    \\
-        \midrule
-        \(\E{\left( X \right)}\)                 & \(\sum_{\Omega} xp_x\)                         & \(\int_{\Omega} xf(x)\odif{x}\)                        \\
-        \(\E{\left( g\left( X \right) \right)}\) & \(\sum_{\Omega} g\left( x \right)p_x\)         & \(\int_{\Omega} g\left( x \right)f(x)\odif{x}\)        \\
-        \(\Var{\left( X \right)}\)               & \(\sum_{\Omega} \left( x - \mu \right)^2 p_x\) & \(\int_{\Omega} \left( x - \mu \right)^2f(x)\odif{x}\) \\
-        \bottomrule
-    \end{tabular}
-    \caption{Probability rules for univariate \(X\).} % \label{}
-\end{table}
 \begin{table}[H]
     \centering
     \begin{tabular}{c c c c c c}
@@ -843,6 +864,7 @@ This test assumes only the total \(n\) is fixed.
         \(X \sim \operatorname{Uniform}{\left( a,\: b \right)}\)  & \(x \in \left\{ a, \dots, b \right\}\)                 & \(\frac{1}{b - a + 1}\)                           & \(\frac{x - a + 1}{b - a + 1}\)                                  & \(\frac{a + b}{2}\)      & \(\frac{\left( b - a + 1 \right)^2 - 1}{12}\) \\
         \(X \sim \operatorname{Bernoulli}{\left( p \right)}\)     & \(p \in \interval{0}{1}, x \in \left\{ 0, 1 \right\}\) & \(p^x \left( 1 - p \right)^{1 - x}\)              & \(1 - p\)                                                        & \(p\)                    & \(p \left( 1 - p \right)\)                    \\
         \(X \sim \operatorname{Binomial}{\left( n,\: p \right)}\) & \(x \in \left\{ 0, \dots, n \right\}\)                 & \(\binom{n}{x} p^x \left( 1 - p \right)^{n - x}\) & \(\sum_{u = 0}^x \binom{n}{u} p^u \left( 1 - p \right)^{n - u}\) & \(np\)                   & \(np\left( 1 - p \right)\)                    \\
+        \(N \sim \operatorname{Geometric}{\left( p \right)}\)     & \(n \geq 1\)                                           & \(\left( 1 - p \right)^{n - 1} p\)                & \(1 - \left( 1 - p \right)^n\)                                   & \(\frac{1}{p}\)          & \(\frac{1 - p}{p^2}\)                         \\
         \(N \sim \operatorname{Poisson}{\left( \lambda \right)}\) & \(n \geq 0\)                                           & \(\frac{\lambda^n e^{-\lambda}}{n!}\)             & \(e^{-\lambda} \sum_{u = 0}^n \frac{\lambda^u}{u!}\)             & \(\lambda\)              & \(\lambda\)                                   \\
         \bottomrule
     \end{tabular}
@@ -852,11 +874,11 @@ This test assumes only the total \(n\) is fixed.
     \centering
     \begin{tabular}{c c c c c c}
         \toprule
-        \textbf{Distribution}                                       & \textbf{Restrictions}                  & \textbf{PDF}                                                                         & \textbf{CDF}                                                                            & \(\E{\left( X \right)}\) & \(\Var{\left( X \right)}\)            \\
+        \textbf{Distribution}                                       & \textbf{Restrictions} & \textbf{PDF}                                                                         & \textbf{CDF}                                                                            & \(\E{\left( X \right)}\) & \(\Var{\left( X \right)}\)            \\
         \midrule
-        \(X \sim \operatorname{Uniform}{\left( a,\: b \right)}\)    & \(a < x < b\)                          & \(\frac{1}{b - a}\)                                                                  & \(\frac{x - a}{b - a}\)                                                                 & \(\frac{a + b}{2}\)      & \(\frac{\left( b - a \right)^2}{12}\) \\
-        \(T \sim \operatorname{Exp}{\left( \eta \right)}\)          & \(t > 0\)                              & \(\eta e^{-\eta t}\)                                                                 & \(1 - e^{-\eta t}\)                                                                     & \(1/\eta\)               & \(1/\eta\)                            \\
-        \(X \sim \operatorname{N}{\left( \mu,\: \sigma^2 \right)}\) & \(x \in \left\{ 0, \dots, n \right\}\) & \(\frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{\left( x - \mu \right)^2}{2 \sigma^2}}\) & \(\frac{1}{2} \left( 1 + \erf{\left( \frac{x - \mu}{\sigma \sqrt{2}} \right)} \right)\) & \(\mu\)                  & \(\sigma^2\)                          \\
+        \(X \sim \operatorname{Uniform}{\left( a,\: b \right)}\)    & \(a < x < b\)         & \(\frac{1}{b - a}\)                                                                  & \(\frac{x - a}{b - a}\)                                                                 & \(\frac{a + b}{2}\)      & \(\frac{\left( b - a \right)^2}{12}\) \\
+        \(T \sim \operatorname{Exp}{\left( \eta \right)}\)          & \(t > 0\)             & \(\eta e^{-\eta t}\)                                                                 & \(1 - e^{-\eta t}\)                                                                     & \(1/\eta\)               & \(1/\eta\)                            \\
+        \(X \sim \operatorname{N}{\left( \mu,\: \sigma^2 \right)}\) & --                    & \(\frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{\left( x - \mu \right)^2}{2 \sigma^2}}\) & \(\frac{1}{2} \left( 1 + \erf{\left( \frac{x - \mu}{\sigma \sqrt{2}} \right)} \right)\) & \(\mu\)                  & \(\sigma^2\)                          \\
         \bottomrule
     \end{tabular}
     \caption{Continuous probability distributions.} % \label{}
@@ -876,15 +898,14 @@ This test assumes only the total \(n\) is fixed.
 \end{table}
 \begin{table}[H]
     \centering
-    \begin{tabular}{c c c c c c}
+    \begin{tabular}{c c c c c}
         \toprule
-                                        & \textbf{Factor 1} & \textbf{Factor 2} & \(\cdots\) & \textbf{Factor \(J\)} & \textbf{Total Successes (\(n_{i.}\))} \\
+                                        & \textbf{Factor 1} & \(\cdots\) & \textbf{Factor \(J\)} & \textbf{Total Successes (\(n_{i.}\))} \\
         \midrule
-        \textbf{Category 1}             & \(\pi_{11}\)      & \(\pi_{12}\)      & \(\cdots\) & \(\pi_{1J}\)          & \(n_{1.}\)                            \\
-        \textbf{Category 2}             & \(\pi_{21}\)      & \(\pi_{22}\)      & \(\cdots\) & \(\pi_{2J}\)          & \(n_{2.}\)                            \\
-        \(\vdots\)                      & \(\vdots\)        & \(\vdots\)        & \(\ddots\) & \(\vdots\)            & \(\vdots\)                            \\
-        \textbf{Category \(I\)}         & \(\pi_{I1}\)      & \(\pi_{I2}\)      & \(\cdots\) & \(\pi_{IJ}\)          & \(n_{..}\)                            \\
-        \textbf{Total Draws \(n_{.j}\)} & \(n_{.1}\)        & \(n_{.2}\)        & \(\cdots\) & \(n_{.J}\)            & \(n_{..}\)                            \\
+        \textbf{Category 1}             & \(\pi_{11}\)      & \(\cdots\) & \(\pi_{1J}\)          & \(n_{1.}\)                            \\
+        \(\vdots\)                      & \(\vdots\)        & \(\ddots\) & \(\vdots\)            & \(\vdots\)                            \\
+        \textbf{Category \(I\)}         & \(\pi_{I1}\)      & \(\cdots\) & \(\pi_{IJ}\)          & \(n_{..}\)                            \\
+        \textbf{Total Draws \(n_{.j}\)} & \(n_{.1}\)        & \(\cdots\) & \(n_{.J}\)            & \(n_{..}\)                            \\
         \bottomrule
     \end{tabular}
     \caption{Example \(I \times J\) contingency table.} % \label{}
