@@ -31,6 +31,7 @@ This repository provides **lecture notes** and **exam notes** for **MXB107 - Int
 7. Sampling Distributions
 8. Large Sample Estimation
 9. Hypothesis Testing
+10. Small Sample Inference
 
 ---
 
