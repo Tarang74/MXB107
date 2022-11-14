@@ -148,7 +148,7 @@ margin = 10mm
     \end{equation*}
     \subsection{Quantiles}
     For a set of \(n\) observations, \(x_q\) is the \(q\)-th quantile, if \(q\)\% of the observations are less than \(x_q\).
-    \textbf{Inter-Quartile Range}: \(x_{75} - x_{25}\).
+    \textbf{IQR}: \(x_{75} - x_{25}\).
     \subsection{Covariance}
     Measure of the linear correlation between variables.
     \begin{equation*}
@@ -251,6 +251,10 @@ margin = 10mm
     \subsection{Bayes' Theorem}
     \begin{equation*}
         \Pr{\left( A \,\vert\, B \right)} = \frac{\Pr{\left( B \,\vert\, A \right)}\Pr{\left( A \right)}}{\Pr{\left( B \right)}}
+    \end{equation*}
+    \subsection{Law of Total Probability}
+    \begin{equation*}
+        \Pr{\left( A \right)} = \sum_{i = 1}^n \Pr{\left( A \,\vert\, B_i \right)}\Pr{\left( B_i \right)}
     \end{equation*}
     % \section{Random Variables}
     % Measurable variable whose value holds some uncertainty.
@@ -366,12 +370,11 @@ margin = 10mm
     \begin{equation*}
         \ell\left( \theta \,\vert\, \symbfit{x} \right) = \sum_{i = 1}^n \log{\left( f\left( x_i \right) \right)},\: \hat{\theta} = \argmax_\theta{\ell}.
     \end{equation*}
-    \subsection{Bias}
     \begin{equation*}
         \operatorname{Bias}\left( \hat{\theta} \right) = \E{\left( \hat{\theta} \right)} - \theta
     \end{equation*}
     \begin{equation*}
-        \E{\left( \hat{\theta} \right)} = \theta \quad \text{\(\hat{\theta}\) unbiased}
+        \E{\left( \hat{\theta} \right)} = \theta \quad \text{(\(\hat{\theta}\) unbiased)}
     \end{equation*}
     Given \(\hat{\theta}_1\) and \(\hat{\theta}_2\), choose \(\hat{\theta}_1\) over \(\hat{\theta}_2\) if
     \begin{equation*}
