@@ -5,6 +5,7 @@
 
 % Additional packages & macros
 \DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
 
 % Header and footer
 \newcommand{\unitName}{Introduction to Statistical Modelling}
@@ -1647,7 +1648,10 @@ As \(y_i\) depends on \(\epsilon_i\), we can also show that
     y_i \sim \mathrm{N}\left( \beta_0 + \beta_1 x_i,\: \sigma^2 \right)
 \end{equation*}
 where \(y_i\) is normal for fixed values of \(x_i\).
-The regression coefficients \(\beta_0\) and \(\beta_1\) are estimated by minimizing the sum of squared residuals:
+The regression coefficients \(\beta_0\) and \(\beta_1\) are estimated by minimising the sum of squared residuals:
+\begin{equation*}
+    \left( \hat{\beta}_0,\: \hat{\beta}_1 \right) = \argmin_{\beta_0,\: \beta_1} \sum_{i = 1}^n \epsilon_i^2 = \argmin_{\beta_0,\: \beta_1} \sum_{i = 1}^n \left( y_i - \left( \beta_0 + \beta_1 x_i \right) \right)^2.
+\end{equation*}
 \subsection{Estimation and Inference}
 By using the method of maximum likelihood for the two parameters \(\beta_0\) and \(\beta_1\), or using the least squares solution by minimising the
 squared error, we obtain the following estimators:
