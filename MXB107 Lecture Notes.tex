@@ -48,146 +48,187 @@
 \newpage
 %
 \section{Introduction}
-Statistics is a field of mathematics that deals with data.
-It includes the study of summarising data, constructing probabilistic models, estimating
-parameters, and making statistical inferences.
-
-Statistical modelling includes asking questions, obtaining data and determining a mathematical model.
+Statistics is a field of mathematics that deals with data. It includes
+the study of summarising data, constructing probabilistic models,
+estimating parameters, and making statistical inferences. Statistical
+modelling includes asking questions, obtaining data and determining a
+mathematical model.
 \subsection{Elements of Statistical Modelling}
 \subsubsection{Data}
-Data is a collection of numbers that describes some characteristic that can be ranked, counted, or measured.
+Data is a collection of numbers that describes some characteristic that
+can be ranked, counted, or measured.
 \subsubsection{Collecting information}
-Statistical modelling relies upon reliably sourced data. When collecting data,
-we must consider
+Statistical modelling relies upon reliably sourced data. When
+collecting data, we must consider
 \begin{itemize}
     \item what questions are we trying to answer,
     \item what information is needed to answer these questions,
     \item what is the best source for that information
 \end{itemize}
 \subsubsection{Randomness}
-We must be aware that everything is different and that
-randomness introduces uncertainty in data.
-Random events are events whose exact outcome cannot be predicted.
-We can assume that all variation in the world is observed due to randomness.
+We must be aware that everything is different and that randomness
+introduces uncertainty in data. Random events are events whose exact
+outcome cannot be predicted. We can assume that all variation in the
+world is observed due to randomness.
 \subsubsection{Probability}
-Probability is a mathematical construct for dealing with randomness and uncertainty.
+Probability is a mathematical construct for dealing with randomness and
+uncertainty.
 \subsection{Experimental Units and Populations}
 \begin{definition}[Experimental unit]
-    An \textbf{experimental unit} is an individual that generates information for the data collection process.
-    Careful consideration of what constitutes an \linebreak experimental unit must be made to ensure that it aligns with the questions of interest.
+    An \textbf{experimental unit} is an individual that generates
+    information for the data collection process. Careful consideration
+    of what constitutes an \linebreak experimental unit must be made to
+    ensure that it aligns with the questions of interest.
 \end{definition}
 \subsubsection{Sample vs. Population}
 \begin{definition}[Population]
-    We might have questions about a very large collection of things called a \textbf{population}.
-
-    A dataset collected from a population is called a census.
+    We might have questions about a very large collection of things
+    called a \textbf{population}. A dataset collected from a population
+    is called a census.
 \end{definition}
 As it is not feasible to collect data from an entire population,
 we must use a sample of the population.
 \begin{definition}[Sample]
-    A \textbf{sample} is a subset of a population that is representative of the population, in some cases a random sample is sufficient.
+    A \textbf{sample} is a subset of a population that is representative
+    of the population, in some cases a random sample is sufficient.
 \end{definition}
 \begin{definition}[Random sample]
-    A \textbf{random sample} is one where the sample members are selected from the population by chance.
+    A \textbf{random sample} is one where the sample members are
+    selected from the population by chance.
 \end{definition}
 \subsection{Types of Data}
 \subsubsection{Univariate, Bivariate, and Multivariate}
-Data can be described in terms of dimension, that is, how many measurements were collected from each experimental unit.
-By collecting multiple measurements from each experimental unit, we can ask questions about the relationship between the measurements.
+Data can be described in terms of dimension, that is, how many
+measurements were collected from each experimental unit. By collecting
+multiple measurements from each experimental unit, we can ask questions
+about the relationship between the measurements.
 \begin{itemize}
-    \item When a single measurement is collected, the resulting dataset is \textbf{univariate}.
-    \item If two measurements are collected, the dataset is \textbf{bivariate}.
-    \item If more than two measurements are collected, the dataset is \textbf{multivariate}.
+    \item When a single measurement is collected, the resulting dataset
+          is \textbf{univariate}.
+    \item If two measurements are collected, the dataset is
+          \textbf{bivariate}.
+    \item If more than two measurements are collected, the dataset is
+          \textbf{multivariate}.
 \end{itemize}
 \subsubsection{Experimental vs. Observational Data}
-Data sets that have been collected without any specific analyses or modelling in mind are called \textbf{observational data}.
-By contrast, when a collection procedure is specifically designed to obtain data with a specific intent,
-i.e., a laboratory test, the data is called \textbf{experimental data}.
-
-Observational data may contain biases that limit its usefulness and bias any modelling or analysis results.
+Data sets that have been collected without any specific analyses or
+modelling in mind are called \textbf{observational data}. By contrast,
+when a collection procedure is specifically designed to obtain data
+with a specific intent, i.e., a laboratory test, the data is called
+\textbf{experimental data}. Observational data may contain biases that
+limit its usefulness and bias any modelling or analysis results.
 \subsubsection{Quantitative Data}
-Quantitative data is data that is expressed numerically.
-This data can be classified as \textit{discrete}, \textit{continuous}, or \textit{ordinal}.
+Quantitative data is data that is expressed numerically. This data can
+be classified as \textit{discrete}, \textit{continuous}, or
+\textit{ordinal}.
 \begin{itemize}
-    \item Count data is classified as discrete, i.e., integer values or finite sets
-          of real values.
-    \item Continuous data is a measurement on a continuum or a measure that can be subdivided infinitely,
-          i.e., time and lengths.
-    \item Ordinal data is data where the order or ranking of values (discrete or continuous) is important.
+    \item Count data is classified as discrete, i.e., integer values or
+          finite sets of real values.
+    \item Continuous data is a measurement on a continuum or a measure
+          that can be subdivided infinitely, i.e., time and lengths.
+    \item Ordinal data is data where the order or ranking of values
+          (discrete or continuous) is important.
 \end{itemize}
 When data is not ordinal, it is called \textbf{nominal} data.
 \subsubsection{Qualitative Data}
-Qualitative (categorical) data is data where the variable of interest is
-membership to a group or category.
+Qualitative (categorical) data is data where the variable of interest
+is membership to a group or category.
 \subsection{Summarising and Describing Data}
 \subsubsection{Tables}
-Tables are the most immediate way of summarising a data set.
-We might organise data in a table with one row for each subject and a column for each measurement.
+Tables are the most immediate way of summarising a data set. We might
+organise data in a table with one row for each subject and a column for
+each measurement.
 \subsection{Bar Charts}
-Graphical depictions of the data can also be useful but are limited in the number of variables displayed in one picture.
-
-Bar charts are most useful for categorical data where categories are listed on the \(x\)-axis of the plot, and bars for each category are drawn with their heights corresponding to the \textit{counts} for that category.
-
-When the categories are \textbf{ordered} from left to right in descending order counts, the plot is called a \textbf{Pareto plot}.
+Graphical depictions of the data can also be useful but are limited in
+the number of variables displayed in one picture. Bar charts are most
+useful for categorical data where categories are listed on the
+\(x\)-axis of the plot, and bars for each category are drawn with their
+heights corresponding to the \textit{counts} for that category. When
+the categories are \textbf{ordered} from left to right in descending
+order counts, the plot is called a \textbf{Pareto plot}.
 \subsection{Line Charts}
-Line charts illustrate a \textit{trend} of change based on \textbf{two} quantitative variables. Typically line charts display trends over time (or other ordinal variables).
-
-Often trends over time need to be aggregated by plotting the average or median per year to avoid a ``busy'' plot which can sometimes be difficult to read.
-
-While the resulting chart can explain overall trends, they can obscure how much variability or ``noise''
-is in the data and may be misleading if the overall trend is obscured by variability.
+Line charts illustrate a \textit{trend} of change based on \textbf{two}
+quantitative variables. Typically, line charts display trends over time
+(or other ordinal variables). Often trends over time need to be
+aggregated by plotting the average or median per year to avoid a
+``busy'' plot which can sometimes be difficult to read. While the
+resulting chart can explain overall trends, they can obscure how much
+variability or ``noise'' is in the data and may be misleading if the
+overall trend is obscured by variability.
 \subsection{Histograms}
-Histograms are a special kind of bar chart that give a visual description of data by ``binning'' or grouping data into data ranges,
-then plotting bars with heights equal to the count of the bins' contents \textit{or} the relative proportion of the bins' contents.
-
-Histograms give us a picture of the shape of the data and help identify patterns in the distribution of values.
-
-The binning process is performed by the computer, however in most cases we override the automatic settings and select either the number of
-bins, or the width of each bin.
+Histograms are a special kind of bar chart that give a visual
+description of data by ``binning'' or grouping data into data ranges,
+then plotting bars with heights equal to the count of the bins'
+contents \textit{or} the relative proportion of the bins' contents.
+They give us a picture of the shape of the data and help identify
+patterns in the distribution of values. The binning process is
+performed by the computer, however in most cases we override the
+automatic settings and select either the number of bins, or the width
+of each bin.
 \subsection{Plots, Graphs, and Charts}
 \begin{itemize}
-    \item A \textbf{chart} is a visual display of data, i.e., a table, a graph, or a diagram
-    \item A \textbf{graph} is a diagram showing the relationship between variables, each measured along orthogonal axes.
-    \item A \textbf{plot} is used as a synonym for graph but is less precise in its definition; it also sometimes refers specifically to a graph \textit{produced by a computer}.
+    \item A \textbf{chart} is a visual display of data, i.e., a table,
+          a graph, or a diagram
+    \item A \textbf{graph} is a diagram showing the relationship
+          between variables, each measured along orthogonal axes.
+    \item A \textbf{plot} is used as a synonym for graph but is less
+          precise in its definition; it also sometimes refers
+          specifically to a graph \textit{produced by a computer}.
 \end{itemize}
 \subsection{Interpreting Graphical Descriptions}
-Graphical descriptions of data should ensure that all information about the data is expressed.
+Graphical descriptions of data should ensure that all information about
+the data is expressed.
 \begin{itemize}
-    \item The \(x\) and \(y\) axes should be clear in what they are measuring, including any units.
-    \item Consider how the graph or chart was made. What choices were made and how might different options change how the graph is perceived.
-    \item Does the graph contain any outliers that merit investigation to determine if they are accurate measurements, or if they result from either measurement or recording error.
-    \item For Pareto charts and histograms; the \(y\)-axis should measure proportion or density rather than frequency to make comparisons easier.
+    \item The \(x\) and \(y\) axes should be clear in what they are
+          measuring, including any units.
+    \item Consider how the graph or chart was made. What choices were
+          made and how might different options change how the graph is
+          perceived.
+    \item Does the graph contain any outliers that merit investigation
+          to determine if they are accurate measurements, or if they
+          result from either measurement or recording error.
+    \item For Pareto charts and histograms; the \(y\)-axis should
+          measure proportion or density rather than frequency to make
+          comparisons easier.
 \end{itemize}
 \subsubsection{Centrality}
-Histograms are a graphical representation of the distribution or density of observations. Centrality is the degree to which an observation is central to the distribution. Additionally, the data can be multi-modal if there are multiple ``peaks'' or ``centres'' in the distribution.
-
-Altering the number of bins or bin width may reveal the centrality of the observations.
+Histograms are a graphical representation of the distribution or
+density of observations. Centrality is the degree to which an
+observation is central to the distribution. Additionally, the data can
+be multi-modal if there are multiple ``peaks'' or ``centres'' in the
+distribution. Altering the number of bins or bin width may reveal the
+centrality of the observations.
 \subsubsection{Skew}
-Another characteristic of histograms is the degree to which the distribution is skewed. Skew is the deviation from symmetry about the centre of the data. Skew is either ``right'' skew where the tail of the density or histogram is heavier to the right, or ``left'' skew if otherwise.
-
-This can be observed by looking at how much the left/right tails are stretched in comparison to one another, i.e., the tail to the right of a right skewed chart stretches further on the \(x\)-axis than on the left.
+Another characteristic of histograms is the degree to which the
+distribution is skewed. Skew is the deviation from symmetry about the
+centre of the data. Skew is either ``right'' skew where the tail of the
+density or histogram is heavier to the right, or ``left'' skew if
+otherwise. This can be observed by looking at how much the left/right
+tails are stretched in comparison to one another, i.e., the tail to the
+right of a right skewed chart stretches further on the \(x\)-axis than
+on the left.
 \subsubsection{Trends}
 Trends refer to changes in a line chart and are often described as a
 constant (first-derivative) pattern of increasing or decreasing values.
 \section{Numerical Summaries of Data}
-Although graphical summaries are useful for developing a general understanding data,
-they are limited to subjective interpretations. To form a precise understanding of the data, we need to use numerical summaries.
-Here we must make a distinction between sample and population summaries as measurements may vary
-between samples, whereas population summaries are generally constant.
+Although graphical summaries are useful for developing a general
+understanding data, they are limited to subjective interpretations. To
+form a precise understanding of the data, we need to use numerical
+summaries. Here we must make a distinction between sample and
+population summaries as measurements may vary between samples, whereas
+population summaries are generally constant.
 \subsection{Measures of Centrality}
 \subsubsection{Mean}
-Given a set of \(n\) observations \(x_1,\: x_2,\: \ldots,\: x_n\), the \textbf{arithmetic mean}
-or \textbf{average} is defined as
+Given a set of \(n\) observations \(x_1,\: x_2,\: \ldots,\: x_n\), the
+\textbf{arithmetic mean} or \textbf{average} is defined as
 \begin{equation*}
     \frac{1}{n} \sum_{i = 1}^n x_i \equiv \frac{1}{n} \left( x_1 + x_2 + \cdots + x_n \right)
 \end{equation*}
 If the data is taken from a sample, the sample mean is denoted \(\overline{x}\).
 \subsubsection{Median}
-A drawback to the mean is that it can be misleading when the data is skewed.
-The \textbf{median} is the middle value of a set of \(n\) observations when arranged
-from smallest to largest.
-
-If \(n\) is odd:
+A drawback to the mean is that it can be misleading when the data is
+skewed. The \textbf{median} is the middle value of a set of \(n\)
+observations when arranged from smallest to largest. If \(n\) is odd:
 \begin{equation*}
     \text{median} = x^{\left( \frac{n + 1}{2} \right)}
 \end{equation*}
@@ -197,12 +238,14 @@ If \(n\) is even, the median is the :
     \text{median} = \frac{x^{\left( \frac{n}{2} \right)} + x^{\left( \frac{n}{2} + 1 \right)}}{2}
 \end{equation*}
 \subsubsection{Mode}
-Given discrete data, the mode is defined as the most common value in a set of observations.
+Given discrete data, the mode is defined as the most common value in a
+set of observations.
 \subsubsection{Population Mean}
-The mean of a finite population is computed in the same way as the mean of a sample,
-but the population mean is denoted by \(\mu\).
+The mean of a finite population is computed in the same way as the mean
+of a sample, but the population mean is denoted by \(\mu\).
 \subsection{Measures of Dispersion}
-Dispersion refers to how much variation there is in a set of observations.
+Dispersion refers to how much variation there is in a set of
+observations.
 \subsubsection{Range}
 Given a set of observations that are ordered such that
 \begin{equation*}
@@ -215,21 +258,24 @@ the range is defined as
 \subsubsection{Variance}
 The variance is the average of the squared deviations from the mean.
 \begin{itemize}
-    \item Given the observations \(x_1,\: x_2,\: \ldots,\: x_N\), from a population of size \(N\) with mean \(\mu\),
-          the \textbf{population variance} is defined as
+    \item Given the observations \(x_1,\: x_2,\: \ldots,\: x_N\), from
+          a population of size \(N\) with mean \(\mu\), the
+          \textbf{population variance} is defined as
           \begin{equation*}
-              \sigma^2 = \frac{1}{N} \sum_{i = 1}^N (x_i - \mu)^2.
+              \sigma^2 = \frac{1}{N} \sum_{i = 1}^N \left( x_i - \mu \right)^2.
           \end{equation*}
-    \item Given the observations \(x_1,\: x_2,\: \ldots,\: x_n\), from a sample of size \(n\) with mean \(\overline{x}\),
-          the \textbf{sample variance} is defined as
+    \item Given the observations \(x_1,\: x_2,\: \ldots,\: x_n\), from
+          a sample of size \(n\) with mean \(\overline{x}\), the
+          \textbf{sample variance} is defined as
           \begin{equation*}
-              s^2 = \frac{1}{n - 1} \sum_{i = 1}^n (x_i - \overline{x})^2.
+              s^2 = \frac{1}{n - 1} \sum_{i = 1}^n \left( x_i - \overline{x} \right)^2.
           \end{equation*}
 \end{itemize}
 The \textbf{population variance} is given by
 \subsubsection{Standard Deviation}
-The standard deviation is the square root of the variance. This
-is conceptually easier to understand as it has the same units are the data.
+The standard deviation is the square root of the variance. This is
+conceptually easier to understand as it has the same units are the
+data.
 \begin{itemize}
     \item The \textbf{population standard deviation} is defined as
           \begin{equation*}
@@ -270,8 +316,9 @@ so that
     s = \frac{\text{range}}{4}.
 \end{equation*}
 \subsection{Skew}
-The \textbf{skew} describes the asymmetry of the distribution.
-For a finite population of size \(N\), the \textbf{population skew} is defined as
+The \textbf{skew} describes the asymmetry of the distribution. For a
+finite population of size \(N\), the \textbf{population skew} is
+defined as
 \begin{equation*}
     \frac{1}{N} \sum_{i = 1}^N \left( \frac{x_i - \mu}{\sigma} \right)^3
 \end{equation*}
@@ -280,29 +327,38 @@ For a sample of size \(n\), the \textbf{sample skew} is defined as
     \frac{\frac{1}{n} \sum_{i = 1}^n \left( x_i - \overline{x} \right)^3}{\left( \sqrt{\frac{1}{n - 1} \sum_{i = 1}^n \left( x_i - \overline{x} \right)^2} \right)^3}
 \end{equation*}
 \begin{itemize}
-    \item When the skew is \textbf{positive}, the data is \textbf{right-skewed} and the ``tail'' of the distribution is \textbf{longer on the right}
-    \item When the skew is \textbf{negative}, the data is \textbf{left-skewed} and the ``tail'' of the distribution is \textbf{longer on the left}
+    \item When the skew is \textbf{positive}, the data is
+          \textbf{right-skewed} and the ``tail'' of the distribution is
+          \textbf{longer on the right}
+    \item When the skew is \textbf{negative}, the data is
+          \textbf{left-skewed} and the ``tail'' of the distribution is
+          \textbf{longer on the left}
 \end{itemize}
 \subsection{Measures of Rank}
-It is often useful to know the rank or \textit{relative standing} of a value in a set of observations.
-This is natural for ordinal data whose ordering has implicit meaning, but it can
-also be useful for nominal data as a means of measuring dispersion.
+It is often useful to know the rank or \textit{relative standing} of a
+value in a set of observations. This is natural for ordinal data whose
+ordering has implicit meaning, but it can also be useful for nominal
+data as a means of measuring dispersion.
 \subsubsection{Z-Score}
-The Z-score is a unitless quantity and can be used to make comparisons of relative rank between members of a population.
+The Z-score is a unitless quantity and can be used to make comparisons
+of relative rank between members of a population.
 \begin{equation*}
     Z = \frac{x  - \mu}{\sigma} \quad \text{or} \quad \frac{x - \overline{x}}{s}
 \end{equation*}
 \subsubsection{Quantiles}
-In addition to Z-scores, quantiles can be used to make comparisons of relative ranking between populations,
-as well as construct intervals bounding a given proportion of the observations.
-For a set of \(n\) observations, \(x_q\) is the \(q\)-th quantile, if \(q\)\% of the observations are less than \(x_q\).
-\subsubsection{Inter-Quartile Range}
-The inter-quartile range (IQR) is the difference between the 75th and 25th quantiles,
-or the range covered by the middle 50\% of data. It is a robust measure of the dispersion of the data,
-as it is not affected by extreme values unlike the range or variance.
-\subsection{Boxplots}
+In addition to Z-scores, quantiles can be used to make comparisons of
+relative ranking between populations, as well as construct intervals
+bounding a given proportion of the observations. For a set of \(n\)
+observations, \(x_q\) is the \(q\)-th quantile, if \(q\)\% of the
+observations are less than \(x_q\).
+\subsubsection{Interquartile Range}
+The interquartile range (IQR) is the difference between the 75th and
+25th quantiles, or the range covered by the middle 50\% of data. It is
+a robust measure of the dispersion of the data, as it is not affected
+by extreme values unlike the range or variance.
+\subsection{Box Plots}
 \subsubsection{Five Number Summary}
-The five number summary is set of measurements that indicates the
+The five number summary is set of measurements that indicate the
 \begin{itemize}
     \item minimum value
     \item 25\% quartile
@@ -310,47 +366,54 @@ The five number summary is set of measurements that indicates the
     \item 75\% quartile
     \item maximum value
 \end{itemize}
-A boxplot is a graphical display of the five number summary.
-It is a plot of the values of the data mapped to the \(y\)-axis.
-
-Using the \mintinline{R}{ggplot2} package, the function \mintinline{R}{geom_boxplot()} draws
-a box encompassing the IQR with a horizontal line indicating the median.
-Vertical lines extend 1.5 times the IQR above and below the box. The points not within
-the ends of the vertical lines are also plotted to indicate outliers.
+A box plot is a graphical display of the five number summary.
+It is a plot of the values of the data mapped to the \(y\)-axis. Using the \mintinline{R}{ggplot2} package, the function
+\mintinline{R}{geom_boxplot()} draws a box encompassing the IQR with a
+horizontal line indicating the median. Vertical lines extend 1.5 times
+the IQR above and below the box. The points not within the ends of the
+vertical lines are also plotted to indicate outliers.
 \subsubsection{Outliers}
-Outliers are extreme observations that fall outside some
-interval defined either by quantiles (above 95\% or below 5\% quantiles) or in terms of the Empirical rule
-(outside two standard deviations from the mean).
-They should be investigated to determine if they are errors or naturally occurring
-extreme values.
+Outliers are extreme observations that fall outside some interval
+defined either by quantiles (above 95\% or below 5\% quantiles) or in
+terms of the Empirical rule (outside two standard deviations from the
+mean). They should be investigated to determine if they are errors or
+naturally occurring extreme values.
 \section{Bivariate Data}
-Data in two dimensions is often used to describe relationships between two variables.
+Data in two dimensions is often used to describe relationships between
+two variables.
 \subsection{Bivariate Categorical Data}
-Bivariate categorical data is a dataset with two qualitative or categorical variables that have
-a relationship we want to summarise. This can be done using contingency tables or side-by-side (or stacked) bar charts.
+Bivariate categorical data is a dataset with two qualitative or
+categorical variables that have a relationship we want to summarise.
+This can be done using contingency tables or side-by-side (or stacked)
+bar charts.
 \subsubsection{Contingency Tables}
-Contingency tables or crosstabs are tabular representations of the frequency of occurrence of pairs of values.
-The categories for each variable are assigned to an axis of the table so that each cell
-represents the frequency of occurrence of a pair of categories, one from each variable.
+Contingency tables or cross-tabs are tabular representations of the
+frequency of occurrence of pairs of values. The categories for each
+variable are assigned to an axis of the table so that each cell
+represents the frequency of occurrence of a pair of categories, one
+from each variable.
 \subsubsection{Bar Plots}
-Often the data is presented more effectively as a stacked bar chart or side-by-side bar chart.
-Here the counts for each pair of categories are plotted on the same axis, and
-stacked on top of one another to display relative proportion, or side-by-side if
-too busy.
+Often the data is presented more effectively as a stacked bar chart or
+side-by-side bar chart. Here the counts for each pair of categories are
+plotted on the same axis, and stacked on top of one another to display
+relative proportion, or side-by-side if too busy.
 \subsection{Bivariate Quantitative Data}
-Bivariate quantitative data is a dataset with one qualitative variable and one quantitative variable.
-This can be represented as a table, or through various charts, by comparing charts side-by-side for each category.
+Bivariate quantitative data is a dataset with one qualitative variable
+and one quantitative variable. This can be represented as a table, or
+through various charts, by comparing charts side-by-side for each
+category.
 \subsection{Scatter Plots}
-When both variables are quantitative, the data can be represented as a scatter plot with
-each variable assigned to an axis and the points plotted on the axes.
+When both variables are quantitative, the data can be represented as a
+scatter plot with each variable assigned to an axis and the points
+plotted on the axes.
 \subsubsection{Covariance and Correlation Coefficients}
-For such data, the covariance is the measure of the linear correlation between the variables.
-For variables \(x\) and \(y\),
+For such data, the covariance is the measure of the linear correlation
+between the variables. For variables \(x\) and \(y\),
 \begin{equation*}
     s_{xy} = \frac{\sum_{i = 1}^n \left( x_i - \overline{x} \right) \left( y_i - \overline{y} \right)}{n - 1}.
 \end{equation*}
 Note that when \(x = y\), the formula simplifies to the sample variance of \(x\).
-The covariance has the following characterstics:
+The covariance has the following characteristics:
 \begin{itemize}
     \item \(s_{xy} > 0\): As \(x\) increases, \(y\) also increases.
     \item \(s_{xy} < 0\): As \(x\) increases, \(y\) decreases.
@@ -362,21 +425,23 @@ data sets, we need to use the correlation coefficient.
 \begin{equation*}
     r_{xy} = \frac{s_{xy}}{s_x s_y}
 \end{equation*}
-The \textbf{correlation coefficient} is a measure of the strength of the relationship between the variables.
-It is a scale-free and unitless measure bounded between \(-1\) and \(1\) and
-has the same characteristics as the covariance.
-
-Note that a correlation coefficient of \(0\)
-indicates \textbf{no linear relationship} between the variables, and not necessarily indicative of \textbf{no relationship}.
+The \textbf{correlation coefficient} is a measure of the strength of the
+relationship between the variables. It is a scale-free and unitless
+measure bounded between \(-1\) and \(1\) and has the same
+characteristics as the covariance. Note that a correlation coefficient
+of \(0\) indicates \textbf{no linear relationship} between the
+variables, and not necessarily indicative of \textbf{no relationship}.
 \subsection{Regression and Least Squares}
-In addition to the numerical summaries above, a regression or least squares line of
-best fit provides both a graphical and numerical summary of the relationship between the variables.
-A linear relationship between two variables \(x\) and \(y\) is defined as
+In addition to the numerical summaries above, a regression or least
+squares line of best fit provides both a graphical and numerical
+summary of the relationship between the variables. A linear
+relationship between two variables \(x\) and \(y\) is defined as
 \begin{equation*}
     y = a + b x.
 \end{equation*}
-The least squares best fit determines the coefficients \(a\) and \(b\) that minimise the sum of the squares of the residuals
-(errors) between \(y\) and the line \(\hat{y} = a + b x\). Mathematically,
+The least squares best fit determines the coefficients \(a\) and \(b\)
+that minimise the sum of the squares of the residuals (errors) between
+\(y\) and the line \(\hat{y} = a + b x\). Mathematically,
 \begin{equation*}
     \min_{a,\: b} \sum_{i = 1}^n \left( y_i - \hat{y}\left( x_i \right) \right)^2.
 \end{equation*}
@@ -388,85 +453,95 @@ The coefficients can be summarised by the formula
 \section{Probability}
 \subsection{Experiments, Events, Sample Space}
 \begin{definition}[Experiment]
-    An experiment is a situation that produces some observable phenomena where the outcome is impossible to predict with certainty.
+    An experiment is a situation that produces some observable phenomena
+    where the outcome is impossible to predict with certainty.
 \end{definition}
 \begin{definition}[Simple event]
     A simple event is the outcome of a single repetition of an experiment.
 \end{definition}
 \begin{definition}[Event]
-    An event is a collection of simple events, or the outcome of multiple repetitions of an event.
-    Events are often denoted by a capital letter.
+    An event is a collection of simple events, or the outcome of
+    multiple repetitions of an event. Events are often denoted by a
+    capital letter.
 \end{definition}
 \begin{definition}[Mutually exclusive]
-    Events are mutually exclusive if the occurrence of one event precludes the occurrence of another.
-    In other words, if one event occurs, the other event cannot occur.
+    Events are mutually exclusive if the occurrence of one event
+    precludes the occurrence of another. In other words, if one event
+    occurs, the other event cannot occur.
 \end{definition}
 \begin{definition}[Sample space]
-    A sample space is the set of possible simple events, or all outcomes of an experiment.
+    A sample space is the set of possible simple events, or all outcomes
+    of an experiment.
 \end{definition}
 \subsection{Probability of Events}
 \subsubsection{Probability of an Event}
-For a discrete finite sample space, the probability of a simple event is defined as the relative
-frequency of an outcome. Given the simple event \(A\),
+For a discrete finite sample space, the probability of a simple event
+is defined as the relative frequency of an outcome. Given the simple
+event \(A\),
 \begin{equation*}
     \Pr{\left( A \right)} = \lim_{n \to \infty} \frac{I_A}{n}
 \end{equation*}
-where \(I_A\) is a function that evaluates to 1 if \(A\) occurs and 0 otherwise.
-
-The probabilities of events must satisfy the following conditions:
+where \(I_A\) is a function that evaluates to 1 if \(A\) occurs and 0
+otherwise. The probabilities of events must satisfy the following
+conditions:
 \begin{itemize}
     \item \(0 \leq \Pr{\left( A \right)} \leq 1\), where \(A\) is a simple event.
     \item The sum of the probabilities over the sample space is 1.
 \end{itemize}
-If an event \(A\) consists of a collection of simple events and each outcome is
-equally likely, then we can calculate the probability of an event as
+If an event \(A\) consists of a collection of simple events and each
+outcome is equally likely, then we can calculate the probability of an
+event as
 \begin{equation*}
     \Pr{\left( A \right)} = \frac{\text{number of ways that \(A\) can occur}}{\text{total number of outcomes}}
 \end{equation*}
 \subsubsection{Probability of an Event in a Sample Space}
-Given the continuous sample space \(S\), the event \(A\) can be defined as a subset of \(S\), \(A \subseteq S\).
-The definition of the probability of event \(A\) can be written as
+Given the continuous sample space \(S\), the event \(A\) can be defined
+as a subset of \(S\), \(A \subseteq S\). The definition of the
+probability of event \(A\) can be written as
 \begin{equation*}
     \Pr{\left( A \right)} = \frac{\text{the area of region-\(A\)}}{\text{the area of region-\(S\)}}
 \end{equation*}
-As this probability is a ratio, it can be standardised so that the area of \(S\) is 1.
-Thus \(\Pr{\left( A \right)}\) is the area of region-\(A\).
+As this probability is a ratio, it can be standardised so that the area
+of \(S\) is 1. Thus, \(\Pr{\left( A \right)}\) is the area of
+region-\(A\).
 \subsubsection{Probability of the Complement}
-The complement of an event \(A\) is every event not in \(A\), and is denoted as
-\(A^c\) or \(\overline{A}\). Since the total probability for the sample space is 1, then
-the probability of \(A^c\) is:
+The complement of an event \(A\) is every event not in \(A\), and is
+denoted as \(A^c\) or \(\overline{A}\). Since the total probability for
+the sample space is 1, then the probability of \(A^c\) is:
 \begin{equation*}
     \Pr{\left( A^c \right)} = 1 - \Pr{\left( A \right)}
 \end{equation*}
 This is true because \(A \cup A^c = S\) and \(\Pr{\left( S \right)} = 1\).
 \subsubsection{Probability of Subsets}
-If \(B \subset A\), then \(\Pr{\left( B \right)} \leq \Pr{\left( A \right)}\).
+If \(B \subset A\), then \(\Pr{\left( B \right)} \leq \Pr{\left( A
+\right)}\).
 \subsubsection{Addition Law}
 \begin{equation*}
-    \Pr{\left( A \cup B \right)} = \Pr{\left( A \right)} + \Pr{\left( B \right)} - \Pr{\left( A \cap B \right)}.
+    \Pr{\left( A \cup B \right)} = \Pr{\left( A \right)} + \Pr{\left( B \right)} - \Pr{\left( A \cap B \right)}
 \end{equation*}
 and for disjoint events:
 \begin{equation*}
-    \Pr{\left( A \cup B \right)} = \Pr{\left( A \right)} + \Pr{\left( B \right)}.
+    \Pr{\left( A \cup B \right)} = \Pr{\left( A \right)} + \Pr{\left( B \right)}
 \end{equation*}
 so that the intersection \(\Pr{\left( A \cap B \right)} = 0\).
 \subsection{Conditional Probability}
-Conditional probability is the probability of an event \(A\) given another event \(B\) occurs.
-
-If \(A \cap B = \emptyset\), then \(\Pr{\left( A \cap B \right)} = 0\). Thus if we know that \(B\) has
+Conditional probability is the probability of an event \(A\) given
+another event \(B\) occurs. If \(A \cap B = \emptyset\), then
+\(\Pr{\left( A \cap B \right)} = 0\). Thus, if we know that \(B\) has
 occurred, then we know that \(A\) cannot occur:
 \begin{equation*}
     \Pr{\left( A \,\vert\, B \right)} = 0.
 \end{equation*}
-Therefore if \(A \cap B \neq \emptyset\), then \(\Pr{\left( A \cap B \right)} \neq 0\).
-If \(B \neq \emptyset\), then the conditional probability of \(A\) given \(B\) is given by:
+Therefore, if \(A \cap B \neq \emptyset\), then
+\(\Pr{\left( A \cap B \right)} \neq 0\). If \(B \neq \emptyset\), then
+the conditional probability of \(A\) given \(B\) is given by:
 \begin{equation*}
     \Pr{\left( A \,\vert\, B \right)} = \frac{\Pr{\left( A \cap B \right)}}{\Pr{\left( B \right)}}.
 \end{equation*}
 Note that when \(\Pr{\left( A \right)} > \Pr{\left( B \right)}\), \(\Pr{\left( A \,\vert\, B \right)} > \Pr{\left( B \,\vert\, A \right)}\).
 \subsubsection{Independence}
-Independence can be defined in terms of conditional probability.
-\(A\) and \(B\) are independent events if
+Independence can be defined in terms of conditional probability. \(A\)
+and \(B\) are independent events if
 \begin{equation*}
     \Pr{\left( A \,\vert\, B \right)} = \Pr{\left( A \right)}.
 \end{equation*}
@@ -476,32 +551,37 @@ This leads to the multiplication rule for independent events:
 \end{equation*}
 \subsection{Bayes' Rules}
 \subsubsection{Law of Total Probability}
-By partitioning the sample space \(S\) into a collection of disjoint events \(B_1,\; B_2,\; \dots,\; B_n\),
-such that \(\bigcup_{i = 1}^n B_i = S\), we have
+By partitioning the sample space \(S\) into a collection of disjoint
+events \(B_1,\; B_2,\; \dots,\; B_n\), such that \(\bigcup_{i = 1}^n
+B_i = S\), we have
 \begin{equation*}
     \Pr{\left( A \right)} = \sum_{i = 1}^n \Pr{\left( A \,\vert\, B_i \right)}\Pr{\left( B_i \right)}
 \end{equation*}
 where \(\Pr{\left( A \,\vert\, B_i \right)} \Pr{\left( B_i \right)} = \Pr{\left( A \cap B_i \right)}\).
-Given the probability for \(A\) given \(B\), the probability of the reverse direction is given by
+Given the probability for \(A\) given \(B\), the probability of the
+reverse direction is given by
 \begin{equation*}
     \Pr{\left( B \,\vert\, A \right)} = \frac{\Pr{\left( A \,\vert\, B \right)}\Pr{\left( B \right)}}{\Pr{\left( A \right)}}
 \end{equation*}
-this is known as \textbf{Bayes' Theorem}. Using the law of total probability, we can express this as
+this is known as \textbf{Bayes' Theorem}. Using the law of total
+probability, we can express this as
 \begin{equation*}
     \Pr{\left( B \,\vert\, A \right)} = \frac{\Pr{\left( A \,\vert\, B \right)}\Pr{\left( B \right)}}{\sum_{i = 1}^n \Pr{\left( A \,\vert\, B_i \right)}\Pr{\left( B_i \right)}}.
 \end{equation*}
 \section{Probability Distributions}
 \subsection{Random Variables}
-A random variable is a variable whose value is the result of an experiment or random trial,
-where the value is not known before the trial with certainty.
+A random variable is a variable whose value is the result of an
+experiment or random trial, where the value is not known before the
+trial with certainty.
 \subsection{Discrete Random Variables}
 \begin{definition}[Discrete random variables]
-    A discrete random variable takes on values in \(\N_0\), where the random variables arises from
-    counting processes.
+    A discrete random variable takes on values in \(\N_0\), where the
+    random variables arise from counting processes.
 \end{definition}
 \subsubsection{Probability Mass Function}
-The probability mass function (PMF) of a discrete random variable \(X\) is a function \(p\left( x \right)\) that
-maps values from the sample space of \(X\) onto the interval \(\interval{0}{1}\).
+The probability mass function (PMF) of a discrete random variable \(X\)
+is a function \(p\left( x \right)\) that maps values from the sample
+space of \(X\) onto the interval \(\interval{0}{1}\).
 \begin{equation*}
     p\left( x \right) = \Pr{\left( X = x \right)}.
 \end{equation*}
@@ -521,12 +601,14 @@ and the probabilities for events can be defined using the CMF\@:
     \Pr{\left( a < X \leq b \right)} = \sum_{x = a + 1}^b p\left( x \right) = F\left( b \right) - F\left( a \right).
 \end{equation*}
 \subsubsection{Expectation}
-The expectation (expected value) of a random variable \(X\) with a PMF is given by:
+The expectation (expected value) of a random variable \(X\) with a PMF
+is given by:
 \begin{equation*}
     \E{\left( X \right)} = \sum_{\forall x \in X} x p\left( x \right)
 \end{equation*}
-where the expectation is often denoted \(\mu\). As the expectation is a weighted average of all possible values in \(X\),
-we can extend this definition to any function of \(X\):
+where the expectation is often denoted \(\mu\). As the expectation is a
+weighted average of all possible values in \(X\), we can extend this
+definition to any function of \(X\):
 \begin{equation*}
     \E{\left( h\left( X \right) \right)} = \sum_{\forall x \in X} h\left( x \right) p\left( x \right).
 \end{equation*}
@@ -535,9 +617,7 @@ The median \(m\) of a discrete random variable \(X\) is defined:
 \begin{equation*}
     m \in X : \Pr{\left( X \leq m \right)} \geq \frac{1}{2} \land \Pr{\left( X \geq m \right)} \geq \frac{1}{2}.
 \end{equation*}
-Note that \(\Pr{\left( X \leq x \right)} = \sum_{-\infty}^x p\left( x \right)\) and \(\Pr{\left( X \geq x \right)} = \sum_x^\infty p\left( x \right)\).
-
-The mode of a discrete random variable \(X\) is defined:
+Note that \(\Pr{\left( X \leq x \right)} = \sum_{-\infty}^x p\left( x \right)\) and \(\Pr{\left( X \geq x \right)} = \sum_x^\infty p\left( x \right)\). The mode of a discrete random variable \(X\) is defined:
 \begin{equation*}
     \max_{x \in X} p\left( x \right).
 \end{equation*}
@@ -551,20 +631,22 @@ The variance of a random variable \(X\) is defined using the mean:
 \end{align*}
 \subsection{Continuous Random Variables}
 \begin{definition}[Continuous random variables]
-    A continuous random variable takes on values in \(R\), where values lie on a continuum.
+    A continuous random variable takes on values in \(R\), where values
+    lie on a continuum.
 \end{definition}
 \subsubsection{Probability Density Function}
-The probability density function (PDF) of a continuous random variable \(X\) is a function \(f\left( x \right)\) that
-describes the density of possible values for a continuous random variable. Note that it does not define the probability
-of a specific value.
-
-For a continuous random variable \(X\):
+The probability density function (PDF) of a continuous random variable
+\(X\) is a function \(f\left( x \right)\) that describes the density of
+possible values for a continuous random variable. Note that it does not
+define the probability of a specific value. For a continuous random
+variable \(X\):
 \begin{itemize}
     \item \(\Pr{\left( X = x \right)} = 0\) and \(f\left( x \right) \neq \Pr{\left( X = x \right)}\).
     \item \(\forall x \in X : f\left( x \right) \geq 0\).
     \item \(\int_{-\infty}^\infty f\left( u \right) \odif{u} = 1\).
 \end{itemize}
-As the probability of a single value is zero, we can instead quantify the probability of a range of values:
+As the probability of a single value is zero, we can instead quantify
+the probability of a range of values:
 \begin{equation*}
     \Pr{\left( a \leq x \leq b \right)} = \int_{a}^{b} f\left( x \right) \odif{x}
 \end{equation*}
@@ -578,7 +660,8 @@ so that
 \begin{equation*}
     \Pr{\left( a \leq X \leq b \right)} = F\left( b \right) - F\left( a \right).
 \end{equation*}
-In the continuous case, the PDF and CDF are related through the following differential equation:
+In the continuous case, the PDF and CDF are related through the
+following differential equation:
 \begin{equation*}
     \odv{F}{x} = f\left( x \right).
 \end{equation*}
@@ -603,25 +686,28 @@ The variance of a continuous random variable \(X\) is defined:
 \end{equation*}
 \subsection{Probability Distributions}
 \subsubsection{Bernoulli Distribution}
-A Bernoulli (or binary) distribution describes the probability distribution of a Boolean-valued
-outcome, i.e., success (1) or failure (0).
-
-A discrete random variable \(X\) with a Bernoulli distribution is denoted
+A Bernoulli (or binary) distribution describes the probability
+distribution of a Boolean-valued outcome, i.e., success (1) or failure
+(0). A discrete random variable \(X\) with a Bernoulli distribution is
+denoted
 \begin{equation*}
     X \sim \operatorname{Bernoulli}{\left( p \right)}
 \end{equation*}
 with
 \begin{align*}
-    \Pr{\left( X = x \right)}    & = \begin{cases}
-                                         1 - p & x = 0 \\
-                                         p     & x = 1
-                                     \end{cases}                    \\
+    \Pr{\left( X = x \right)}    & =
+    \begin{cases}
+        1 - p & x = 0 \\
+        p     & x = 1
+    \end{cases}
+    \\
                                  & = p^x \left( 1 - p \right)^{1 - x} \\
-    \Pr{\left( X \leq x \right)} & = \begin{cases}
-                                         0     & x < 0        \\
-                                         1 - p & 0 \leq x < 1 \\
-                                         1     & k \geq 1
-                                     \end{cases}
+    \Pr{\left( X \leq x \right)} & =
+    \begin{cases}
+        0     & x < 0        \\
+        1 - p & 0 \leq x < 1 \\
+        1     & k \geq 1
+    \end{cases}
 \end{align*}
 for a probability \(p \in \interval{0}{1}\) and outcomes \(x \in \left\{ 0,\: 1 \right\}\).
 We can also summarise the following:
@@ -631,10 +717,10 @@ We can also summarise the following:
 \end{align*}
 where \(\left( 1 - p \right)\) is sometimes denoted as \(q\).
 \subsubsection{Binomial Distribution}
-A binomial distribution describes the probability distribution of the number of successes
-for \(n\) independent trials with the same probability of success \(p\).
-
-A discrete random variable \(X\) with a binomial distribution is denoted
+A binomial distribution describes the probability distribution of the
+number of successes for \(n\) independent trials with the same
+probability of success \(p\). A discrete random variable \(X\) with a
+binomial distribution is denoted
 \begin{equation*}
     X \sim \operatorname{Binomial}{\left( n,\: p \right)}
 \end{equation*}
@@ -644,9 +730,10 @@ with
     \Pr{\left( X \leq x \right)} & = \sum_{u = 0}^x \dbinom{n}{u} p^u \left( 1 - p \right)^{n - u}
 \end{align*}
 for number of successes \(x \in \left\{ 0,\: 1,\: \dots,\: n \right\}\).
-
-Here each individual trial is a Bernoulli trial, so that \(X\) can be written as the sum of
-\(n\) \textit{independent and identically distributed} (iid) Bernoulli random variables, \(Y_1,\: Y_2,\: \dots,\: Y_n\).
+Here each individual trial is a Bernoulli trial, so that \(X\) can be
+written as the sum of \(n\) \textit{independent and identically
+    distributed} (iid) Bernoulli random variables, \(Y_1,\: Y_2,\: \dots,\:
+Y_n\).
 \begin{align*}
     X & = Y_1 + Y_2 + \cdots + Y_n, & Y_i & \overset{\mathrm{iid}}{\sim} \operatorname{Bernoulli}{\left( p \right)} : \forall i \in \left\{ 1,\: 2,\: \dots,\: n \right\}.
 \end{align*}
@@ -656,9 +743,10 @@ We can then summarise the following:
     \Var{\left( X \right)} & = np \left( 1 - p \right)
 \end{align*}
 \subsubsection{Poisson Distribution}
-A Poisson distribution describes the probability distribution of the number of events \(N\) which occur over a fixed interval of time \(\lambda\).
-
-A discrete random variable \(N\) with a Poisson distribution is denoted
+A Poisson distribution describes the probability distribution of the
+number of events \(N\) which occur over a fixed interval of time
+\(\lambda\). A discrete random variable \(N\) with a Poisson
+distribution is denoted
 \begin{equation*}
     N \sim \operatorname{Poisson}{\left( \lambda \right)}
 \end{equation*}
@@ -673,8 +761,8 @@ We can also summarise the following:
     \E{\left( N \right)}   & = \lambda \\
     \Var{\left( N \right)} & = \lambda
 \end{align*}
-The Poisson PMF can be defined in terms of the Binomial PMF as \(n \to \infty\) and \(p \to 0\).
-Let \(\lambda = np\), then
+The Poisson PMF can be defined in terms of the Binomial PMF as
+\(n \to \infty\) and \(p \to 0\). Let \(\lambda = np\), then
 \begin{align*}
     p\left( x \right) & = \frac{n!}{x! \left( n - x \right)!} p^x \left( 1 - p \right)^{n - x}                                                                                 \\
                       & = \frac{n!}{x! \left( n - x \right)!} \left( \frac{\lambda}{n} \right)^x \left( 1 - \frac{\lambda}{n} \right)^{n - x}                                  \\
@@ -686,7 +774,8 @@ The limit of \(\frac{n!}{\left( n - x \right)!} \frac{1}{n^x}\) is \(1\):
                                                                        & = \lim_{n \to \infty} \left( \frac{n}{n} \right)\left( \frac{n - 1}{n} \right) \left( \frac{n - 2}{n} \right) \cdots \left( \frac{n - x + 1}{n} \right) \\
                                                                        & = 1
 \end{align*}
-The term \(\left( 1 - \frac{\lambda}{n} \right)^n\) approaches \(e^{-\lambda}\), using the substitution \(u = -\frac{n}{\lambda}\):
+The term \(\left( 1 - \frac{\lambda}{n} \right)^n\) approaches
+\(e^{-\lambda}\), using the substitution \(u = -\frac{n}{\lambda}\):
 \begin{align*}
     \lim_{n \to \infty} \left( 1 - \frac{\lambda}{n} \right)^n & = \lim_{n \to \infty} \left( 1 + \frac{1}{u} \right)^{u \left( -\lambda \right)} \\
                                                                & = e^{-\lambda}
@@ -701,10 +790,11 @@ Therefore by gathering the above equations, we can write the Poisson PMF as:
                       & = \frac{\lambda^x e^{-\lambda}}{x!}
 \end{align*}
 \subsubsection{Uniform Distribution}
-A continuous uniform distribution describes the probability distribution of an outcome within some
-interval, where the probability of an outcome in one interval is the same as all other intervals of the same length.
-
-A continuous random variable \(X\) with a continuous uniform distribution is denoted
+A continuous uniform distribution describes the probability
+distribution of an outcome within some interval, where the probability
+of an outcome in one interval is the same as all other intervals of the
+same length. A continuous random variable \(X\) with a continuous
+uniform distribution is denoted
 \begin{equation*}
     X \sim \operatorname{Uniform}{\left( a,\: b \right)}
 \end{equation*}
@@ -721,9 +811,9 @@ We can also summarise the following:
     m                      & = \frac{a + b}{2}
 \end{align*}
 \subsubsection{Exponential Distribution}
-An exponential distribution describes the probability distribution of the time between events with rate \(\eta\).
-
-A continuous random variable \(T\) with an exponential distribution is denoted
+An exponential distribution describes the probability distribution of
+the time between events with rate \(\eta\). A continuous random
+variable \(T\) with an exponential distribution is denoted
 \begin{equation*}
     T \sim \operatorname{Exp}{\left( \eta \right)}
 \end{equation*}
@@ -740,32 +830,36 @@ We can also summarise the following:
     m                      & = \frac{\ln{\left( 2 \right)}}{\eta}
 \end{align*}
 \begin{proof}
-    By considering an event taking longer than \(t\) seconds, we can represent this as nothing happening
-    over the interval \(\interval{0}{t}\). Using \(T \sim \operatorname{Exp}{\left( \eta \right)}\) and
-    \(N \sim \operatorname{Poisson}{\left( \eta t \right)}\), we have
+    By considering an event taking longer than \(t\) seconds, we can
+    represent this as nothing happening over the interval
+    \(\interval{0}{t}\). Using \(T \sim \operatorname{Exp}{\left( \eta \right)}\)
+    and \(N \sim \operatorname{Poisson}{\left( \eta t \right)}\), we
+    have
     \begin{equation*}
         \Pr{\left( T > t \right)} = \Pr{\left( N = 0 \right)} = e^{-\eta t}
     \end{equation*}
-    where \(\lambda = \eta t\). The CDF for the exponential distribution is then
+    where \(\lambda = \eta t\). The CDF for the exponential distribution
+    is then
     \begin{align*}
         \Pr{\left( T < t \right)} & = 1 - \Pr{\left( T > t \right)} \\
                                   & = 1 - e^{-\eta t}.
     \end{align*}
 \end{proof}
 \subsubsection{Memoryless Property}
-In an exponential distribution with \(T \sim \operatorname{Exp}{\left( \eta \right)}\),
-the distribution of the waiting time \(t + s\) until a certain event does not depend on
-how much time \(t\) has already passed.
+In an exponential distribution with \(T \sim \operatorname{Exp}{\left(
+\eta \right)}\), the distribution of the waiting time \(t + s\) until a
+certain event does not depend on how much time \(t\) has already
+passed.
 \begin{equation*}
     \Pr{\left( T > s + t \,\vert\, T > t \right)} = \Pr{\left( T > s \right)}.
 \end{equation*}
-The same property also applies in an Geometric distribution with \(N \sim \operatorname{Geometric}{\left( p \right)}\).
+The same property also applies in a Geometric distribution with \(N \sim \operatorname{Geometric}{\left( p \right)}\).
 \subsubsection{Normal Distribution}
-The normal distribution is used to represent many random situations, in particular, measurements and their errors.
-This distribution arises in many statistical problems and can be used to \linebreak approximate other distributions
-under certain conditions.
-
-A continuous random variable \(X\) with a normal distribution is denoted
+The normal distribution is used to represent many random situations, in
+particular, measurements and their errors. This distribution arises in
+many statistical problems and can be used to \linebreak approximate
+other distributions under certain conditions. A continuous random
+variable \(X\) with a normal distribution is denoted
 \begin{equation*}
     X \sim \operatorname{N}{\left( \mu,\: \sigma^2 \right)}
 \end{equation*}
@@ -780,78 +874,100 @@ We can also summarise the following:
     \E{\left( X \right)}   & = \mu      \\
     \Var{\left( X \right)} & = \sigma^2
 \end{align*}
-Given the complexity of the analytic expressions for the PDF and CDF of the normal distribution, we often
-use software to numerically determine probabilities associated with normal distributions.
+Given the complexity of the analytic expressions for the PDF and CDF of
+the normal distribution, we often use software to numerically determine
+probabilities associated with normal distributions.
 \subsection{Standard Normal Distribution}
-Given \(X \sim \operatorname{N}{\left( \mu,\: \sigma^2 \right)}\), consider the transformation
+Given \(X \sim \operatorname{N}{\left( \mu,\: \sigma^2 \right)}\),
+consider the transformation
 \begin{equation*}
     Z = \frac{X - \mu}{\sigma}
 \end{equation*}
-so that \(Z \sim \operatorname{N}{\left( 0,\: 1 \right)}\). This distribution is called the standard normal distribution.
-This allows us to deal with the standard normal distribution regardless of \(\mu\) and \(\sigma\).
+so that \(Z \sim \operatorname{N}{\left( 0,\: 1 \right)}\). This
+distribution is called the standard normal distribution. This allows us
+to deal with the standard normal distribution regardless of \(\mu\) and
+\(\sigma\).
 \section{Sampling}
 This section explores the ideas of sampling and inference.
 \subsection{Observational and Experimental Studies}
 \subsubsection{Observational Studies}
-If we are collecting or sampling data that already exists, i.e., we have no control over how we created the data,
-then we are conducting an observational study.
+If we are collecting or sampling data that already exists, i.e., we
+have no control over how we created the data, then we are conducting an
+observational study.
 \subsubsection{Experimental Studies}
-If data was generated in a controlled experimental environment, then the data is the result of an experimental study.
+If data was generated in a controlled experimental environment, then
+the data is the result of an experimental study.
 \subsection{Sampling}
-As it is impossible to collect measurements from an entire population, we must rely on
-samples and sample statistics to make inferences about the population.
-There are several methods for this, depending on the situation.
+As it is impossible to collect measurements from an entire population,
+we must rely on samples and sample statistics to make inferences about
+the population. There are several methods for this, depending on the
+situation.
 \subsubsection{Simple Random Sampling}
-In simple random sampling, a random subset of size \(n\) is selected from a population of size \(N\).
-Simple random sampling is used in \textbf{observational studies} as data already exists.
-There are some caveats to this method that may lead to errors in the conclusions reached:
+In simple random sampling, a random subset of size \(n\) is selected
+from a population of size \(N\). Simple random sampling is used in
+\textbf{observational studies} as data already exists. There are some
+caveats to this method that may lead to errors in the conclusions
+reached:
 \begin{itemize}
-    \item Non-response bias: some members may not respond to the survey.
-    \item Undercoverage bias: the survey may not apply to all members of the selection.
-    \item Wording bias: the wording of the survey may lead to a biased response.
+    \item Non-response bias: some members may not respond to the
+          survey.
+    \item Undercoverage bias: the survey may not apply to all members
+          of the selection.
+    \item Wording bias: the wording of the survey may lead to a biased
+          response.
 \end{itemize}
 \subsection{Stratified Random Sampling}
-Stratified random sampling is a method of sampling that divides the population into non-overlapping strata
-and draws random samples from each stratum.
+Stratified random sampling is a method of sampling that divides the
+population into non-overlapping strata and draws random samples from
+each stratum.
 \begin{itemize}
     \item \textbf{Pre-stratification} is when the strata are defined before the sampling process.
     \item \textbf{Post-stratification} is when the strata are defined after the sampling process.
 \end{itemize}
 \subsection{Cluster Sampling}
-Cluster sampling is used when there are limited resources or a lack of information about individuals in
-the population. It is also useful when members in each cluster are similar.
+Cluster sampling is used when there are limited resources or a lack of
+information about individuals in the population. It is also useful when
+members in each cluster are similar.
 \subsection{Non-random Sampling Methods}
 \begin{itemize}
-    \item Sequential sampling: samples are taken in a sequential manner.
-    \item Convenience sampling: samples are self-selected from the most convenient source.
-    \item Snowball sampling is like convenience sampling but participants are asked to recruit others.
-    \item Quota sampling: samples are selected to balance a particular demographic.
+    \item Sequential sampling: samples are taken sequentially.
+    \item Convenience sampling: samples are self-selected from the most
+          convenient source.
+    \item Snowball sampling is like convenience sampling where
+          participants are also asked to recruit others.
+    \item Quota sampling: samples are selected to balance a particular
+          demographic.
 \end{itemize}
 \section{Sampling Distributions}
-A sampling distribution is the probability distribution of a sample statistic.
+A sampling distribution is the probability distribution of a sample
+statistic.
 \subsection{Central Limit Theorem}
-For a sample of size \(n\) from any random probability distribution with expected value \(\mu\)
-and variance \(\sigma^2\),
+For a sample of size \(n\) from any random probability distribution
+with expected value \(\mu\) and variance \(\sigma^2\),
 \begin{equation*}
     \frac{\sqrt{n}\left( \overline{x} - \mu \right)}{\sigma} \overset{p}{\rightarrow} \operatorname{N}{\left( 0,\: 1 \right)}
 \end{equation*}
-meaning that increasing the sample size will lead to a more normal distribution.
-In this case, a sample size of \(n = 30\) is sufficient to approximate a normal distribution.
+meaning that increasing the sample size will lead to a more normal
+distribution. In this case, a sample size of \(n = 30\) is sufficient to
+approximate a normal distribution.
 \subsection{Standard Error}
-The standard error of a sample statistic is the standard deviation of the sampling distribution.
+The standard error of a sample statistic is the standard deviation of
+the sampling distribution.
 \begin{equation*}
     \operatorname{SE}{\left( \overline{x} \right)} = \frac{\sigma^2}{n}
 \end{equation*}
 \subsection{Sample Proportion}
-Sometimes we are interested in estimating the population proportion from the sample proportion.
-For a sample of size \(n\) let \(x\) be the number of members with a particular characteristic.
-The sample estimate of the population proportion \(p\) is
+Sometimes we are interested in estimating the population proportion
+from the sample proportion. For a sample of size \(n\) let \(x\) be the
+number of members with a particular characteristic. The sample estimate
+of the population proportion \(p\) is
 \begin{equation*}
     \hat{p} = \frac{x}{n}.
 \end{equation*}
-By assuming that the samples statistic \(x\) follows a binomial distribution with probability \(p\) and
-size \(n\), then \(\E{\left( x \right)} = np\) and \(\Var{\left( x \right)} = np\left( 1 - p \right)\).
-Therefore the expectation is
+By assuming that the sample's statistic \(x\) follows a binomial
+distribution with probability \(p\) and size \(n\), then
+\(\E{\left( x \right)} = np\) and \(\Var{\left( x \right)} = np\left( 1 - p \right)\).
+Therefore, the expectation is
 \begin{equation*}
     \E{\left( \hat{p} \right)} = p
 \end{equation*}
@@ -859,30 +975,37 @@ and the standard error is
 \begin{equation*}
     \operatorname{SE}{\left( \hat{p} \right)} = \sqrt{\frac{p\left( 1 - p \right)}{n}}.
 \end{equation*}
-For the above to apply, we must assume that the sample proportion and size are sufficiently large.
-In general, if \(np > 5\) and \(n\left( 1 - p \right) > 5\), then we can assume that the sampling distribution of \(\hat{p}\)
-is approximately normal.
+For the above to apply, we must assume that the sample proportion and
+size are sufficiently large. In general, if \(np > 5\) and
+\(n\left( 1 - p \right) > 5\), then we can assume that the sampling
+distribution of \(\hat{p}\) is approximately normal.
 \subsection{Assessing Normality}
 \begin{itemize}
-    \item Histograms: if the data is approximately normal, then the histogram will be approximately symmetric and unimodal.
-    \item Boxplots: boxplots can be useful for showing outliers and skewness. Extreme clusters of an excessive number of
-          outliers can be evidence of non-normality.
-    \item Normal probability plots (\(q\)-\(q\) plots): these plots are constructed by plotting the sorted data values against
-          their \(Z\)-scores. If the data is approximately normal, then the points will lie approximately on a straight line.
+    \item Histograms: if the data is approximately normal, then the
+          histogram will be approximately symmetric and unimodal.
+    \item Box plots: box plots can be useful for showing outliers and
+          skewness. Extreme clusters of an excessive number of outliers
+          can be evidence of non-normality.
+    \item Normal probability plots (\(q\)-\(q\) plots): these plots are
+          constructed by plotting the sorted data values against their
+          \(Z\)-scores. If the data is approximately normal, then the
+          points will lie approximately on a straight line.
 \end{itemize}
 \section{Large Sample Estimation}
-Statistical inference is the practice of using data and probabilistic models to
-estimate quantities and test scientific hypotheses in the face of uncertainty.
+Statistical inference is the practice of using data and probabilistic
+models to estimate quantities and test scientific hypotheses in the
+face of uncertainty.
 \subsection{Estimation}
-Given some data, we can calculate sample statistics to summarise the data.
-The goal of statistical modelling is to rather gain insight into the population from which the data was sampled.
-This involves making inferences about the population parameters.
+Given some data, we can calculate sample statistics to summarise the
+data. The goal of statistical modelling is to rather gain insight into
+the population from which the data was sampled. This involves making
+inferences about the population parameters.
 \subsection{Point Estimation}
-In classical statistics, model parameters are unknown but assumed to be \textbf{fixed}.
-Parameter \linebreak estimation is known as point estimation,
-and the resulting parameter estimators are called \textbf{point estimators}.
-
-There are two approaches to point estimators, the method of moments and the method of maximum likelihood.
+In classical statistics, model parameters are unknown but assumed to be
+\textbf{fixed}. Parameter \linebreak estimation is known as point
+estimation, and the resulting parameter estimators are called
+\textbf{point estimators}. There are two approaches to point
+estimators, the method of moments and the method of maximum likelihood.
 \subsubsection{Method of Moments}
 The moments of a probability distribution are defined
 \begin{align*}
@@ -902,41 +1025,46 @@ Sample moments are defined similarly
 \end{align*}
 where \(\overline{x} = m_1\).
 \subsubsection{Method of Maximum Likelihood Estimation}
-Rather than estimating parameters using the method of moments,
-we can estimate parameters by maximising the likelihood function.
+Rather than estimating parameters using the method of moments, we can
+estimate parameters by maximising the likelihood function.
 \begin{definition}[Likelihood function]
     The \textbf{likelihood function} is defined as
     \begin{equation*}
-        \mathcal{L}\left( \theta \,\vert\, \symbfit{x} \right) = \prod_{i = 1}^n f\left( x_i \right) \\
+        \mathcal{L}\left( \theta \,\vert\, \symbf{x} \right) = \prod_{i = 1}^n f\left( x_i \right) \\
     \end{equation*}
     for both continuous and discrete distributions \(f\).
 \end{definition}
 \begin{definition}[Maximum likelihood estimator]
     The \textbf{maximum likelihood estimator} is defined as
     \begin{equation*}
-        \hat{\theta} = \argmax_\theta{\mathcal{L}\left( \theta \,\vert\, \symbfit{x} \right)}.
+        \hat{\theta} = \argmax_\theta{\mathcal{L}\left( \theta \,\vert\, \symbf{x} \right)}.
     \end{equation*}
 \end{definition}
-As the likelihood function is not trivial to maximise, we can instead maximise the log-likelihood function.
+As the likelihood function is not trivial to maximise, we can instead
+maximise the log-likelihood function.
 \begin{definition}[Log-likelihood function]
     The \textbf{log-likelihood function} is defined as
     \begin{align*}
-        \ell\left( \theta \,\vert\, \symbfit{x} \right) & = \log{\left( \mathcal{L}\left( \theta \,\vert\, \symbfit{x} \right) \right)} \\
-                                                        & = \sum_{i = 1}^n \log{\left( f\left( x_i \right) \right)}
+        \ell\left( \theta \,\vert\, \symbf{x} \right) & = \log{\left( \mathcal{L}\left( \theta \,\vert\, \symbf{x} \right) \right)} \\
+                                                      & = \sum_{i = 1}^n \log{\left( f\left( x_i \right) \right)}
     \end{align*}
 \end{definition}
-Due to the monotonicity of the log function, the maximum likelihood estimator is the same as the maximum log-likelihood estimator.
+Due to the monotonicity of the log function, the maximum likelihood
+estimator is the same as the maximum log-likelihood estimator.
 \begin{definition}[Maximum log-likelihood estimator]
     The \textbf{maximum log-likelihood estimator} is defined as
     \begin{equation*}
-        \hat{\theta} = \argmax_\theta{\ell\left( \theta \,\vert\, \symbfit{x} \right)}.
+        \hat{\theta} = \argmax_\theta{\ell\left( \theta \,\vert\, \symbf{x} \right)}.
     \end{equation*}
 \end{definition}
 \subsection{Properties of Estimators}
-To assess the quality of an estimator, we can consider the following properties.
+To assess the quality of an estimator, we can consider the following
+properties.
 \begin{definition}[Bias]
-    The \textbf{bias} of an estimator is defined as
-    the difference between the expected value of the estimator \(\E{\left( \hat{\theta} \right)}\) and the true value of the parameter \(\theta_0\).
+    The \textbf{bias} of an estimator is defined as the difference
+    between the expected value of the estimator
+    \(\E{\left( \hat{\theta} \right)}\) and the true value of the
+    parameter \(\theta_0\).
     \begin{equation*}
         \operatorname{Bias}\left( \hat{\theta} \right) = \E{\left( \hat{\theta} \right)} - \theta
     \end{equation*}
@@ -946,67 +1074,75 @@ To assess the quality of an estimator, we can consider the following properties.
     \end{equation*}
     so that the bias is zero.
 \end{definition}
-We can also compare the variance of two estimators, to assess which one is more preferable.
-If the variance of the estimator is small, then the estimator is more precise.
-Given two estimators \(\hat{\theta}_1\) and \(\hat{\theta}_2\), we would choose \(\hat{\theta}_1\) over \(\hat{\theta}_2\) if
+We can also compare the variance of two estimators, to assess which one
+is more preferable. If the variance of the estimator is small, then the
+estimator is more precise. Given two estimators \(\hat{\theta}_1\) and
+\(\hat{\theta}_2\), we would choose \(\hat{\theta}_1\) over
+\(\hat{\theta}_2\) if
 \begin{equation*}
     \Var{\left( \hat{\theta}_1 \right)} < \Var{\left( \hat{\theta}_2 \right)}
 \end{equation*}
 \begin{definition}[Mean square error]
-    Given data \(x_i\) with variance \(\sigma^2\), the estimators of \(\theta = \E{\left( X \right)}\)
-    are selected such that they minimise the \textbf{mean square error}:
+    Given data \(x_i\) with variance \(\sigma^2\), the estimators of
+    \(\theta = \E{\left( X \right)}\) are selected such that they
+    minimise the \textbf{mean square error}:
     \begin{align*}
         \operatorname{MSE}\left( \hat{\theta} \right) & = \E{\left( \left( \hat{\theta} - \theta \right)^2 \right)}                             \\
                                                       & = \operatorname{Bias}\left( \hat{\theta} \right)^2 + \Var{\left( \hat{\theta} \right)}.
     \end{align*}
-    This quantity is used to determine the \textbf{bias-variance trade-off} of an estimator.
-    The \textbf{root mean square error} is defined as
+    This quantity is used to determine the \textbf{bias-variance
+        trade-off} of an estimator. The \textbf{root-mean-square error} is
+    defined as
     \begin{equation*}
         \operatorname{RMSE}\left( \hat{\theta} \right) = \sqrt{\operatorname{MSE}\left( \hat{\theta} \right)}.
     \end{equation*}
 \end{definition}
 \subsection{Confidence Intervals}
-In the previous section, we discuss methods to find point-estimates of parameters, that is, values
-that are close to the true value of the parameter. However, we may also be interested in the
-uncertainty of the parameter, that is, the range of values that the parameter may take.
-
-The range of values that this parameter lies in is called a \textbf{confidence interval}.
-This interval ranges from the lower confidence limit (UCL) to the upper confidence limit (LCL)
+In the previous section, we discuss methods to find point-estimates of
+parameters, that is, values that are close to the true value of the
+parameter. However, we may also be interested in the uncertainty of the
+parameter, that is, the range of values that the parameter may take.
+The range of values that this parameter lies in is called a
+\textbf{confidence interval}. This interval ranges from the lower
+confidence limit (UCL) to the upper confidence limit (LCL)
 \begin{equation*}
     L < \theta < U.
 \end{equation*}
 This interval has a \textbf{confidence coefficient} of \(1 - \alpha\), or a \textbf{confidence level} of \(\left( 1 - \alpha \right)\%\).
 The confidence interval is defined as
-\begin{equation*}
-    {CI}_{1 - \alpha} = \hat{\theta} \pm Z_{\alpha / 2} \operatorname{SE}\left( \hat{\theta} \right) = \left( \hat{\theta} - Z_{\alpha / 2} \operatorname{SE}\left( \hat{\theta} \right),\: \hat{\theta} + Z_{\alpha / 2} \operatorname{SE}\left( \hat{\theta} \right) \right)
+\begin{equation*}{CI}_{1 - \alpha} = \hat{\theta} \pm Z_{\alpha / 2} \operatorname{SE}\left( \hat{\theta} \right) = \left( \hat{\theta} - Z_{\alpha / 2} \operatorname{SE}\left( \hat{\theta} \right),\: \hat{\theta} + Z_{\alpha / 2} \operatorname{SE}\left( \hat{\theta} \right) \right)
 \end{equation*}
 \subsubsection{Confidence Interval for the Mean}
-Using this understanding of confidence intervals, we can now derive the confidence interval for the mean.
-
-Recall the Z-score \(Z_{\alpha/2}\), which is the value of \(Z\) such that the area
-to the right of the standard normal distribution is \(\alpha/2\):
+Using this understanding of confidence intervals, we can now derive the
+confidence interval for the mean. Recall the Z-score \(Z_{\alpha/2}\),
+which is the value of \(Z\) such that the area to the right of the
+standard normal distribution is \(\alpha/2\):
 \begin{equation*}
     \Pr{\left( Z \geq Z_{\alpha/2} \right)} = \frac{\alpha}{2}.
 \end{equation*}
-Likewise, the Z-score \(-Z_{\alpha/2}\) is the value of \(Z\) such that the area
-to the left of the standard normal distribution is also \(\alpha/2\):
+Likewise, the Z-score \(-Z_{\alpha/2}\) is the value of \(Z\) such that
+the area to the left of the standard normal distribution is also
+\(\alpha/2\):
 \begin{equation*}
     \Pr{\left( Z \leq -Z_{\alpha/2} \right)} = \frac{\alpha}{2}.
 \end{equation*}
-Therefore the area between \(-Z_{\alpha/2}\) and \(Z_{\alpha/2}\) is \(1 - \alpha\):
+Therefore, the area between \(-Z_{\alpha/2}\) and \(Z_{\alpha/2}\) is
+\(1 - \alpha\):
 \begin{align*}
     \Pr{\left( -Z_{\alpha/2} \leq Z \leq Z_{\alpha/2} \right)} & = \Pr{\left( Z \leq Z_{\alpha/2} \right)} - \Pr{\left( Z \leq -Z_{\alpha/2} \right)}     \\
                                                                & = 1 - \Pr{\left( Z \geq Z_{\alpha/2} \right)} - \Pr{\left( Z \leq -Z_{\alpha/2} \right)} \\
                                                                & = 1 - \frac{\alpha}{2} - \frac{\alpha}{2}                                                \\
                                                                & = 1 - \alpha.
 \end{align*}
-Given a large sample (\(n > 30\)), \(\overline{x}\) is the best estimator for the population mean \(\mu\) and
+Given a large sample (\(n > 30\)), \(\overline{x}\) is the best
+estimator for the population mean \(\mu\) and
 \begin{equation*}
     \overline{x} \sim \operatorname{N}\left( \mu,\: \frac{\sigma^2}{n} \right).
 \end{equation*}
 The confidence interval for the mean is derived using the following steps:
 \begin{equation*}
-    \begin{array}{>{\displaystyle}rccc>{\displaystyle}l}
+    \begin{array}
+        {>{\displaystyle}rccc>{\displaystyle}l}
         -Z_{\alpha/2}                                        & \leq & Z                                          & \leq & Z_{\alpha/2}                                         \\
         -Z_{\alpha/2}                                        & \leq & \frac{\overline{x} - \mu}{\sigma/\sqrt{n}} & \leq & Z_{\alpha/2}                                         \\
         -\overline{x} - Z_{\alpha/2} \frac{\sigma}{\sqrt{n}} & \leq & - \mu                                      & \leq & -\overline{x} + Z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \\
@@ -1016,7 +1152,7 @@ The confidence interval for the mean is derived using the following steps:
 \end{equation*}
 therefore the confidence interval for the population mean is
 \begin{equation*}
-    {CI}_{1-\alpha} = \overline{x} \pm Z_{\alpha/2} \frac{\sigma}{\sqrt{n}}
+    CI_{1-\alpha} = \overline{x} \pm Z_{\alpha/2} \frac{\sigma}{\sqrt{n}}
 \end{equation*}
 where
 \begin{equation*}
@@ -1034,21 +1170,22 @@ Given the sample size \(n\) and sample proportion \(\hat{p}\),
     \hat{p} \sim \operatorname{N}\left( p,\: \frac{p\left( 1 - p \right)}{n} \right).
 \end{equation*}
 The confidence interval for the population proportion is
-\begin{equation*}
-    {CI}_{1-\alpha} = \hat{p} \pm Z_{\alpha/2} \sqrt{\frac{\hat{p}\left( 1 - \hat{p} \right)}{n}}
+\begin{equation*}{CI}_{1-\alpha} = \hat{p} \pm Z_{\alpha/2} \sqrt{\frac{\hat{p}\left( 1 - \hat{p} \right)}{n}}
 \end{equation*}
 where the standard error is given by
 \begin{equation*}
-    \operatorname{SE}\left( \hat{p} \right) = \sqrt{\frac{p\left( 1 - p \right)}{n}}.
+    \operatorname{SE}\left( \hat{p} \right) = \sqrt{\frac{p\left( 1 - p \right)}{n}}
 \end{equation*}
 with the approximation
 \begin{equation*}
     \operatorname{SE}\left( \hat{p} \right) = \sqrt{\frac{\hat{p}\left( 1 - \hat{p} \right)}{n}}.
 \end{equation*}
-Note that \(n \hat{p} > 5\) and \(n \left( 1 - \hat{p} \right) > 5\) are required for the approximation to be valid.
+Note that \(n \hat{p} > 5\) and \(n \left( 1 - \hat{p} \right) > 5\) are
+required for the approximation to be valid.
 \subsubsection{Confidence Interval for the Difference of Two Means}
-Given two population means \(\mu_1\) and \(\mu_2\), we expect the difference of the population means
-and the sample means to be equal. Consider the expectation of the difference of the sample means:
+Given two population means \(\mu_1\) and \(\mu_2\), we expect the
+difference of the population means, and the sample means to be equal.
+Consider the expectation of the difference of the sample means:
 \begin{equation*}
     \E{\left( \overline{x}_1 - \overline{x}_2 \right)} = \mu_1 - \mu_2
 \end{equation*}
@@ -1061,20 +1198,23 @@ with is estimated by
     \operatorname{SE}\left( \overline{x}_1 - \overline{x}_2 \right) = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
 \end{equation*}
 The confidence interval for the difference of the two means is
-\begin{equation*}
-    {CI}_{1-\alpha} = \overline{x}_1 - \overline{x}_2 \pm Z_{\alpha/2} \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}.
+\begin{equation*}{CI}_{1-\alpha} = \overline{x}_1 - \overline{x}_2 \pm Z_{\alpha/2} \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}.
 \end{equation*}
-If the two populations follow a normal distribution, then the sampling distribution is exactly normal.
-If the two populations are not normal, then the sampling distribution is approximately normal, for \(n_1 > 30\) and \(n_2 > 30\).
+If the two populations follow a normal distribution, then the sampling
+distribution is exactly normal. If the two populations are not normal,
+then the sampling distribution is approximately normal, for \(n_1 > 30\)
+and \(n_2 > 30\).
 \subsubsection{Confidence Interval for the Difference of Two Proportions}
-Given two population proportions \(p_1\) and \(p_2\), we expect the difference of the population proportions
-and the sample proportions to be equal. Consider the expectation of the difference of the sample proportions:
+Given two population proportions \(p_1\) and \(p_2\), we expect the
+difference of the population proportions and the sample proportions to
+be equal. Consider the expectation of the difference of the sample
+proportions:
 \begin{equation*}
     \E{\left( \hat{p}_1 - \hat{p}_2 \right)} = p_1 - p_2
 \end{equation*}
 with standard error
 \begin{equation*}
-    \operatorname{SE}\left( \hat{p}_1 - \hat{p}_2 \right) = \sqrt{\frac{p_1\left( 1 - p_1 \right)}{n_1} + \frac{p_2\left( 1 - p_2 \right)}{n_2}}.
+    \operatorname{SE}\left( \hat{p}_1 - \hat{p}_2 \right) = \sqrt{\frac{p_1\left( 1 - p_1 \right)}{n_1} + \frac{p_2\left( 1 - p_2 \right)}{n_2}}
 \end{equation*}
 which is approximated by
 \begin{equation*}
@@ -1082,7 +1222,7 @@ which is approximated by
 \end{equation*}
 The confidence interval for the difference of the two proportions is
 \begin{equation*}
-    {CI}_{1-\alpha} = \hat{p}_1 - \hat{p}_2 \pm Z_{\alpha/2} \sqrt{\frac{\hat{p}_1\left( 1 - \hat{p}_1 \right)}{n_1} + \frac{\hat{p}_2\left( 1 - \hat{p}_2 \right)}{n_2}}.
+    CI_{1-\alpha} = \hat{p}_1 - \hat{p}_2 \pm Z_{\alpha/2} \sqrt{\frac{\hat{p}_1\left( 1 - \hat{p}_1 \right)}{n_1} + \frac{\hat{p}_2\left( 1 - \hat{p}_2 \right)}{n_2}}.
 \end{equation*}
 Note that the following constraints must be satisfied:
 \begin{itemize}
@@ -1092,33 +1232,42 @@ Note that the following constraints must be satisfied:
     \item \(n_2 \left( 1 - \hat{p}_2 \right) > 5\)
 \end{itemize}
 \section{Hypothesis Testing}
-Hypothesis testing is a method of statistical inference that is used to decide whether
-data supports a particular hypothesis.
+Hypothesis testing is a method of statistical inference that is used to
+decide whether data supports a particular hypothesis.
 \subsection{Neyman-Pearson Lemma}
-The Neyman-Pearson lemma can be used to construct a hypothesis test. It requires the following:
+The Neyman-Pearson lemma can be used to construct a hypothesis test. It
+requires the following:
 \begin{itemize}
     \item A test which is constructed based on the hypotheses:
           \begin{itemize}
               \item \(H_0\): The null hypothesis
               \item \(H_A\): The alternative hypothesis
           \end{itemize}
-    \item A test statistic \(T\left( \symbfit{x} \right)\) defined as a function of the sample data.
-    \item A rejection region \(R\) defined as a subset of the sample space, so that if the test statistic
-          falls in the rejection region, then the null hypothesis is rejected.
+    \item A test statistic \(T\left( \symbf{x} \right)\) defined as a
+          function of the sample data.
+    \item A rejection region \(R\) defined as a subset of the sample
+          space, so that if the test statistic falls in the rejection
+          region, then the null hypothesis is rejected.
 \end{itemize}
 \subsubsection{Hypotheses}
-The hypotheses are designed such that the \textbf{null hypothesis} is \textit{falsifiable}. The
-null hypothesis is typically a statement about the population parameters, and the alternative
-hypothesis is the complement of the null hypothesis (i.e., the null hypothesis is rejected if the alternative hypothesis is true).
+The hypotheses are designed such that the \textbf{null hypothesis} is
+\textit{falsifiable}. The null hypothesis is typically a statement
+about the population parameters, and the alternative hypothesis is the
+complement of the null hypothesis (i.e., the null hypothesis is
+rejected if the alternative hypothesis is true).
 \subsubsection{Test Statistic}
-The test statistic is a function of observations modelled as random variables, and thus has its own sampling distribution.
-This sampling distribution can be used to identify the rejection region depending on how probable the test statistic is
-assuming the null hypothesis is true.
+The test statistic is a function of observations modelled as random
+variables, and thus has its own sampling distribution. This sampling
+distribution can be used to identify the rejection region depending on
+how probable the test statistic is assuming the null hypothesis is
+true.
 \subsection{Rejection Region}
-The rejection region is a subset of the sample space, such that if the null hypothesis is true,
-the probability that the test statistic falls in the rejection region is sufficiently small.
+The rejection region is a subset of the sample space, such that if the
+null hypothesis is true, the probability that the test statistic falls
+in the rejection region is sufficiently small.
 \subsection{Hypothesis Testing Procedure}
-Hypothesis tests can either be two-tailed (also called point null hypotheses):
+Hypothesis tests can either be two-tailed (also called point null
+hypotheses):
 \begin{equation*}
     H_0: \theta = \theta_0 \quad \text{vs.} \quad H_A: \theta \neq \theta_0
 \end{equation*}
@@ -1130,10 +1279,10 @@ and right-tail tests:
 \begin{equation*}
     H_0: \theta \geq \theta_0 \quad \text{vs.} \quad H_A: \theta < \theta_0
 \end{equation*}
-for a given value of \(\theta_0\), where \(\theta\) is the parameter of interest.
-
-The rejection region \(R\) is chosen so that \(\Pr{\left( T\left( \symbfit{x} \in R \right) \right)} = \alpha\),
-where \(\alpha\) is the Type I error rate defined:
+for a given value of \(\theta_0\), where \(\theta\) is the parameter of
+interest. The rejection region \(R\) is chosen so that
+\(\Pr{\left( T\left( \symbf{x} \in R \right) \right)} = \alpha\), where
+\(\alpha\) is the Type I error rate defined:
 \begin{equation*}
     \alpha = \Pr{\left( \text{reject \(H_0\)} \,\vert\, \text{\(H_0\) is true} \right)}.
 \end{equation*}
@@ -1141,7 +1290,8 @@ The Type II error rate, \(\beta\) is defined as:
 \begin{equation*}
     \beta = \Pr{\left( \text{failure to reject \(H_0\)} \,\vert\, \text{\(H_0\) is false} \right)}
 \end{equation*}
-where the compliment of the Type II error rate is the \textbf{power} of the test:
+where the compliment of the Type II error rate is the \textbf{power} of
+the test:
 \begin{equation*}
     1 - \beta = \Pr{\left( \text{reject \(H_0\)} \,\vert\, \text{\(H_0\) is false} \right)}.
 \end{equation*}
@@ -1160,11 +1310,11 @@ The rejection regions are defined:
 \begin{center}
     \begin{tabular}{cc}
         \toprule
-        \textbf{Null Hypothesis} \(H_0\) & \textbf{Rejection Region} \(R\)                       \\
+        \textbf{Null Hypothesis} \(H_0\) & \textbf{Rejection Region} \(R\)                     \\
         \midrule
-        \(\theta = \theta_0\)            & \(\abs*{T\left( \symbfit{x} \right)} > Z_{\alpha/2}\) \\
-        \(\theta \leq \theta_0\)         & \(T\left( \symbfit{x} \right) > Z_{\alpha}\)          \\
-        \(\theta \geq \theta_0\)         & \(T\left( \symbfit{x} \right) < -Z_{\alpha}\)         \\
+        \(\theta = \theta_0\)            & \(\abs*{T\left( \symbf{x} \right)} > Z_{\alpha/2}\) \\
+        \(\theta \leq \theta_0\)         & \(T\left( \symbf{x} \right) > Z_{\alpha}\)          \\
+        \(\theta \geq \theta_0\)         & \(T\left( \symbf{x} \right) < -Z_{\alpha}\)         \\
         \bottomrule
     \end{tabular}
 \end{center}
@@ -1194,7 +1344,7 @@ Given the sample statistic \(\overline{x}\),
 \end{equation*}
 the test statistic is defined
 \begin{equation*}
-    T\left( \symbfit{x} \right) = \frac{\overline{x} - \mu_0}{\sigma/\sqrt{n}} \sim \operatorname{N}\left( 0,\: 1 \right).
+    T\left( \symbf{x} \right) = \frac{\overline{x} - \mu_0}{\sigma/\sqrt{n}} \sim \operatorname{N}\left( 0,\: 1 \right).
 \end{equation*}
 \subsection{Hypothesis Testing for the Population Proportion}
 Given the sample statistic \(\hat{p}\),
@@ -1204,18 +1354,19 @@ Given the sample statistic \(\hat{p}\),
 for \(n \hat{p} > 5\) and \(n \left( 1 - \hat{p} \right) > 5\),
 the test statistic is defined
 \begin{equation*}
-    T\left( \symbfit{x} \right) = \frac{\sqrt{n} \left( \hat{p} - p_0 \right)}{\sqrt{p_0 \left( 1 - p_0 \right)}}.
+    T\left( \symbf{x} \right) = \frac{\sqrt{n} \left( \hat{p} - p_0 \right)}{\sqrt{p_0 \left( 1 - p_0 \right)}}.
 \end{equation*}
 \subsection{Hypothesis Testing with Differences}
-The rejection regions for the difference between two parameters is defined:
+The rejection regions for the difference between two parameters is
+defined:
 \begin{center}
     \begin{tabular}{cc}
         \toprule
-        \textbf{Null Hypothesis} \(H_0\) & \textbf{Rejection Region} \(R\)                       \\
+        \textbf{Null Hypothesis} \(H_0\) & \textbf{Rejection Region} \(R\)                     \\
         \midrule
-        \(\theta_1 - \theta_2 = 0\)      & \(\abs*{T\left( \symbfit{x} \right)} > Z_{\alpha/2}\) \\
-        \(\theta_1 - \theta_2 \leq 0\)   & \(T\left( \symbfit{x} \right) > Z_{\alpha}\)          \\
-        \(\theta_1 - \theta_2 \geq 0\)   & \(T\left( \symbfit{x} \right) < -Z_{\alpha}\)         \\
+        \(\theta_1 - \theta_2 = 0\)      & \(\abs*{T\left( \symbf{x} \right)} > Z_{\alpha/2}\) \\
+        \(\theta_1 - \theta_2 \leq 0\)   & \(T\left( \symbf{x} \right) > Z_{\alpha}\)          \\
+        \(\theta_1 - \theta_2 \geq 0\)   & \(T\left( \symbf{x} \right) < -Z_{\alpha}\)         \\
         \bottomrule
     \end{tabular}
 \end{center}
@@ -1230,11 +1381,13 @@ and the standard error is given by
 \end{equation*}
 The test statistic is defined
 \begin{equation*}
-    T\left( \symbfit{x} \right) = \frac{\left( \overline{x}_1 - \overline{x}_2 \right) - \Delta_0}{\operatorname{SE}_{\overline{x}_1 - \overline{x}_2}}.
+    T\left( \symbf{x} \right) = \frac{\left( \overline{x}_1 - \overline{x}_2 \right) - \Delta_0}{\operatorname{SE}_{\overline{x}_1 - \overline{x}_2}}
 \end{equation*}
-where \(\Delta_0 = \mu_1 - \mu_2\) is the hypothesised difference between the two population means.
+where \(\Delta_0 = \mu_1 - \mu_2\) is the hypothesised difference
+between the two population means.
 \subsection{Hypothesis Testing for the Difference in Population Proportions}
-The point estimator of the difference in proportions where \(p_1 = p_2\) is given by
+The point estimator of the difference in proportions where \(p_1 =
+p_2\) is given by
 \begin{equation*}
     \hat{p}_1 - \hat{p}_2
 \end{equation*}
@@ -1244,62 +1397,74 @@ and the standard error is defined
 \end{equation*}
 where
 \begin{align*}
-    p_0 & = \frac{x_1 + x_2}{n_1 + n_2}                      \\
-    p_0 & = \frac{\hat{p}_1 n_1 + \hat{p}_2 n_2}{n_1 + n_2}.
+    p_0 & = \frac{x_1 + x_2}{n_1 + n_2}                     \\
+    p_0 & = \frac{\hat{p}_1 n_1 + \hat{p}_2 n_2}{n_1 + n_2}
 \end{align*}
 so that \(p_0 = p_1 = p_2\).
 The resulting test statistic is defined:
 \begin{equation*}
-    T\left( \symbfit{x} \right) = \frac{\left( \hat{p}_1 - \hat{p}_2 \right)}{\operatorname{SE}_{\hat{p}_1 - \hat{p}_2}}.
+    T\left( \symbf{x} \right) = \frac{\left( \hat{p}_1 - \hat{p}_2 \right)}{\operatorname{SE}_{\hat{p}_1 - \hat{p}_2}}.
 \end{equation*}
-When the hypothesised difference is not 0, i.e., \(p_1 - p_2 = \Delta_0\), the test statistic is defined:
+When the hypothesised difference is not 0, i.e., \(p_1 - p_2 = \Delta_0\),
+the test statistic is defined:
 \begin{equation*}
-    T\left( \symbfit{x} \right) = \frac{\left( \hat{p}_1 - \hat{p}_2 \right) - \Delta_0}{\sqrt{\frac{\hat{p}_1 \left( 1 - \hat{p}_1 \right)}{n_1} + \frac{\hat{p}_2 \left( 1 - \hat{p}_2 \right)}{n_2}}}.
+    T\left( \symbf{x} \right) = \frac{\left( \hat{p}_1 - \hat{p}_2 \right) - \Delta_0}{\sqrt{\frac{\hat{p}_1 \left( 1 - \hat{p}_1 \right)}{n_1} + \frac{\hat{p}_2 \left( 1 - \hat{p}_2 \right)}{n_2}}}.
 \end{equation*}
 \subsection{Power and Sample Size Selection}
-The power describes the probability that the test rejects the null hypothesis when the alternative hypothesis is true:
+The power describes the probability that the test rejects the null
+hypothesis when the alternative hypothesis is true:
 \begin{align*}
-    \operatorname{Power} & = 1 - \beta                                                                                                   \\
-                         & = 1 - \Pr{\left( \abs*{T\left( \symbfit{x} \right)} \leq Z_{\alpha/2} \,\vert\, \theta = \theta^\ast \right)} \\
-                         & = \Pr{\left( \abs*{T\left( \symbfit{x} \right)} \geq Z_{\alpha/2} \,\vert\, \theta = \theta^\ast \right)}.
+    \operatorname{Power} & = 1 - \beta                                                                                                 \\
+                         & = 1 - \Pr{\left( \abs*{T\left( \symbf{x} \right)} \leq Z_{\alpha/2} \,\vert\, \theta = \theta^\ast \right)} \\
+                         & = \Pr{\left( \abs*{T\left( \symbf{x} \right)} \geq Z_{\alpha/2} \,\vert\, \theta = \theta^\ast \right)}.
 \end{align*}
-Here the true value of \(\theta\) is \(\theta^\ast\) rather than \(\theta_0\).
-
-In this equation, as \(n\) increases, the Type II error rate decreases, and hence the power increases.
-The sample size \(n\) can therefore be selected to achieve a desired true value of \(\theta\) and a desired power.
+Here the true value of \(\theta\) is \(\theta^\ast\) rather than
+\(\theta_0\). In this equation, as \(n\) increases, the Type II error
+rate decreases, and hence the power increases. The sample size \(n\) can
+therefore be selected to achieve a desired true value of \(\theta\) and
+a desired power.
 \subsection{Hypothesis Testing and Confidence Intervals}
-Hypothesis testing and confidence intervals both involve the probability based on the sampling distribution of a statistic.
-Here the rejection region is defined such that it is the \textbf{compliment} of the confidence region.
-
-The decision to reject the null hypothesis because it falls \underline{within} the rejection region is equivalent to
-rejecting the null hypothesis if the value \(\theta_0\) falls \underline{outside} the confidence interval.
+Hypothesis testing and confidence intervals both involve the
+probability based on the sampling distribution of a statistic. Here the
+rejection region is defined such that it is the \textbf{compliment} of
+the confidence region. The decision to reject the null hypothesis
+because it falls \underline{within} the rejection region is equivalent
+to rejecting the null hypothesis if the value \(\theta_0\) falls
+\underline{outside} the confidence interval.
 \subsection{Hypothesis Testing and P-Values}
-Rather than constructing rejection regions based on a given Type I error rate \(\alpha\), we
-can instead measure the strength of the evidence against the null hypothesis by computing the
-upper tail probability of the test statistic:
+Rather than constructing rejection regions based on a given Type I
+error rate \(\alpha\), we can instead measure the strength of the
+evidence against the null hypothesis by computing the upper tail
+probability of the test statistic:
 \begin{equation*}
-    \alpha = \Pr{\left( Z \geq T\left( \symbfit{x} \right) \right)}.
+    \alpha = \Pr{\left( Z \geq T\left( \symbf{x} \right) \right)}.
 \end{equation*}
-The value obtained from this calculation is called the \textbf{\(p\)-value}.
-The strength of the evidence against the null hypothesis increases as the \(p\)-value decreases.
+The value obtained from this calculation is called the
+\textbf{\(p\)-value}. The strength of the evidence against the null
+hypothesis increases as the \(p\)-value decreases.
 \subsection{Significance of Results}
-When interpreting the results from a test statistic, the test can only be used to reject the null hypothesis.
-When the strength against the null hypothesis is weak, we cannot assume that the null hypothesis is true,
-rather, the test is inconclusive and that there is no statistical significance.
+When interpreting the results from a test statistic, the test can only
+be used to reject the null hypothesis. When the strength against the
+null hypothesis is weak, we cannot assume that the null hypothesis is
+true, rather, the test is inconclusive and that there is no statistical
+significance.
 \section{Small Sample Inference}
 In the previous two sections, we assumed sample sizes of above 30.
-However, in many situations, this may be infeasible.
-In these situations, the following assumption may be invalid:
+However, in many situations, this may be infeasible. In these
+situations, the following assumption may be invalid:
 \begin{equation*}
     s \neq \sigma \implies \frac{\sqrt{n}\left( \overline{x} - \mu \right)}{s} \neq \frac{\sqrt{n}\left( \overline{x} - \mu \right)}{\sigma}
 \end{equation*}
-and hence we cannot use the normal distribution to approximate the sampling distribution of the test statistic.
-Instead, we can use \textbf{Student's t-distribution}:
+and hence we cannot use the normal distribution to approximate the
+sampling distribution of the test statistic. Instead, we can use
+\textbf{Student's t-distribution}:
 \begin{equation*}
-    T\left( \symbfit{x} \right) \sim t_{\nu}
+    T\left( \symbf{x} \right) \sim t_{\nu}
 \end{equation*}
-where the degrees of freedom \(\nu\) is equal to \(n - 1\). The t-distribution is similar to the Normal distribution,
-but has heavier tails for small values of \(n\). The expectation and variance are given by
+where the degrees of freedom \(\nu\) is equal to \(n - 1\). The
+t-distribution is similar to the Normal distribution, but has heavier
+tails for small values of \(n\). The expectation and variance are given
+by
 \begin{align*}
     \E{\left( X \right)}   & = 0                   \\
     \Var{\left( X \right)} & = \frac{\nu}{\nu - 2} \\
@@ -1307,16 +1472,18 @@ but has heavier tails for small values of \(n\). The expectation and variance ar
 for \(\nu > 2\), such that the variance is always greater than 1, and
 converges to 1 as \(\nu \rightarrow \infty\).
 \subsection{Inferencing}
-The test statistic used for inference is similar to the one used for the normal distribution:
+The test statistic used for inference is similar to the one used for
+the normal distribution:
 \begin{equation*}
-    T\left( \symbfit{x} \right) = \frac{\overline{x} - \mu_0}{s / \sqrt{n}} \sim t_{\nu, \alpha/2}.
+    T\left( \symbf{x} \right) = \frac{\overline{x} - \mu_0}{s / \sqrt{n}} \sim t_{\nu, \alpha/2}.
 \end{equation*}
-Here we also consider the Type I error rate \(\alpha\) to find the \textit{critical value} \(t_{\nu,\alpha/2}\), which is determined
-in the same way as for the normal distribution.
+Here we also consider the Type I error rate \(\alpha\) to find the
+\textit{critical value} \(t_{\nu,\alpha/2}\), which is determined in the
+same way as for the normal distribution.
 \subsection{Hypothesis Testing for the Population Mean}
 Given a small sample, the test statistic is defined
 \begin{equation*}
-    T\left( \symbfit{x} \right) = \frac{\overline{x} - \mu_0}{s/\sqrt{n}} \sim t_{\nu, \alpha/2}.
+    T\left( \symbf{x} \right) = \frac{\overline{x} - \mu_0}{s/\sqrt{n}} \sim t_{\nu, \alpha/2}.
 \end{equation*}
 \subsection{Hypothesis Testing for the Difference in Population Means}
 Given a small sample, the property
@@ -1326,43 +1493,44 @@ Given a small sample, the property
 will only hold if the population variances are equal, \(\sigma_1^2 = \sigma_2^2\), giving
 us the test statistic:
 \begin{equation*}
-    T\left( \symbfit{x} \right) = \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{s^2\left( \frac{1}{n_1} + \frac{1}{n_2} \right)}} \sim t_{\nu, \alpha/2}.
+    T\left( \symbf{x} \right) = \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{s^2\left( \frac{1}{n_1} + \frac{1}{n_2} \right)}} \sim t_{\nu, \alpha/2}.
 \end{equation*}
 If the sample variances \(s_1^2\) and \(s_2^2\) are not equal, then we
 need to determine the common or \textit{pooled} variance \(s_p^2\).
 \begin{equation*}
-    s_p^2 = \frac{\left( n_1 - 1 \right)s_1^2 + \left( n_2 - 1 \right)s_2^2}{\nu}.
+    s_p^2 = \frac{\left( n_1 - 1 \right)s_1^2 + \left( n_2 - 1 \right)s_2^2}{\nu}
 \end{equation*}
-where \(\nu = n_1 + n_2 - 2\) for the two-sample \(t\)-test.
-This results in the following test statistic:
+where \(\nu = n_1 + n_2 - 2\) for the two-sample \(t\)-test. This
+results in the following test statistic:
 \begin{equation*}
-    T\left( \symbfit{x} \right) = \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{s_p^2 \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}}.
+    T\left( \symbf{x} \right) = \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{s_p^2 \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}}.
 \end{equation*}
 The population variances between two samples vary \textit{greatly}, if
 they satisfy the following:
 \begin{equation*}
-    \frac{\max{\left( s_1^2,\: s_2^2 \right)}}{\min{\left( s_1^2,\: s_2^2 \right)}} > 3.
+    \frac{\max{\left( s_1^2,\: s_2^2 \right)}}{\min{\left( s_1^2,\: s_2^2 \right)}} > 3
 \end{equation*}
-when this is the case, we must modify the test statistic to account for the
-different variances:
+when this is the case, we must modify the test statistic to account for
+the different variances:
 \begin{equation*}
-    T\left( \symbfit{x} \right) = \frac{\left( \overline{x}_1 - \overline{x}_2 \right) - \Delta_0}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
+    T\left( \symbf{x} \right) = \frac{\left( \overline{x}_1 - \overline{x}_2 \right) - \Delta_0}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
 \end{equation*}
-noting that \(\Delta_0\) is typically zero. The degrees of freedom are given by
+noting that \(\Delta_0\) is typically zero. The degrees of freedom are
+given by
 \begin{equation*}
     \nu = \floor*{\frac{\left( \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} \right)^2}{\frac{\left( s_1^2 / n_1 \right)^2}{n_1 - 1} + \frac{\left( s_2^2 / n_2 \right)^2}{n_2 - 1}}}
 \end{equation*}
 where the value is truncated (towards zero).
 \subsection{Paired Differences}
-Note that the above only applies for independent samples.
-In the case of two dependent samples, we must be careful about the choice
-of test statistic. We can instead test the mean of the differences:
+Note that the above only applies for independent samples. In the case
+of two dependent samples, we must be careful about the choice of test
+statistic. We can instead test the mean of the differences:
 \begin{equation*}
     \overline{d} = \overline{x}_1 - \overline{x}_2.
 \end{equation*}
 The test statistic is then given by:
 \begin{equation*}
-    T\left( \symbfit{x} \right) = \frac{\overline{d} - d_0}{s_d / \sqrt{n}} \sim t_{\nu, \alpha/2}
+    T\left( \symbf{x} \right) = \frac{\overline{d} - d_0}{s_d / \sqrt{n}} \sim t_{\nu, \alpha/2}
 \end{equation*}
 for the hypothesis test:
 \begin{equation*}
@@ -1373,22 +1541,33 @@ or the confidence interval:
     CI_{1-\alpha} = \overline{d} \pm t_{\nu, \alpha/2} \frac{s_d}{\sqrt{n}}.
 \end{equation*}
 \section{Analysis of Variance}
-When considering hypothesis testing, we often want to compare the effects of various \textit{factors} that have more
-than one or two possible \textit{levels}. In this case, we can use \textbf{Analysis of Variance} (ANOVA) to compare the
-effects of these factors.
+We often want to compare the effects of various \textit{factors} that
+have more than two possible \textit{levels}. In such cases, we can use
+\textbf{Analysis of Variance} (ANOVA) to compare the effects of these
+factors.
 \subsection{Designing Experiments}
-An experiment is a trial that attempts to isolate the effects of factors of interest on specific outcomes while
-eliminating as much as possible, extraneous effects on outcomes. Experiments are typically designed to focus on a few factors and include
-some degree of repetition and randomisation to make statistical inferences.
+An experiment is a trial that attempts to isolate the effects of
+factors of interest on specific outcomes while eliminating as much as
+possible, extraneous effects on outcomes. Experiments are typically
+designed to focus on a few factors and include some degree of
+repetition and randomisation to make statistical inferences.
 \begin{itemize}
-    \item An \textbf{experimental unit} is the object whose outcome or response is measured and is of interest. The outcome or response measured is called the \textbf{dependent variable}.
-    \item A \textbf{factor} is an independent variable that is controlled and varied in an experiment. The levels of a factor are the values that the factor can take on, and these levels take discrete states rather than continuous values.
-    \item A \textbf{treatment} is a specific combination of factor levels that is applied to an experimental unit.
-    \item A \textbf{response} is the variable measured for each experimental unit, typically a continuous numeric response.
+    \item An \textbf{experimental unit} is the object whose outcome or
+          response is measured and is of interest. The outcome or
+          response measured is called the \textbf{dependent variable}.
+    \item A \textbf{factor} is an independent variable that is
+          controlled and varied in an experiment. The levels of a
+          factor are the values that the factor can take on, and these
+          levels take discrete states rather than continuous values.
+    \item A \textbf{treatment} is a specific combination of factor
+          levels that is applied to an experimental unit.
+    \item A \textbf{response} is the variable measured for each
+          experimental unit, typically a continuous numeric response.
 \end{itemize}
 \subsection{ANOVA}
-ANOVA is a generalisation of the two-sample \(t\)-test. Let the outcome of an experiment for replication \(j\) of treatment \(i\)
-be denoted by \(y_{ij}\).
+ANOVA is a generalisation of the two-sample \(t\)-test. Let the outcome
+of an experiment for replication \(j\) of treatment \(i\) be denoted by
+\(y_{ij}\).
 \begin{table}[H]
     \centering
     \begin{tabular}{c | c c c c}
@@ -1410,16 +1589,20 @@ The following equation models the responses:
 \end{equation*}
 and the total outcome of the experiment is given by
 \begin{equation*}
-    \symbfit{y} = \left( y_{11},\: y_{12},\: y_{IJ} \right).
+    \symbf{y} = \left( y_{11},\: y_{12},\: y_{IJ} \right)
 \end{equation*}
-where there are \(I\) different treatments, and \(J\) replications of each treatment, for a total of \(n = IJ\) experimental units.
-The total variation in experimental outcomes can be described by the \textbf{total sum of squares} (SST):
+where there are \(I\) different treatments, and \(J\) replications of
+each treatment, for a total of \(n = IJ\) experimental units. The total
+variation in experimental outcomes can be described by the \textbf{total
+    sum of squares} (SST):
 \begin{equation*}
     \mathrm{SST} = \sum_{i = 1}^I \sum_{j = 1}^J \left( y_{ij} - \overline{y}_{..} \right)^2
 \end{equation*}
-where \(\overline{y}_{..}\) is the grand mean, or the overall average response over all treatments and repetitions.
-The total sum of squares can be decomposed into two parts, the \textbf{error sum of squares} (SSE),
-which is the pooled variation in the outcomes within treatment group \(i\):
+where \(\overline{y}_{..}\) is the grand mean, or the overall average
+response over all treatments and repetitions. The total sum of squares
+can be decomposed into two parts, the \textbf{error sum of squares}
+(SSE), which is the pooled variation in the outcomes within treatment
+group \(i\):
 \begin{equation*}
     \mathrm{SSE} = \sum_{i = 1}^I \sum_{j = 1}^J \left( y_{ij} - \overline{y}_i \right)^2
 \end{equation*}
@@ -1454,10 +1637,14 @@ Note that \(n = IJ\), and the mean squares are the sum of squares divided by the
 The statistic \(F\) is the ratio of the mean squares for the treatment and error sources of variation,
 or the ratio of the variation between treatments to the variation within treatments.
 \subsection{ANOVA Inference}
-Assuming that the observations \(y_{ij}\) are independent and normally distributed with mean \(\mu_{ij}\) and variance \(\sigma^2\),
-the test statistic \(F\) is distributed as an \(F\)-distribution. The \(F\)-distribution is a continuous probability distribution that describes
-the sampling distribution of the ratio of two sample variances. The \(F\)-distribution has two parameters, \(\nu_1\) and \(\nu_2\), which are the
-degrees of freedom for the numerator and denominator degrees of freedom, respectively.
+Assuming that the observations \(y_{ij}\) are independent and normally
+distributed with mean \(\mu_{ij}\) and variance \(\sigma^2\), the test
+statistic \(F\) is distributed as an \(F\)-distribution. The
+\(F\)-distribution is a continuous probability distribution that
+describes the sampling distribution of the ratio of two sample
+variances. The \(F\)-distribution has two parameters, \(\nu_1\) and
+\(\nu_2\), which are the degrees of freedom for the numerator and
+denominator degrees of freedom, respectively.
 \begin{equation*}
     \frac{s_1^2}{s_2^2} \sim F\left( \nu_1,\: \nu_2 \right)
 \end{equation*}
@@ -1469,7 +1656,7 @@ then
 \begin{equation*}
     \nu_1 = n_1 - 1 \quad \text{and} \quad \nu_2 = n_2 - 1.
 \end{equation*}
-This allows us to form a hypothesis test which tests if one treatments produces a significantly different response than another.
+This allows us to form a hypothesis test which tests if one treatment produces a significantly different response than another.
 \begin{equation*}
     H_0: \mu_1 = \mu_2 = \cdots = \mu_I \quad \text{vs.} \quad H_A: \text{at least one treatment mean is different}
 \end{equation*}
@@ -1479,9 +1666,8 @@ Under these hypotheses, the null assumption means that
 \end{equation*}
 or the variance between treatments was approximately equal to the variance within treatments, or that
 all treatment means are equal. In this case, we would reject the null hypothesis if MSTr was significantly larger than MSE,
-meaning that the treatment accounted for more of the total variance than the error.
-
-This decision means that we reject the null hypothesis for large values of \(F_{\mathrm{test}}\),
+meaning that the treatment accounted for more of the total variance than the error. This decision means that we reject the null hypothesis for large values
+of \(F_{\mathrm{test}}\),
 \begin{equation*}
     F_{\mathrm{test}} > F_\mathrm{critical}
 \end{equation*}
@@ -1494,12 +1680,13 @@ where
 \begin{equation*}
     \Pr{\left( F \leq F_\mathrm{critical} \right)} = 1 - \alpha.
 \end{equation*}
-While the \(F\)-test for ANOVA is robust, it does not provide any information about which treatments are different.
-
-Therefore, assuming a Type I Error rate of \(\alpha = 0.05\), we can reject the null hypothesis if
-the column \(p\) in the ANOVA table is less than 0.05. This means that at least one treatment mean is different from the others.
+While the \(F\)-test for ANOVA is robust, it does not provide any information about which treatments are different. Therefore, assuming a Type I Error rate of \(\alpha = 0.05\), we can
+reject the null hypothesis if the column \(p\) in the ANOVA table is
+less than 0.05. This means that at least one treatment mean is
+different from the others.
 \subsection{Testing the Equality of the Treatment Means}
-Tukey's Honest Significant Difference (HSD) test is based on the distribution of
+Tukey's Honest Significant Difference (HSD) test is based on the
+distribution of
 \begin{equation*}
     q_{I,\: I\left( J - 1 \right)} \max_{i_1,\: i_2} \frac{\abs*{\left( \overline{y}_{i_1} - \mu_{i_1} - \left( \overline{y}_{i_2} - \mu_{i_2} \right) \right)}}{s_p / \sqrt{J}}
 \end{equation*}
@@ -1513,24 +1700,27 @@ For a Type I Error rate of \(\alpha\) we can reject \(H_0\) if
     \abs*{\overline{y}_{i_1} - \overline{y}_{i_2}} > q_{I,\: I\left( J - 1 \right),\: \alpha} \frac{s_p}{\sqrt{J}}
 \end{equation*}
 \subsection{Randomised Block Design: Two-Way Classification}
-The single factor completely randomised designs mentioned are extensions of
-two-sample \(t\)-tests using \(F\)-tests for inference and adjusting the Type I Error rates to
-account for multiple comparisons. However, this model assumes that the only sources for observed variation
-in responses are the treatment effects or random effects. However, not all subjects are homogeneous, and
-so we must control for this source of variation. We can do this by using a \textbf{randomised block design},
-as an extension to the \textit{matched pairs design}.
+The single factor completely randomised designs mentioned are
+extensions of two-sample \(t\)-tests using \(F\)-tests for inference
+and adjusting the Type I Error rates to account for multiple
+comparisons. However, this model assumes that the only sources for
+observed variation in responses are the treatment effects or random
+effects. However, not all subjects are homogeneous, and so we must
+control for this source of variation. We can do this by using a
+\textbf{randomised block design}, as an extension to the
+\textit{matched pairs design}.
 \subsection{Blocking}
-In a randomised experimental design, if there are \(I\) treatments, the experimenter chooses \(J > I\) blocks
-each with \(I\) subjects, one for each treatment. This is done to isolate block-to-block variability that may
-obscure the treatment effects. The model for a randomised block design is then defined
+In a randomised experimental design, if there are \(I\) treatments, the
+experimenter chooses \(J > I\) blocks each with \(I\) subjects, one for
+each treatment. This is done to isolate block-to-block variability that
+may obscure the treatment effects. The model for a randomised block
+design is then defined
 \begin{equation*}
     y_{ij} = \alpha_i + \beta_j + \epsilon_{ij}
 \end{equation*}
 where \(\alpha_i\) is the mean effect of the \(i\)th treatment and
-\(\beta_j\) is the mean effect of the \(j\)th block.
-
-Again using ANOVA, the total variation of the responses can be partitioned
-into three parts:
+\(\beta_j\) is the mean effect of the \(j\)th block. Again using ANOVA, the total variation of the responses can be
+partitioned into three parts:
 \begin{equation*}
     \mathrm{SST} = \mathrm{SSTr} + \mathrm{SSB} + \mathrm{SSE}
 \end{equation*}
@@ -1570,17 +1760,17 @@ or
 \end{equation*}
 Again, we can conclude that the null hypothesis is rejected if \(p \leq 0.05\).
 \subsection{Two-Factor Randomised Block Design}
-The two factor randomised block design is an extension of the one factor randomised block design, where
-both the interaction between two different factors are of interest. The model is defined as
+The two factor randomised block design is an extension of the one
+factor randomised block design, where both the interaction between two
+different factors are of interest. The model is defined as
 \begin{equation*}
     y_{ijk} = \alpha_i + \beta_j + \left( \alpha \beta \right)_{ij} + \epsilon_{ijk}
 \end{equation*}
 where \(\alpha_i\) is the mean effect of the first factor, \(\beta_j\) is the mean effect of the second
-factor and \(\left( \alpha \beta \right)_{ij}\) is the mean effect of the interaction between the two factors.
-
-In a two-factor experiment, factor \(A\) has \(I\) levels and factor \(B\) has \(J\) levels, and
-each of these factors is replicated \(K\) times. The total variation of the responses can be partitioned
-into four parts:
+factor and \(\left( \alpha \beta \right)_{ij}\) is the mean effect of the interaction between the two factors. In a two-factor experiment, factor \(A\) has \(I\) levels and factor
+\(B\) has \(J\) levels, and each of these factors is replicated \(K\)
+times. The total variation of the responses can be partitioned into
+four parts:
 \begin{equation*}
     \mathrm{SST} = \mathrm{SSA} + \mathrm{SSB} + \mathrm{SSAB} + \mathrm{SSE}
 \end{equation*}
@@ -1598,11 +1788,11 @@ where \(\mathrm{SSA}\) measures the variability between the means of factor \(A\
 \end{equation*}
 and \(\mathrm{SSE}\) measures the variability among the observations within each combination of levels for \(A\) and \(B\):
 \begin{equation*}
-    \mathrm{SSE} = \sum_{i = 1}^I \sum_{j = 1}^J \sum_{k = 1}^K \left( y_{ijk} - \overline{y}_{ij} \right)^2.
+    \mathrm{SSE} = \sum_{i = 1}^I \sum_{j = 1}^J \sum_{k = 1}^K \left( y_{ijk} - \overline{y}_{ij} \right)^2
 \end{equation*}
 with
 \begin{equation*}
-    \overline{y}_{ij} = \frac{1}{K} \sum_{k = 1}^K y_{ijk}
+    \overline{y}_{ij} = \frac{1}{K} \sum_{k = 1}^K y_{ijk}.
 \end{equation*}
 The ANOVA table is then
 \begin{table}[H]
@@ -1633,9 +1823,9 @@ or
 \end{equation*}
 We can conclude that the null hypothesis is rejected if \(p \leq 0.05\).
 \section{Linear Regression}
-A simple linear regression describes the relationship between a dependent variable \(y\)
-called the response,
-and an independent variable \(x\), called the predictor. The model is given by:
+A simple linear regression describes the relationship between a
+dependent variable \(y\) called the response, and an independent
+variable \(x\), called the predictor. The model is given by:
 \begin{equation*}
     y_i = \beta_0 + \beta_1 x_i + \epsilon_i
 \end{equation*}
@@ -1653,8 +1843,9 @@ The regression coefficients \(\beta_0\) and \(\beta_1\) are estimated by minimis
     \left( \hat{\beta}_0,\: \hat{\beta}_1 \right) = \argmin_{\beta_0,\: \beta_1} \sum_{i = 1}^n \epsilon_i^2 = \argmin_{\beta_0,\: \beta_1} \sum_{i = 1}^n \left( y_i - \left( \beta_0 + \beta_1 x_i \right) \right)^2.
 \end{equation*}
 \subsection{Estimation and Inference}
-By using the method of maximum likelihood for the two parameters \(\beta_0\) and \(\beta_1\), or using the least squares solution by minimising the
-squared error, we obtain the following estimators:
+By using the method of maximum likelihood for the two parameters
+\(\beta_0\) and \(\beta_1\), or using the least squares solution by
+minimising the squared error, we obtain the following estimators:
 \begin{align*}
     \hat{\beta}_0 & = \overline{y} - \hat{\beta}_1 \overline{x}                                                                                                     \\
     \hat{\beta}_1 & = \frac{\sum_{i = 1}^n \left( x_i - \overline{x} \right) \left( y_i - \overline{y} \right)}{\sum_{i = 1}^n \left( x_i - \overline{x} \right)^2} \\
@@ -1662,8 +1853,9 @@ squared error, we obtain the following estimators:
 \end{align*}
 where each estimator has a Gaussian distribution, due to them being linear combinations of \(x\).
 \subsection{Hypothesis Testing}
-We can perform hypothesis testing on the regression coefficients \(\beta_0\) and \(\beta_1\).
-The sampling distributions for \(\hat{\beta}_0\) and \(\hat{\beta}_1\) are
+We can perform hypothesis testing on the regression coefficients
+\(\beta_0\) and \(\beta_1\). The sampling distributions for
+\(\hat{\beta}_0\) and \(\hat{\beta}_1\) are
 \begin{align*}
     \hat{\beta}_0 \sim \mathrm{N}\left( \beta_0,\: s^2_{\hat{\beta}_0} \right) \\
     \hat{\beta}_1 \sim \mathrm{N}\left( \beta_1,\: s^2_{\hat{\beta}_1} \right)
@@ -1698,23 +1890,35 @@ with the test statistic
     t = \frac{\hat{\beta}_1}{s_{\hat{\beta}_1}}.
 \end{equation*}
 \subsection{Assumptions}
-When performing a linear regression, there are several assumptions that must be met.
+When performing a linear regression, there are several assumptions that
+must be met.
 \begin{enumerate}
-    \item The parameter estimates \(\hat{\beta}_0\) and \(\hat{\beta}_1\) are unbiased, i.e., the expected value of \(\epsilon_i = y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i\) is zero.
-    \item The residuals \(\epsilon_i\) are independent, i.e., \(\Corr{\left( \epsilon_i,\: \epsilon_j \right)} = 0\) for \(i \neq j\).
-    \item The residuals follow a Gaussian distribution, i.e., \(\epsilon_i \sim \mathrm{N}\left( 0,\: \sigma^2 \right)\).
+    \item The parameter estimates \(\hat{\beta}_0\) and
+          \(\hat{\beta}_1\) are unbiased, i.e., the expected value of
+          \(\epsilon_i = y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i\) is
+          zero.
+    \item The residuals \(\epsilon_i\) are independent, i.e.,
+          \(\Corr{\left( \epsilon_i,\: \epsilon_j \right)} = 0\) for
+          \(i \neq j\).
+    \item The residuals follow a Gaussian distribution, i.e.,
+          \(\epsilon_i \sim \mathrm{N}\left( 0,\: \sigma^2 \right)\).
 \end{enumerate}
 To test these assumptions, we can perform the following diagnostics:
 \begin{enumerate}
-    \item Using a histogram of the residuals, we can check whether the residuals are unimodal and thus normally distributed.
-    \item Using a \(q\)-\(q\) plot, we can check whether the residuals lie on a straight line.
-    \item Using a plot of the residuals against the fitted values, we can check whether the residuals are independent, i.e.,
-          there are no patterns in the residuals and their variance is roughly equal or constant (they lie randomly around 0).
-          This is known as homoscedasticity.
+    \item Using a histogram of the residuals, we can check whether the
+          residuals are unimodal and thus normally distributed.
+    \item Using a \(q\)-\(q\) plot, we can check whether the residuals
+          lie on a straight line.
+    \item Using a plot of the residuals against the fitted values, we
+          can check whether the residuals are independent, i.e., there
+          are no patterns in the residuals and their variance is
+          roughly equal or constant (they lie randomly around 0). This
+          is known as homoscedasticity.
 \end{enumerate}
 \subsection{ANOVA for Linear Regression}
-By performing ANOVA, we can determine how much of the variation in \(y\) is explained by the model.
-The ANOVA table for linear regression is as follows:
+By performing ANOVA, we can determine how much of the variation in
+\(y\) is explained by the model. The ANOVA table for linear regression
+is as follows:
 \begin{table}[H]
     \centering
     \begin{tabular}{c c c c}
@@ -1733,9 +1937,7 @@ where
     \mathrm{SSE} & = \sum_{i = 1}^n \left( y_i - \hat{y}_i \right)^2          \\
     \mathrm{SST} & = \sum_{i = 1}^n \left( y_i - \overline{y} \right)^2
 \end{align*}
-and \(\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i\). Note that \(s^2 = \frac{\mathrm{SSE}}{n - 2}\).
-
-The \(F\) statistic is
+and \(\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i\). Note that \(s^2 = \frac{\mathrm{SSE}}{n - 2}\). The \(F\) statistic is
 \begin{equation*}
     F = \frac{\mathrm{SSR}}{\mathrm{SSE}} \sim F_{1, n - 2}
 \end{equation*}
@@ -1745,7 +1947,7 @@ where the null hypothesis is
 \end{equation*}
 with the alternative hypothesis
 \begin{equation*}
-    H_A : \text{The regression model explains less variation in \(y\) than the sample mean \(\overline{y}\)}.
+    H_A : \text{The regression model explains less variation in \(y\) than the sample mean \(\overline{y}\)}
 \end{equation*}
 where we can reject the null hypothesis if \(F > F_{1 - \alpha, 1, n - 2}\). For one independent variable \(x\),
 the \(F\) statistic is equivalent to the \(t\) statistic squared, i.e., \(F \equiv t^2\), and the
@@ -1760,10 +1962,11 @@ The coefficient of determination \(R^2\) is defined as
 \end{equation*}
 which is the proportion of the total variation in \(y\) that is explained by the model.
 In practice, values close to 1 typically indicate ``over-fitting'' in the model, and sometimes small values
-may be acceptable. Therefore the coefficient of determination should only be used as a subjective measure.
+may be acceptable. Therefore, the coefficient of determination should only be used as a subjective measure.
 \subsection{Estimation and Prediction}
-Using the estimated regression coefficients \(\hat{\beta}_0\) and \(\hat{\beta}_1\), we can estimate the response
-for a given predictor value \(x\), i.e., \(\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i\).
+Using the estimated regression coefficients \(\hat{\beta}_0\) and
+\(\hat{\beta}_1\), we can estimate the response for a given predictor
+value \(x\), i.e., \(\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i\).
 The standard error of the estimate is
 \begin{equation*}
     s_{\hat{y}_i} = \sqrt{s^2 \left( \frac{1}{n} + \frac{\left( x_i - \overline{x} \right)^2}{\sum_{i = 1}^n \left( x_i - \overline{x} \right)^2} \right)}
@@ -1777,9 +1980,8 @@ where the confidence interval gives us a region of values that we expect to cont
     \hat{y}_i \pm t_{n - 2, 1 - \alpha / 2} s_{\hat{y}_i}.
 \end{equation*}
 Note that the confidence interval is narrowest when \(x_i\) is near \(\overline{x}\), so that we are most confident
-of our estimates, for values of \(x\) close to \(\overline{x}\).
-
-If we wish to predict a value of \(y\) for a new (unobserved) value \(x^\ast\), we have
+of our estimates, for values of \(x\) close to \(\overline{x}\). If we wish to predict a value of \(y\) for a new (unobserved) value
+\(x^\ast\), we have
 \begin{equation*}
     y^\ast = \hat{\beta}_0 + \hat{\beta}_1 x^\ast
 \end{equation*}
@@ -1794,10 +1996,10 @@ and the prediction interval gives us a region of values that we expect to contai
 This interval is even wider than the confidence interval with greater confidence in predictions close to the mean.
 For this reason, extreme caution should be used when extrapolating outside the data domain.
 \subsection{ANCOVA}
-The ANCOVA model is a generalization of the ANOVA model that allows for the inclusion of continuous
-covariates that should be accounted for in our analysis. In this model, we can
-account for effects that could not be controlled for in the ANOVA model.
-Recall the ANOVA model:
+The ANCOVA model is a generalisation of the ANOVA model that allows for
+the inclusion of continuous covariates that should be accounted for in
+our analysis. In this model, we can account for effects that could not
+be controlled for in the ANOVA model. Recall the ANOVA model:
 \begin{equation*}
     y_{ij} = \alpha_i + \epsilon_{ij}
 \end{equation*}
@@ -1807,35 +2009,35 @@ by including the following terms:
     y_{ij} = \alpha_i + \beta\left( x_{ij} - \overline{x} \right) + \epsilon_{ij}.
 \end{equation*}
 These terms produce similar sum of squares terms as the ANOVA model, but with the addition of the
-sum of the squares of the covariate (SSR) terms, with the same calculation of the \(F\) statistic.
-
-The addition of the covariate terms increases the power of the test in detecting treatment effects and is
-therefore useful in many situations. It should however be noted that all constraints of linear regression
-regarding the independence and homogeneity of residuals and their normality also apply to the covariate effects
-in the model.
-
-The ANCOVA model also requires another assumption, that there is homogeneity of regression slopes, i.e.,
-the slope, \(\beta\), is approximately the same for all levels of treatment. This assumption can be visually confirmed by
-plotting the response variable against the covariate and fitting a least-squares line for each treatment,
-or by fitting an interaction term between the treatment and the covariate, and testing if this interaction is
-\textbf{not} statistically significant (\(p\) value greater than 0.05), which would indicate that the slopes
-are approximately the same for all treatments.
+sum of the squares of the covariate (SSR) terms, with the same calculation of the \(F\) statistic. The addition of the covariate terms increases the power of the test in
+detecting treatment effects and is therefore useful in many situations.
+It should however be noted that all constraints of linear regression
+regarding the independence and homogeneity of residuals and their
+normality also apply to the covariate effects in the model. The ANCOVA model also requires another assumption, that there is
+homogeneity of regression slopes, i.e., the slope, \(\beta\), is
+approximately the same for all levels of treatment. This assumption can
+be visually confirmed by plotting the response variable against the
+covariate and fitting a least-squares line for each treatment, or by
+fitting an interaction term between the treatment and the covariate,
+and testing if this interaction is \textbf{not} statistically
+significant (\(p\) value greater than 0.05), which would indicate that
+the slopes are approximately the same for all treatments.
 \section{Categorical Data Analysis}
-In this section, data are counts of members in each category, and we are interested in the relationships between the
-categories.
+In this section, data are counts of members in each category, and we
+are interested in the relationships between the categories.
 \subsection{\texorpdfstring{\(2 \times 2\)}{2x2} Contingency Tables}
 Given two factors with two categories each, we can use a \(2 \times 2\) contingency table to summarise the data.
 The count of the members correspond to a specific cell in the table and hence the table is a set of summary statistics displayed
-as cell counts.
-
-The counts are random variables and should therefore have associated sampling distributions, however because the row sums
-and column sums are fixed, the sampling distribution of the counts are not independent, and we must consider a joint
-sampling distribution for the counts.
+as cell counts. The counts are random variables and should therefore have associated
+sampling distributions, however because the row sums and column sums
+are fixed, the sampling distribution of the counts are not independent,
+and we must consider a joint sampling distribution for the counts.
 \subsection{Hypergeometric Distribution}
-The hypergeometric distribution is a discrete probability distribution that describes the probability of drawing
-\(k\) successes from a population of size \(N\) without replacement, where the population contains a total of
-\(K\) successes, and we draw a sample of size \(n\).
-The probability mass function is given by
+The hypergeometric distribution is a discrete probability distribution
+that describes the probability of drawing \(k\) successes from a
+population of size \(N\) without replacement, where the population
+contains a total of \(K\) successes, and we draw a sample of size
+\(n\). The probability mass function is given by
 \begin{equation*}
     \Pr{\left( X = k \right)} = \frac{\binom{K}{k} \binom{N - K}{n - k}}{\binom{N}{n}}.
 \end{equation*}
@@ -1863,17 +2065,18 @@ associated with a category, then we can use the hypergeometric distribution to c
 observing the data given the null hypothesis, and reject the null hypothesis if the probability (two-sided multiplied by 2)
 is less than 0.05. This is known as the Fisher's exact test.
 \subsection{Chi-Squared Distribution}
-When we have more than two categories, Fisher's test becomes computationally infeasible, and we must use
-the \(\chi^2\) distribution. The \(\chi^2\) distribution is a continuous probability distribution defined by
+When we have more than two categories, Fisher's test becomes
+computationally infeasible, and we must use the \(\chi^2\)
+distribution. The \(\chi^2\) distribution is a continuous probability
+distribution defined by
 \begin{equation*}
     X = \sum_{i = 1}^n Z_i^2 \sim \chi_\nu^2
 \end{equation*}
 where \(Z_i \sim \mathrm{N}\left( 0,\: 1 \right)\) and \(\nu = n - 1\).
-\subsubsection{Test of Homoegeneity}
-The \(\chi^2\) test of homogeneity tests whether the distribution
-of items across categories is the same for different factors.
-
-Given the data
+\subsubsection{Test of Homogeneity}
+The \(\chi^2\) test of homogeneity tests whether the distribution of
+items across categories is the same for different factors. Given the
+data
 \begin{table}[H]
     \centering
     \begin{tabular}{c c c c c c}
@@ -1916,9 +2119,10 @@ for \(\nu = \left( I - 1 \right)\left( J - 1 \right)\) degrees of freedom. We ca
 \end{equation*}
 This is known as Pearson's \(\chi^2\) test. This test assumes that the row and column sums are fixed.
 \subsubsection{Test of Independence}
-The \(\chi^2\) test of independence tests whether the distribution of items across categories is independent of the
-factors. The formulation of the test statistic is the same as the test of homogeneity, and we use the following
-null hypothesis:
+The \(\chi^2\) test of independence tests whether the distribution of
+items across categories is independent of the factors. The formulation
+of the test statistic is the same as the test of homogeneity, and we
+use the following null hypothesis:
 \begin{align*}
     H_0 & : \text{The categories and factors are independent}            \\
     H_A & : \text{at least one category is not independent of a factor}.

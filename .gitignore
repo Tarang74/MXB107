@@ -38,6 +38,14 @@
 # Miscellaneous
 *.fls
 
+# Minted
+*.pyg
+*.pygstyle
+*.pygtex
+*.minted
+
+# LaTeX indent
+*.bak*
+
 Assessment
-/Debug/_minted-MXB107_Lecture_Notes
 R
